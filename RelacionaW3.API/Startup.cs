@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using RelacionaW3.API.Data;
 
 namespace RelacionaW3.API
 {
     public class Startup
     {
+        //injeção de dependecia
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -22,9 +18,12 @@ namespace RelacionaW3.API
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        //Injection meio entre o banco e a app - middleware
+        //camada entre o fim e o client
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DbContext>(options =>
+           options.UseSqlServer(Configuration["Data:UCASAppDatabase:ConnectionString"]));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -41,7 +40,7 @@ namespace RelacionaW3.API
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

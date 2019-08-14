@@ -1,0 +1,14 @@
+C:\Projetos\RelacionaW3\RelacionaW3.API\bin\Debug\netcoreapp2.2\RelacionaW3.API.deps.json
+C:\Projetos\RelacionaW3\RelacionaW3.API\bin\Debug\netcoreapp2.2\RelacionaW3.API.runtimeconfig.json
+C:\Projetos\RelacionaW3\RelacionaW3.API\bin\Debug\netcoreapp2.2\RelacionaW3.API.runtimeconfig.dev.json
+C:\Projetos\RelacionaW3\RelacionaW3.API\bin\Debug\netcoreapp2.2\RelacionaW3.API.dll
+C:\Projetos\RelacionaW3\RelacionaW3.API\bin\Debug\netcoreapp2.2\RelacionaW3.API.pdb
+C:\Projetos\RelacionaW3\RelacionaW3.API\obj\Debug\netcoreapp2.2\RelacionaW3.API.csprojAssemblyReference.cache
+C:\Projetos\RelacionaW3\RelacionaW3.API\obj\Debug\netcoreapp2.2\RelacionaW3.API.csproj.CoreCompileInputs.cache
+C:\Projetos\RelacionaW3\RelacionaW3.API\obj\Debug\netcoreapp2.2\RelacionaW3.API.RazorAssemblyInfo.cache
+C:\Projetos\RelacionaW3\RelacionaW3.API\obj\Debug\netcoreapp2.2\RelacionaW3.API.RazorAssemblyInfo.cs
+C:\Projetos\RelacionaW3\RelacionaW3.API\obj\Debug\netcoreapp2.2\RelacionaW3.API.AssemblyInfoInputs.cache
+C:\Projetos\RelacionaW3\RelacionaW3.API\obj\Debug\netcoreapp2.2\RelacionaW3.API.AssemblyInfo.cs
+C:\Projetos\RelacionaW3\RelacionaW3.API\obj\Debug\netcoreapp2.2\RelacionaW3.API.RazorTargetAssemblyInfo.cache
+C:\Projetos\RelacionaW3\RelacionaW3.API\obj\Debug\netcoreapp2.2\RelacionaW3.API.dll
+C:\Projetos\RelacionaW3\RelacionaW3.API\obj\Debug\netcoreapp2.2\RelacionaW3.API.pdb
