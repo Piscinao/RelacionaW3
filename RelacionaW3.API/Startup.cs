@@ -11,6 +11,7 @@ namespace RelacionaW3.API
     public class Startup
     {
         //injeção de dependecia
+        //configuration le o appsettings,json
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -22,7 +23,7 @@ namespace RelacionaW3.API
         //camada entre o fim e o client
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DbContext>(options =>
+            services.AddDbContext<DataContext>(options =>
            options.UseSqlServer(Configuration["Data:UCASAppDatabase:ConnectionString"]));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

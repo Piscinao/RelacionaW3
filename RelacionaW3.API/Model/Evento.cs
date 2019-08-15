@@ -14,5 +14,7 @@ namespace RelacionaW3.API.Model
         public int QtqPessoas { get; set; }
 
         public string Lote { get; set; }
+
+        public string ImagemURL {get; set;}
     }
 }
