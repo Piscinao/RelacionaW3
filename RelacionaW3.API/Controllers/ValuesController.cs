@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RelacionaW3.API.Data;
 using RelacionaW3.API.Model;
 
@@ -21,18 +22,51 @@ namespace RelacionaW3.API.Controllers
         }
         // GET api/values
         [HttpGet]
-        public IActionResult Get()
+
+        //requisição assincrona
+        public async Task<IActionResult> Get()
         {
-            return  Ok(_context.Eventos.ToList());
+
+            try 
+            {
+                var results = await _context.Eventos.ToListAsync();
+                
+                return  Ok(results);
+
+            }
+            catch(System.Exception)
+            {
+                //VERIFICA ERRO E DEPENDENDO JOGA A INFORMAÇÃO NA TELA
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+
+            }
+            
 
 
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<Evento> Get(int id)
+     public async Task<IActionResult> Get(int id)
+
         {
-                return _context.Eventos.FirstOrDefault(options => options.EventoId == id);
+
+            try 
+            {
+                var results = await _context.Eventos.FirstOrDefaultAsync(options => options.EventoId == id);
+                
+                return  Ok(results);
+
+            }
+            catch(System.Exception)
+            {
+                //VERIFICA ERRO E DEPENDENDO JOGA A INFORMAÇÃO NA TELA
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+
+            }
+            
+
+
         }
 
         // POST api/values
