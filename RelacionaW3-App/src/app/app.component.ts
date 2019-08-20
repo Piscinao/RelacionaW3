@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
-// COMPONENTES CAMINHOS
+import { Component, OnInit } from '@angular/core';
+
 @Component({
-  selector: 'app-root', // COMO UTILIZA O COMPONENTE NO HTML
-  templateUrl: './app.component.html',// TEMPLATE RELACIONADO A CLASSE
-  // template: '<h1>{{title}}</h1>
-  styleUrls: ['./app.component.css'] /// QUAL O CSS
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'Relaciona W3';
+export class AppComponent implements OnInit {
+    constructor() {
+    }
+
+    ngOnInit() {
+    }
 }
