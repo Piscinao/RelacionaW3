@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RelacionaW3.API.Data;
+using RelacionaW3.Repositorio;
 
 namespace RelacionaW3.API
 {
@@ -23,7 +23,7 @@ namespace RelacionaW3.API
         //camada entre o fim e o client
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(options =>
+            services.AddDbContext<RelacionaW3Context>(options =>
             options.UseSqlServer(Configuration["Data:UCASAppDatabase:ConnectionString"]));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddCors();
@@ -43,7 +43,9 @@ namespace RelacionaW3.API
             }
 
             //app.UseHttpsRedirection();
+            //cors requisicao http
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseStaticFiles();
             app.UseMvc();
         }
     }

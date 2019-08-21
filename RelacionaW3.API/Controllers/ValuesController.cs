@@ -3,8 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RelacionaW3.API.Data;
-using RelacionaW3.API.Model;
+using RelacionaW3.Repositorio;
 
 namespace RelacionaW3.API.Controllers
 {
@@ -13,9 +12,9 @@ namespace RelacionaW3.API.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        public readonly DataContext _context;
+        public readonly RelacionaW3Context _context;
 
-        public ValuesController(DataContext context)
+        public ValuesController(RelacionaW3Context context)
         {
             _context = context;
 
@@ -53,7 +52,7 @@ namespace RelacionaW3.API.Controllers
 
             try 
             {
-                var results = await _context.Eventos.FirstOrDefaultAsync(options => options.EventoId == id);
+                var results = await _context.Eventos.FirstOrDefaultAsync(options => options.Id == id);
                 
                 return  Ok(results);
 

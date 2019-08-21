@@ -24,7 +24,14 @@
         ],
         "frameworks": {
           "netcoreapp2.2": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Projetos\\RelacionaW3\\RelacionaW3.Dominio\\RelacionaW3.Dominio.csproj": {
+                "projectPath": "C:\\Projetos\\RelacionaW3\\RelacionaW3.Dominio\\RelacionaW3.Dominio.csproj"
+              },
+              "C:\\Projetos\\RelacionaW3\\RelacionaW3.Repositorio\\RelacionaW3.Repositorio.csproj": {
+                "projectPath": "C:\\Projetos\\RelacionaW3\\RelacionaW3.Repositorio\\RelacionaW3.Repositorio.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -47,7 +54,7 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
-            "Microsoft.EntityFrameworkCore.Sqlite": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[2.2.0, )"
             },
@@ -55,6 +62,112 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Projetos\\RelacionaW3\\RelacionaW3.Dominio\\RelacionaW3.Dominio.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projetos\\RelacionaW3\\RelacionaW3.Dominio\\RelacionaW3.Dominio.csproj",
+        "projectName": "RelacionaW3.Dominio",
+        "projectPath": "C:\\Projetos\\RelacionaW3\\RelacionaW3.Dominio\\RelacionaW3.Dominio.csproj",
+        "packagesPath": "C:\\Users\\henrique\\.nuget\\packages\\",
+        "outputPath": "C:\\Projetos\\RelacionaW3\\RelacionaW3.Dominio\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\henrique\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Projetos\\RelacionaW3\\RelacionaW3.Repositorio\\RelacionaW3.Repositorio.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Projetos\\RelacionaW3\\RelacionaW3.Repositorio\\RelacionaW3.Repositorio.csproj",
+        "projectName": "RelacionaW3.Repositorio",
+        "projectPath": "C:\\Projetos\\RelacionaW3\\RelacionaW3.Repositorio\\RelacionaW3.Repositorio.csproj",
+        "packagesPath": "C:\\Users\\henrique\\.nuget\\packages\\",
+        "outputPath": "C:\\Projetos\\RelacionaW3\\RelacionaW3.Repositorio\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\henrique\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "C:\\Projetos\\RelacionaW3\\RelacionaW3.Dominio\\RelacionaW3.Dominio.csproj": {
+                "projectPath": "C:\\Projetos\\RelacionaW3\\RelacionaW3.Dominio\\RelacionaW3.Dominio.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
               "autoReferenced": true
             }
           },
