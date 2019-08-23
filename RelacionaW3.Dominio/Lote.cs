@@ -18,7 +18,7 @@ namespace RelacionaW3.Dominio
 
         public int EventoId { get; set; }
 
-        public Evento Evento { get; set; }
+        public Evento Evento { get; }
 
         
     }

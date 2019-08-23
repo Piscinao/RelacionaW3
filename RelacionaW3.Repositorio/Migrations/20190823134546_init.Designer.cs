@@ -10,7 +10,7 @@ using RelacionaW3.Repositorio;
 namespace RelacionaW3.Repositorio.Migrations
 {
     [DbContext(typeof(RelacionaW3Context))]
-    [Migration("20190821180352_init")]
+    [Migration("20190823134546_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -117,8 +117,6 @@ namespace RelacionaW3.Repositorio.Migrations
 
                     b.Property<string>("Nome");
 
-                    b.Property<string>("Palestrante");
-
                     b.Property<int?>("PalestranteId");
 
                     b.Property<string>("URL");
@@ -134,7 +132,7 @@ namespace RelacionaW3.Repositorio.Migrations
 
             modelBuilder.Entity("RelacionaW3.Dominio.Lote", b =>
                 {
-                    b.HasOne("RelacionaW3.Dominio.Evento", "Evento")
+                    b.HasOne("RelacionaW3.Dominio.Evento")
                         .WithMany("Lotes")
                         .HasForeignKey("EventoId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -155,7 +153,7 @@ namespace RelacionaW3.Repositorio.Migrations
 
             modelBuilder.Entity("RelacionaW3.Dominio.RedeSocial", b =>
                 {
-                    b.HasOne("RelacionaW3.Dominio.Evento", "Evento")
+                    b.HasOne("RelacionaW3.Dominio.Evento")
                         .WithMany("RedesSociais")
                         .HasForeignKey("EventoId");
 

@@ -102,8 +102,7 @@ namespace RelacionaW3.Repositorio.Migrations
                     Nome = table.Column<string>(nullable: true),
                     URL = table.Column<string>(nullable: true),
                     EventoId = table.Column<int>(nullable: true),
-                    PalestranteId = table.Column<int>(nullable: true),
-                    Palestrante = table.Column<string>(nullable: true)
+                    PalestranteId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {

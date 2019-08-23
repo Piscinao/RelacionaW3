@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RelacionaW3.Dominio;
 using RelacionaW3.Repositorio;
-
+ 
 namespace RelacionaW3.API.Controllers
 {
 
@@ -36,7 +36,6 @@ namespace RelacionaW3.API.Controllers
 
             }
             
-
            }
 
         [HttpGet("{EventoId}")]
@@ -58,10 +57,9 @@ namespace RelacionaW3.API.Controllers
 
             }
             
-
            }
      
-        [HttpGet("{getByTema/{tema}")]
+        [HttpGet("getByTema/{tema}")]
         //requisição assincrona
         public async Task<IActionResult> Get(string tema)
         {
@@ -79,7 +77,6 @@ namespace RelacionaW3.API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
 
             }
-            
 
            }
 
@@ -103,12 +100,12 @@ namespace RelacionaW3.API.Controllers
                 //VERIFICA ERRO E DEPENDENDO JOGA A INFORMAÇÃO NA TELA
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
 
-            }
+            }   
                 return BadRequest();
 
            }
 
-           [HttpPut]
+        [HttpPut]
         //requisição assincrona
         public async Task<IActionResult> Put(int EventoId, Evento model)
         {
@@ -117,6 +114,7 @@ namespace RelacionaW3.API.Controllers
             {
                 var evento = await _repo.GetEventoAsyncById(EventoId, false);
                 if(evento == null) return NotFound();
+                
                 _repo.Update(model);
                 
                 if(await _repo.SaveChangeAsync())
@@ -134,5 +132,33 @@ namespace RelacionaW3.API.Controllers
             }
                 return BadRequest();
            }
+
+        [HttpDelete]
+        //requisição assincrona
+        public async Task<IActionResult> Delete(int EventoId)
+        {
+
+            try 
+            {
+                var evento = await _repo.GetEventoAsyncById(EventoId, false);
+                if(evento == null) return NotFound();
+                _repo.Delete(evento);
+                
+                if(await _repo.SaveChangeAsync())
+                {
+                    //se eu conseguir fazer um post vou dar um created
+                     return Ok();
+                }
+              
+            }
+            catch(System.Exception)
+            {
+                //VERIFICA ERRO E DEPENDENDO JOGA A INFORMAÇÃO NA TELA
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
+
+            }
+                return BadRequest();
+           }
+
         }
 }

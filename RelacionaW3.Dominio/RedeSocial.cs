@@ -7,13 +7,13 @@ namespace RelacionaW3.Dominio
         public string Nome { get; set; }
 
         public string URL { get; set; }
-//?nulo q a rede social pode ser nulo e o palestrante tambem
+        //?nulo q a rede social pode ser nulo e o palestrante tambem
         public int? EventoId { get; set; }
 
-        public Evento Evento { get; set; }
+        public Evento Evento { get; }
 
         public int? PalestranteId { get; set; }
 
-        public string Palestrante { get; set; }
+        public Palestrante Palestrante { get; }
     }
 }
