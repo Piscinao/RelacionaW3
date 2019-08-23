@@ -25,6 +25,7 @@ namespace RelacionaW3.API
         {
             services.AddDbContext<RelacionaW3Context>(options =>
             options.UseSqlServer(Configuration["Data:UCASAppDatabase:ConnectionString"]));
+            services.AddScoped<IRelacionaW3Repositorio, RelacionaW3Repositorio>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddCors();
         }
