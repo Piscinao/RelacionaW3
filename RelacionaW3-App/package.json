@@ -29,7 +29,9 @@
     "core-js": "2.5.7",
     "font-awesome": "4.7.0",
     "ng2-charts": "2.3.0",
+    "ngx-bootstrap": "^5.1.1",
     "rxjs": "6.5.2",
+    "sweetalert2": "^8.16.3",
     "tslib": "^1.9.0",
     "yarn": "1.16.0",
     "zone.js": "~0.9.1"
