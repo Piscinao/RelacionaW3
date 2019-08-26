@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { BlankPageRoutingModule } from './blank-page-routing.module';
 import { BlankPageComponent } from './blank-page.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DateTimeFormatPipePipe } from '../_helps/DateTimeFormatPipe.pipe';
 import { BsDropdownModule, ModalModule, TooltipModule } from 'ngx-bootstrap';
 
@@ -16,8 +16,9 @@ import { BsDropdownModule, ModalModule, TooltipModule } from 'ngx-bootstrap';
         FormsModule,
         BsDropdownModule.forRoot(),
         TooltipModule.forRoot(),
-        ModalModule.forRoot()
-    ],
+        ModalModule.forRoot(),
+        ReactiveFormsModule
+     ],
     declarations: [
         BlankPageComponent,
         DateTimeFormatPipePipe
