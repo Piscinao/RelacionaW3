@@ -105,7 +105,7 @@ namespace RelacionaW3.API.Controllers
 
            }
 
-        [HttpPut]
+        [HttpPut("{Eventoid}")]
         //requisição assincrona
         public async Task<IActionResult> Put(int EventoId, Evento model)
         {
@@ -133,7 +133,7 @@ namespace RelacionaW3.API.Controllers
                 return BadRequest();
            }
 
-        [HttpDelete]
+        [HttpDelete("{Eventoid}")]
         //requisição assincrona
         public async Task<IActionResult> Delete(int EventoId)
         {
