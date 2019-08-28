@@ -1,11 +1,7 @@
-
-
 using System.Collections.Generic;
 
-namespace RelacionaW3.Dominio
-{
-    public class Palestrante
-    {
+namespace RelacionaW3.API.Dtos {
+    public class PalestranteDto {
         public int Id { get; set; }
 
         public string Nome { get; set; }
@@ -18,8 +14,8 @@ namespace RelacionaW3.Dominio
 
         public string Email { get; set; }
 
-        public List<RedeSocial> RedesSociais { get; set; }
+        public List<RedeSocialDto> RedesSociais { get; set; }
 
-        public List<PalestranteEvento> PalestrantesEventos { get; set; }
+        public List<EventoDto> Eventos { get; set; }
     }
 }

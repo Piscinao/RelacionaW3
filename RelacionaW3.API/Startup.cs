@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RelacionaW3.Repositorio;
 
+
 namespace RelacionaW3.API
 {
     public class Startup
@@ -26,7 +27,7 @@ namespace RelacionaW3.API
             services.AddDbContext<RelacionaW3Context>(options =>
             options.UseSqlServer(Configuration["Data:UCASAppDatabase:ConnectionString"]));
             services.AddScoped<IRelacionaW3Repositorio, RelacionaW3Repositorio>();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddCors();
         }
 

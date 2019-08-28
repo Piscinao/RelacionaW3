@@ -72,7 +72,6 @@ export class BlankPageComponent implements OnInit {
             }
           });
     }
-    
     showModalRegistro(){
         Swal.fire({
             title: 'Feito!',
