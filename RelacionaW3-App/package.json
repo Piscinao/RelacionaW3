@@ -30,6 +30,7 @@
     "font-awesome": "4.7.0",
     "ng2-charts": "2.3.0",
     "ngx-bootstrap": "^5.1.1",
+    "ngx-toastr": "^10.1.0",
     "rxjs": "6.5.2",
     "sweetalert2": "^8.16.3",
     "tslib": "^1.9.0",

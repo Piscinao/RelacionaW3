@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +28,9 @@ namespace RelacionaW3.API
             services.AddDbContext<RelacionaW3Context>(options =>
             options.UseSqlServer(Configuration["Data:UCASAppDatabase:ConnectionString"]));
             services.AddScoped<IRelacionaW3Repositorio, RelacionaW3Repositorio>();
+            
+            services.AddAutoMapper();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddCors();
         }

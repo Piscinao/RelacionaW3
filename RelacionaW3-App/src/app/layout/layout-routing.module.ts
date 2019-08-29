@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
+import { ContatosComponent } from './contatos/contatos.component';
+import { BlankPageComponent } from './blank-page/blank-page.component';
+import { PalestrantesComponent } from './palestrantes/palestrantes.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 // ALTERA ROTAS PARA O MENU E O HTTP
 const routes: Routes = [
@@ -9,6 +13,10 @@ const routes: Routes = [
         component: LayoutComponent,
         children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
+            { path: 'contatos', component: ContatosComponent},
+            { path: 'palestrantes', component: PalestrantesComponent},
+            { path: 'usuario', component: UsuarioComponent},
+            { path: 'blank-page', component: BlankPageComponent},
             { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
             { path: 'charts', loadChildren: () => import('./charts/charts.module').then(m => m.ChartsModule) },
             { path: 'tables', loadChildren: () => import('./tables/tables.module').then(m => m.TablesModule) },
@@ -16,8 +24,10 @@ const routes: Routes = [
             { path: 'bs-element', loadChildren: () => import('./bs-element/bs-element.module').then(m => m.BsElementModule) },
             { path: 'grid', loadChildren: () => import('./grid/grid.module').then(m => m.GridModule) },
             { path: 'components', loadChildren: () => import('./bs-component/bs-component.module').then(m => m.BsComponentModule) },
-            { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) },
-            { path: 'blank-page', loadChildren: () => import('./blank-page/blank-page.module').then(m => m.BlankPageModule) },
+          //  { path: 'usuario', loadChildren: () => import('./usuario/usuario.module').then(m => m.UsuarioModule) },
+         //   { path: 'contatos', loadChildren: () => import('./contatos/contatos.module').then(m => m.ContatosModule) },
+          //  { path: 'palestrantes', loadChildren: () => import('./palestrantes/palestrantes.module').then(m => m.PalestrantesModule) },
+           // { path: 'blank-page', loadChildren: () => import('./blank-page/blank-page.module').then(m => m.BlankPageModule) }
         ]
     }
 ];

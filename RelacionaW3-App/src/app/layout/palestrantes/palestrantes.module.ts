@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BlankPageRoutingModule } from './blank-page-routing.module';
-import { BlankPageComponent } from './blank-page.component';
+import { PalestrantesRoutingModule } from './palestrantes-routing.module';
+import { PalestrantesComponent } from './palestrantes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DateTimeFormatPipePipe } from '../_helps/DateTimeFormatPipe.pipe';
 import { BsDropdownModule, ModalModule, TooltipModule} from 'ngx-bootstrap';
@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
     imports: [
         CommonModule,
-        BlankPageRoutingModule,
+        PalestrantesRoutingModule,
         FormsModule,
         BsDatepickerModule.forRoot(),
         BsDropdownModule.forRoot(),
@@ -22,8 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         ReactiveFormsModule
      ],
     declarations: [
-        BlankPageComponent,
+        PalestrantesComponent,
         DateTimeFormatPipePipe
     ],
 })
-export class BlankPageModule {}
+export class PalestrantesModule {}

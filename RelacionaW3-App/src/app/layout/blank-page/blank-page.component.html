@@ -54,7 +54,7 @@
       <!--Interpolação-->
       <td>{{evento.tema | uppercase}}</td>
       <td>{{evento.local}}</td>
-      <td>{{evento.dataEvento|DateTimeFormatPipe}}</td>
+      <td>{{evento.dataEvento}}</td>
       <td>{{evento.qtdPessoas}}</td>
       <td>
         <div *ngIf="!evento.lotes.length">
@@ -80,7 +80,7 @@
   
 </tr>
 </tbody>
-<tfoot *ngIf="!eventos.length">
+<tfoot *ngIf="!eventos">
   <tr>
     <td colspan="7" class="text-center">
       <h4>
@@ -170,8 +170,10 @@ role="dialog" aria-labelledby="dialog-sizes-name1">
           <div class="form-group col-md-4">
             <label>Data e Hora</label>
             <input type="text" class="form-control" 
-            bsDatepicker
-            
+            bsDatepicker  
+            value="{{dataEvento | DateTimeFormatPipe}}"
+            [(ngModel)]="dataEvento"
+            [bsConfig]= "{ dateInputFormat : 'DD/MM/YYYY hh:mm'}"
             [ngClass]="{'is-invalid': registerForm.get('dataEvento').errors
             && registerForm.get('dataEvento').touched}"
             formControlName="dataEvento" placeholder="">

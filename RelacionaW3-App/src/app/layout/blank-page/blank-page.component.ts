@@ -1,10 +1,11 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { EventoService } from 'src/app/layout/_services/evento.service';
 import { Evento } from 'src/app/layout/_models/Evento';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { BsModalService } from 'ngx-bootstrap';
 import Swal from 'sweetalert2';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { defineLocale, BsLocaleService, ptBrLocale} from'ngx-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 defineLocale('pt-br', ptBrLocale);
 
 @Component({
@@ -25,8 +26,8 @@ export class BlankPageComponent implements OnInit {
     bodyDeletarEvento = '';
 
 
-    //Encapsulamento da propriedade
-    //n acessa do lado de fora acessa o get ou o set da propriedade
+    // Encapsulamento da propriedade
+    // n acessa do lado de fora acessa o get ou o set da propriedade
     _filtroLista = '';
 
     constructor(
@@ -34,6 +35,7 @@ export class BlankPageComponent implements OnInit {
       , private modalService: BsModalService
       , private fb: FormBuilder
       , private localeService: BsLocaleService
+      , private toastr: ToastrService
         ) {
             this.localeService.use('pt-br');
 
@@ -72,7 +74,7 @@ export class BlankPageComponent implements OnInit {
             }
           });
     }
-    showModalRegistro(){
+    showModalRegistro() {
         Swal.fire({
             title: 'Feito!',
             text: 'O dado foi salvo com sucesso.',
@@ -80,7 +82,7 @@ export class BlankPageComponent implements OnInit {
         });
     }
 
-    showModalAtualizar(){
+    showModalAtualizar() {
         Swal.fire({
             title: 'Feito!',
             text: 'Os dados foram atualizados com sucesso.',
@@ -103,21 +105,18 @@ export class BlankPageComponent implements OnInit {
         this._filtroLista = value;
         this.eventosFiltrados = this.filtroLista ? this.filtrarEventos(this.filtroLista) : this.eventos;
     }
-    //OnInit signifca q executa antes do html ficar pronto
-    //pegar informações e atribuir a variaveis q serao utrilizadas dentro do html
-    //
-    
+    // OnInit signifca q executa antes do html ficar pronto
+    // pegar informações e atribuir a variaveis q serao utrilizadas dentro do html
     editarEvento(evento: Evento, template: any) {
+        this.toastr.success('Hello World', 'Toast Teste');
         this.modoSalvar = 'put';
         this.openModal(template);
-        //carrega dado atual
+        // carrega dado atual
         this.evento = evento;
-        //preenche o formulario
+        // preenche o formulario
         this.registerForm.patchValue(evento);
 
     }
-
-   
 
     novoEvento(template: any) {
         this.modoSalvar = 'post';
@@ -144,7 +143,6 @@ export class BlankPageComponent implements OnInit {
             email: ['', [Validators.required, Validators.email]]
         });
     }
-  
 
     salvarAlteracao(template: any) {
         if (this.registerForm.valid) {
@@ -174,8 +172,7 @@ export class BlankPageComponent implements OnInit {
          }
         }
     }
-            //passar como parâmetro para o serviço
-        
+            // passar como parâmetro para o serviço
     filtrarEventos(filtrarPor: string): Evento[] {
         filtrarPor = filtrarPor.toLocaleLowerCase();
         return this.eventos.filter(
@@ -183,15 +180,14 @@ export class BlankPageComponent implements OnInit {
         )
     }
 
-    getEventos(){
-        //requisição na api em ajax
+    getEventos() {
+        // requisição na api em ajax
         this.eventoService.getAllEvento().subscribe(
-            (_eventos: Evento[]) => { 
+            (_eventos: Evento[]) => {
                 this.eventos = _eventos;
                 this.eventosFiltrados = this.eventos;
-                console.log(_eventos);
             }, error =>{
-                console.log(error);
+                this.toastr.error(`Erro ao tentar carregar eventos: ${error}`);
             });
     }
 

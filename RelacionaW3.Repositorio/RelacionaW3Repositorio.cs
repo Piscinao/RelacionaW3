@@ -16,7 +16,7 @@ namespace RelacionaW3.Repositorio
 
 
 //Gerais
-        public void Add<T>(T entity) where T : class
+            public void Add<T>(T entity) where T : class
         {
             _context.Add(entity);
         }
@@ -39,17 +39,19 @@ namespace RelacionaW3.Repositorio
         public async Task<Evento[]> GetAllEventoAsync(bool includePalestrantes = false)
         {                                           //se for passado com parametro true vai no IF
             IQueryable<Evento> query = _context.Eventos
+            //atribuição
             .Include(c => c.Lotes)
             .Include(c => c.RedesSociais);
 
             if(includePalestrantes){
                 query = query
                 .Include(pe => pe.PalestrantesEventos)
+                //referencia any para any
                 .ThenInclude(p => p.Palestrante);
             }
 
             query = query.AsNoTracking()
-            .OrderByDescending(c => c.DataEvento);
+            .OrderBy(c => c.Id);
 
             return await query.ToArrayAsync();
         }

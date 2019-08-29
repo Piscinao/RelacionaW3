@@ -22,6 +22,16 @@
             <span>{{ 'Usuario' }}</span>
         </a>
 
+        <a [routerLink]="['/contatos']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-file-o"></i>&nbsp;
+            <span>{{ 'Contatos' }}</span>
+        </a>
+
+        <a [routerLink]="['/palestrantes']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-file-o"></i>&nbsp;
+            <span>{{ 'Palestrantes' }}</span>
+        </a>
+
         <a [routerLink]="['/bs-element']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-desktop"></i>&nbsp;
             <span>{{ 'Bootstrap Element' | translate }}</span>
