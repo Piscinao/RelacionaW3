@@ -19,16 +19,20 @@ export class BlankPageComponent implements OnInit {
     eventos: Evento[];
     evento: Evento;
     modoSalvar = 'post';
+
     imagemLargura: number = 50;
     imagemMargem: number = 2;
     mostrarImagem = false;
     registerForm: FormGroup;
     bodyDeletarEvento = '';
+    file: File;
 
+    dataAtual: string;
 
     // Encapsulamento da propriedade
     // n acessa do lado de fora acessa o get ou o set da propriedade
     _filtroLista = '';
+    fileNameToUpdate: string;
 
     constructor(
         private eventoService: EventoService
@@ -108,13 +112,15 @@ export class BlankPageComponent implements OnInit {
     // OnInit signifca q executa antes do html ficar pronto
     // pegar informações e atribuir a variaveis q serao utrilizadas dentro do html
     editarEvento(evento: Evento, template: any) {
-        this.toastr.success('Hello World', 'Toast Teste');
+        //this.toastr.success('Hello World', 'Toast Teste');
         this.modoSalvar = 'put';
         this.openModal(template);
         // carrega dado atual
-        this.evento = evento;
+        this.evento = Object.assign({}, evento);
+        this.fileNameToUpdate = evento.imagemURL.toString();
+        this.evento.imagemURL = '';
         // preenche o formulario
-        this.registerForm.patchValue(evento);
+        this.registerForm.patchValue(this.evento);
 
     }
 
@@ -144,10 +150,45 @@ export class BlankPageComponent implements OnInit {
         });
     }
 
+    onFileChange(event) {
+        const reader = new FileReader();
+
+        if (event.target.files && event.target.files.length) {
+            this.file = event.target.files;
+
+        }
+    }
+
+    uploadImagem() {
+        if (this.modoSalvar === 'post') {
+        const nomeArquivo = this.evento.imagemURL.split('\\', 3);
+        this.evento.imagemURL = nomeArquivo[2];
+        this.eventoService.postUpload(this.file, nomeArquivo[2]).
+        subscribe(
+            () => {
+                this.dataAtual = new Date().getMilliseconds().toString();
+                this.getEventos();
+            }
+        );
+    }   else {
+        this.evento.imagemURL = this.fileNameToUpdate;
+        this.eventoService.postUpload(this.file, this.fileNameToUpdate)
+        .subscribe(
+            () => {
+                this.dataAtual = new Date().getMilliseconds().toString();
+                this.getEventos();
+            }
+        );
+    }
+    }
+
     salvarAlteracao(template: any) {
         if (this.registerForm.valid) {
             if (this.modoSalvar === 'post') {
             this.evento = Object.assign({}, this.registerForm.value);
+
+
+            this.uploadImagem();
             this.eventoService.postEvento(this.evento).subscribe(
                 (novoEvento: Evento) => {
                     template.hide();
@@ -159,6 +200,7 @@ export class BlankPageComponent implements OnInit {
             );
          } else {
             this.evento = Object.assign({id: this.evento.id}, this.registerForm.value);
+            this.uploadImagem();
             this.eventoService.putEvento(this.evento).subscribe(
                 () => {
                     template.hide();

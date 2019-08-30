@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.IO;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
@@ -43,6 +45,51 @@ namespace RelacionaW3.API.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Banco de Dados Falhou");
 
             }
+
+        }
+
+        [HttpPost("upload")]
+        //requisição assincrona
+        public async Task<IActionResult> Post()
+        {
+
+            try
+            {   
+                //arquivo
+                var file = Request.Form.Files[0];
+                //diretorio
+                var folderName = Path.Combine("Resources", "Images");
+                //combinando o diretorio mais o diretorio da aplicação
+                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+
+                //array maior do que zero ou seja se ele existe
+                if (file.Length > 0)
+                {
+                    //qual é o nome do arquivo
+                    var filename = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName;
+                    //da um replace se caso vem aspas duplas e barra
+                    var fullPath = Path.Combine(pathToSave, filename.Replace("\"", "").Trim());
+
+                    using(var stream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+
+                    }
+
+                }
+
+
+                return Ok();
+
+            }
+            catch (System.Exception ex)
+            {
+                //VERIFICA ERRO E DEPENDENDO JOGA A INFORMAÇÃO NA TELA
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Banco de Dados Falhou {ex.Message}" );
+
+            }
+
+            return BadRequest("Erro ao tentar realizar upload");
 
         }
 

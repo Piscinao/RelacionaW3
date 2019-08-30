@@ -24,7 +24,13 @@ getEventoById(id: number): Observable<Evento> {
 
 }
 
+postUpload(file: File, name: string) {
+  const fileToUpload = <File>file[0];
+  const formData = new FormData();
+  formData.append('file', fileToUpload, name);
 
+  return this.http.post(`${this.baseURL}/upload`, formData);
+}
 postEvento(evento: Evento) {
   return this.http.post(this.baseURL , evento);
   //primeiro parametro do post é a url, e o segundo é o elemento todo copia do register e apssa para evento
