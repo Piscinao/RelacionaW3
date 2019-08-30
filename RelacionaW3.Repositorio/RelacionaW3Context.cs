@@ -1,11 +1,15 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using RelacionaW3.Dominio;
+using RelacionaW3.Dominio.Identity;
+using System.Collections.Generic;
 
 namespace RelacionaW3.Repositorio
 {
-    public class RelacionaW3Context : DbContext
-
-
+    public class RelacionaW3Context : IdentityDbContext<User, Role, int,
+                                                        IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>,
+                                                        IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
         public RelacionaW3Context(DbContextOptions<RelacionaW3Context> options): base(options) {}
         
@@ -21,6 +25,24 @@ namespace RelacionaW3.Repositorio
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<UserRole>(userRole =>
+            {
+                userRole.HasKey(ur => new {ur.UserId, ur.RoleId});
+
+                userRole.HasOne(ur => ur.Role)
+                .WithMany(r => r.UserRoles)
+                .HasForeignKey(ur => ur.RoleId)
+                .IsRequired();
+
+                 userRole.HasOne(ur => ur.User)
+                .WithMany(r => r.UserRoles)
+                .HasForeignKey(ur => ur.UserId)
+                .IsRequired();
+
+            }
+        );
          modelBuilder.Entity<PalestranteEvento>()
          .HasKey(PE => new {PE.EventoId, PE.PalestranteId});
     }

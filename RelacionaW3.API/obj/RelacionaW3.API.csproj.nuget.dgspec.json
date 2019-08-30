@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\RelacionaW3\\relacionaw3.api\\RelacionaW3.API.csproj": {}
+    "C:\\Projetos\\RelacionaW3\\RELACIONAW3.API\\RelacionaW3.API.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\RelacionaW3\\relacionaw3.api\\RelacionaW3.API.csproj": {
+    "C:\\Projetos\\RelacionaW3\\RELACIONAW3.API\\RelacionaW3.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\RelacionaW3\\relacionaw3.api\\RelacionaW3.API.csproj",
+        "projectUniqueName": "C:\\Projetos\\RelacionaW3\\RELACIONAW3.API\\RelacionaW3.API.csproj",
         "projectName": "RelacionaW3.API",
-        "projectPath": "C:\\Projetos\\RelacionaW3\\relacionaw3.api\\RelacionaW3.API.csproj",
+        "projectPath": "C:\\Projetos\\RelacionaW3\\RELACIONAW3.API\\RelacionaW3.API.csproj",
         "packagesPath": "C:\\Users\\henrique\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\RelacionaW3\\relacionaw3.api\\obj\\",
+        "outputPath": "C:\\Projetos\\RelacionaW3\\RELACIONAW3.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -104,6 +104,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
@@ -163,7 +167,7 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
-            "Microsoft.EntityFrameworkCore.Sqlite": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[2.2.0, )"
             },
