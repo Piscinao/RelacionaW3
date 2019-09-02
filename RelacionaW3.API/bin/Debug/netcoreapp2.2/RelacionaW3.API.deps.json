@@ -27,6 +27,7 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "4.0.0",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
+          "Microsoft.Extensions.Configuration.Binder": "2.2.0",
           "Microsoft.NETCore.App": "2.2.0",
           "RelacionaW3.Dominio": "1.0.0",
           "RelacionaW3.Repositorio": "1.0.0"

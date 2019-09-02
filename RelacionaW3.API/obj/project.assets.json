@@ -12168,6 +12168,7 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 4.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
+      "Microsoft.Extensions.Configuration.Binder >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
       "RelacionaW3.Dominio >= 1.0.0",
       "RelacionaW3.Repositorio >= 1.0.0"
@@ -12180,11 +12181,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\RelacionaW3\\RelacionaW3.API\\RelacionaW3.API.csproj",
+      "projectUniqueName": "C:\\Projetos\\RelacionaW3\\relacionaw3.api\\RelacionaW3.API.csproj",
       "projectName": "RelacionaW3.API",
-      "projectPath": "C:\\Projetos\\RelacionaW3\\RelacionaW3.API\\RelacionaW3.API.csproj",
+      "projectPath": "C:\\Projetos\\RelacionaW3\\relacionaw3.api\\RelacionaW3.API.csproj",
       "packagesPath": "C:\\Users\\henrique\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\RelacionaW3\\RelacionaW3.API\\obj\\",
+      "outputPath": "C:\\Projetos\\RelacionaW3\\relacionaw3.api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12227,6 +12228,10 @@
             "autoReferenced": true
           },
           "Microsoft.AspNetCore.Razor.Design": {
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
+          "Microsoft.Extensions.Configuration.Binder": {
             "target": "Package",
             "version": "[2.2.0, )"
           },

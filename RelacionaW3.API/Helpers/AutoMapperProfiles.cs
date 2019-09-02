@@ -2,6 +2,7 @@ using System.Linq;
 using AutoMapper;
 using RelacionaW3.API.Dtos;
 using RelacionaW3.Dominio;
+using RelacionaW3.Dominio.Identity;
 
 namespace RelacionaW3.API.Helpers {
     
@@ -26,6 +27,10 @@ namespace RelacionaW3.API.Helpers {
         CreateMap<Lote, LoteDto>().ReverseMap();
       
         CreateMap<RedeSocial, RedeSocialDto>().ReverseMap();
+
+        CreateMap<User, UserDto>().ReverseMap();
+
+        CreateMap<User, UserLoginDto>().ReverseMap();
       
         }
 

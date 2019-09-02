@@ -17,6 +17,7 @@ using Microsoft.IdentityModel.Tokens;
 using RelacionaW3.Dominio.Identity;
 using RelacionaW3.Repositorio;
 
+
 namespace RelacionaW3.API
 {
     public class Startup
@@ -66,6 +67,8 @@ namespace RelacionaW3.API
                     };
                 }
                 );
+
+            // Toda vez que chamar uma controller MVC vai ter que ser autenticada
             services.AddMvc(options => {
                 var policy = new AuthorizationPolicyBuilder()
                 .RequireAuthenticatedUser()
@@ -91,6 +94,8 @@ namespace RelacionaW3.API
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseAuthentication();
             //app.UseHttpsRedirection();
             //cors requisicao http
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
