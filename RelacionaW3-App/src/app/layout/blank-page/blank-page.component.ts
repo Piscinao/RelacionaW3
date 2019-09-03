@@ -186,8 +186,6 @@ export class BlankPageComponent implements OnInit {
         if (this.registerForm.valid) {
             if (this.modoSalvar === 'post') {
             this.evento = Object.assign({}, this.registerForm.value);
-
-
             this.uploadImagem();
             this.eventoService.postEvento(this.evento).subscribe(
                 (novoEvento: Evento) => {
@@ -228,7 +226,7 @@ export class BlankPageComponent implements OnInit {
             (_eventos: Evento[]) => {
                 this.eventos = _eventos;
                 this.eventosFiltrados = this.eventos;
-            }, error =>{
+            }, error => {
                 this.toastr.error(`Erro ao tentar carregar eventos: ${error}`);
             });
     }

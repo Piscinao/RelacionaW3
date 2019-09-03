@@ -96,7 +96,7 @@ namespace RelacionaW3.API
             }
 
             app.UseAuthentication();
-            //app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
             //cors requisicao http
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseStaticFiles();

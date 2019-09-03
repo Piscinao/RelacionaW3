@@ -1,3 +1,113 @@
-<p>
-  registrar works!
-</p>
+<div class="d-flex">
+  
+  <div class="form-inline mr-auto">
+    <div class="form-group mb-2">
+      Filtro: <input type="text" 
+      class="form-control mr-2" 
+      placeholder="Buscar"
+      >
+      <button class="btn btn-outline-sucess">buscar</button>
+    </div>
+  </div>
+  <div>
+    <button class="btn btn-outline-primary">
+      <i class="fa fa-plus-circle"></i>&nbsp;
+      Novo Evento</button>
+    </div>
+    
+  </div>
+<!-- <div [@routerTransition]> -->
+  <app-page-header [heading]="'Registrar'" [icon]="'fa-bar-chart-o'"></app-page-header>
+  <div class="row">
+
+  <!-- <div class="col-md-6" style="height: 400px;">
+    <div class="row col-md-12 my-auto side-heder">
+      <h1>Cadastro de Usuário</h1>
+    </div>
+  </div> -->
+  <div class="col-md-6">
+    <form [formGroup]="registrarForm">
+      <div class="form-group required">
+        <label for="">Nome Completo:</label>
+        <input type="text" class="form-control" formControlName="nomeCompleto"
+        [ngClass]="{'is-invalid': registrarForm.get('nomeCompleto').errors &&
+                                  registrarForm.get('nomeCompleto').touched }"
+          placeholder="Insira o Nome Completo"/>
+        <div *ngIf="registrarForm.get('nomeCompleto').hasError('required') &&
+                    registrarForm.get('nomeCompleto').touched"
+          class="invalid-feedback">
+          Nome Completo é obrigatório.
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="">Email:</label>
+          <input class="form-control" type="text" formControlName="email" [ngClass]="{ 'is-invalid': registrarForm.get('email').errors && 
+                                       registrarForm.get('email').touched}" placeholder="Insira o Nome Completo" />
+          <div *ngIf="registrarForm.get('email').hasError('required') &&
+                      registrarForm.get('email').touched" class="invalid-feedback">
+            email é obrigatório.
+          </div>
+          <div *ngIf="registrarForm.get('email').hasError('email')
+          && registrarForm.get('email').touched" class="invalid-feedback">
+            Deve ser um e-mail válido.
+          </div>
+        </div>
+      <div class="form-group">
+        <label for="">Usuario:</label>
+        <input class="form-control" type="text" formControlName="userName"
+          [ngClass]="{'is-invalid': registrarForm.get('userName').errors &&
+                                    registrarForm.get('userName').touched}"
+          placeholder="Insira o nome de Usuário"/>
+        <div *ngIf="registrarForm.get('userName').hasError('required') &&
+                    registrarForm.get('userName').touched"
+          class="invalid-feedback">
+          Usuário é obrigatório.
+        </div>
+      </div>
+      <div formGroupName="passwords">
+        <div class="form-group">
+          <label for="">Senha:</label>
+          <input class="form-control" type="password" formControlName="password"
+            [ngClass]="{ 'is-invalid': registrarForm.get('passwords.password').errors &&
+                                       registrarForm.get('passwords.password').touched}"
+            placeholder="Digite uma Senha" />
+            <div *ngIf="registrarForm.get('passwords.password').hasError('minlength') &&
+            registrarForm.get('passwords.password').touched"
+            class="invalid-feedback">
+            Deve conter no mínimo 4 caracters
+          </div>
+          <div *ngIf="registrarForm.get('passwords.password').hasError('required') &&
+                      registrarForm.get('passwords.password').touched"
+            class="invalid-feedback">
+            Senha é obrigatório.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="">Confirmar Senha:</label>
+          <input class="form-control" type="password" formControlName="confirmPassword"
+            [ngClass]="{ 'is-invalid': registrarForm.get('passwords.confirmPassword').errors 
+                         && registrarForm.get('passwords.confirmPassword').touched 
+                         ||registrarForm.get('passwords.confirmPassword').hasError('mismatch') 
+                         && registrarForm.get('passwords.confirmPassword').touched }"
+            placeholder="Confirme a Senha" />
+          <div *ngIf="registrarForm.get('passwords.confirmPassword').hasError('required') &&
+                      registrarForm.get('passwords.confirmPassword').touched"
+            class="invalid-feedback">
+            Confirme a Senha
+          </div>
+          <div *ngIf="registrarForm.get('passwords.confirmPassword').hasError('mismatch') 
+                      && registrarForm.get('passwords.confirmPassword').touched"
+            class="invalid-feedback">
+            Confirmação não confere
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-8 offset-md-2">
+          <button class="btn btn-lg btn-success btn-block" [disabled]="!registrarForm.valid" (click)="cadastrarUsuario()">Registar</button>
+        </div>
+      </div>
+    </form>
+  
+</div>
+</div>

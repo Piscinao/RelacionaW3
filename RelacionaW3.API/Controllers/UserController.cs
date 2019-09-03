@@ -40,7 +40,7 @@ namespace RelacionaW3.API.Controllers
 
 
         [HttpGet("GetUser")]
-        // [AllowAnonymous]
+        [AllowAnonymous]
         public async Task<IActionResult> GetUser()
         {
             return Ok(new UserDto());

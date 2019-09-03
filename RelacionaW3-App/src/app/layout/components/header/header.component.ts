@@ -23,6 +23,10 @@ export class HeaderComponent implements OnInit {
         });
     }
 
+    loggedIn() {
+        return true;
+    }
+
     ngOnInit() {
         this.pushRightClass = 'push-right';
     }

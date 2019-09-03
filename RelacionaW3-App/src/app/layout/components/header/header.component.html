@@ -5,21 +5,21 @@
         <i class="fa fa-bars text-muted" aria-hidden="true"></i>
     </button>
     <div class="collapse navbar-collapse">
-        <form class="form-inline my-2 my-lg-0">
+         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="{{ 'Buscar'}}" >
-        </form>
+        </form> 
         <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item active">
+                <li *ngIf="loggedIn()"class="nav-item active">
                         <a class="nav-link" routerLink="eventos">Eventos <span class="sr-only">(current)</span></a>
                       </li>
-                      <li class="nav-item">
+                      <li *ngIf="loggedIn()" class="nav-item">
                         <a class="nav-link" routerLink="palestrantes">Palestrantes</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" routerLink="contatos">Contato</a>
+                      <li *ngIf="loggedIn()" class="nav-item">
+                        <a class="nav-link" routerLink="contatos">Contato</a> 
     
-            <li class="nav-item dropdown" ngbDropdown>
+             <li *ngIf="loggedIn()"class="nav-item dropdown" ngbDropdown>
                 <a class="nav-link" href="javascript:void(0)" ngbDropdownToggle>
                     <i class="fa fa-envelope"></i> <b class="caret"></b><span class="sr-only">(current)</span>
                 </a>
@@ -57,8 +57,8 @@
                         </div>
                     </li>
                 </ul>
-            </li>
-            <li class="nav-item dropdown" ngbDropdown>
+            </li> 
+            <div *ngIf="loggedIn()" class="nav-item dropdown" ngbDropdown>
                 <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
                     <i class="fa fa-bell"></i> <b class="caret"></b><span class="sr-only">(current)</span>
                 </a>
@@ -77,9 +77,9 @@
                         {{ 'View All' | translate }}
                     </a>
                 </div>
-            </li>
+            </div>
             
-            <li class="nav-item dropdown" ngbDropdown>
+            <div *ngIf="loggedIn()" class="nav-item dropdown" ngbDropdown>
                 <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
                     <i class="fa fa-user"></i> John Smith <b class="caret"></b>
                 </a>
@@ -96,9 +96,9 @@
                     <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()">
                         <i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }}
                     </a>
-                    
+                    </div>
                 </div>
-            </li>
-        </ul>
+            
+         </ul>
     </div>
 </nav>

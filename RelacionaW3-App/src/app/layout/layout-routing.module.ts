@@ -3,8 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 import { ContatosComponent } from './contatos/contatos.component';
 import { BlankPageComponent } from './blank-page/blank-page.component';
-import { PalestrantesComponent } from './palestrantes/palestrantes.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { RegistrarComponent } from './usuario/registrar/registrar.component';
+import { PalestrantesComponent } from './palestrantes/palestrantes.component';
 
 // ALTERA ROTAS PARA O MENU E O HTTP
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
         children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
             { path: 'contatos', component: ContatosComponent},
+            { path: 'registrar', component: RegistrarComponent},
             { path: 'palestrantes', component: PalestrantesComponent},
             { path: 'usuario', component: UsuarioComponent},
             { path: 'blank-page', component: BlankPageComponent},

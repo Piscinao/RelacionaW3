@@ -12,15 +12,12 @@ export class LoginComponent implements OnInit {
     
     testetitulo = 'Login';
     model: any = {};
-    constructor(
-      public router: Router
-    ) {}
+    constructor(public router: Router) {}
 
     ngOnInit() {}
 
     login() {
         console.log();
-
     }
 
     onLoggedin() {
