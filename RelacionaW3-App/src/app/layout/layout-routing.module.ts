@@ -19,6 +19,7 @@ const routes: Routes = [
             { path: 'palestrantes', component: PalestrantesComponent},
             { path: 'usuario', component: UsuarioComponent},
             { path: 'blank-page', component: BlankPageComponent},
+            // { path: 'dashboard', component: BlankPageComponent},
             { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
             { path: 'charts', loadChildren: () => import('./charts/charts.module').then(m => m.ChartsModule) },
             { path: 'tables', loadChildren: () => import('./tables/tables.module').then(m => m.TablesModule) },
