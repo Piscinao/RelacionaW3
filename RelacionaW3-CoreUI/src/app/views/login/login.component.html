@@ -1,0 +1,57 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body">
+                <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login()">
+                  <h1>Login</h1>
+                  <p class="text-muted">Entre com sua conta</p>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-user"></i></span>
+                    </div>
+                    <input type="email" id="username" class="form-control" placeholder="Usuário"
+                    name="username" required [(ngModel)]="model.username">
+                  </div>
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-lock"></i></span>
+                    </div>
+                    <input type="password" id="password"  class="form-control" placeholder="Senha"
+                    name="password" required [(ngModel)]="model.password" >
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <button [disabled]="!loginForm.valid"class="btn btn-primary px-4" type="submit">Login</button>
+                    </div>
+                    <div class="col-6 text-right">
+                      <button type="button" class="btn btn-link px-0">Forgot password?</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+              <div class="card-body text-center">
+                <div>
+                  
+                  <img src="assets/img/brand/RELACIONA W3 PNG BRANCA.png" width="280px" class="user-avatar" /> 
+                 <img class="mb-4" src="" alt="" width="128" height="128">
+                  <p></p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+
+
