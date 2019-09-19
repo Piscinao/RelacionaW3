@@ -13,6 +13,24 @@ defineLocale('pt-br', ptBrLocale);
     templateUrl: './eventos.component.html'
 })
 export class EventosComponent implements OnInit {
+
+    constructor(
+        private eventoService: EventoService
+      , private modalService: BsModalService
+      , private fb: FormBuilder
+      , private localeService: BsLocaleService
+      , private toastr: ToastrService
+        ) {
+            this.localeService.use('pt-br');
+        }
+
+    get filtroLista(): string {
+        return this._filtroLista;
+    }
+    set filtroLista(value: string) {
+        this._filtroLista = value;
+        this.eventosFiltrados = this.filtroLista ? this.filtrarEventos(this.filtroLista) : this.eventos;
+    }
     modalRef: BsModalRef;
     eventosFiltrados: Evento [];
     eventos: Evento[];
@@ -38,17 +56,7 @@ export class EventosComponent implements OnInit {
     // n acessa do lado de fora acessa o get ou o set da propriedade
     _filtroLista = '';
     fileNameToUpdate: string;
-
-    constructor(
-        private eventoService: EventoService
-      , private modalService: BsModalService
-      , private fb: FormBuilder
-      , private localeService: BsLocaleService
-      , private toastr: ToastrService
-        ) {
-            this.localeService.use('pt-br');
-        }
-
+  
     openModal(template: any) {
         this.registerForm.reset();
         template.show(this.config);
@@ -83,6 +91,23 @@ export class EventosComponent implements OnInit {
             }
           });
     }
+
+    obterDataAtual(event) {
+        const date = new Date();
+    
+        const ano = date.getFullYear();
+        const mes = date.getMonth();
+        const dia = date.getDate();
+    
+        let mesValor = '';
+        let diaValor = '';
+    
+        mesValor = ((mes < 10) ? '0' : '').concat(mes.toString())
+        diaValor = ((dia < 10) ? '0' : '').concat(dia.toString())
+    
+        return ano.toString().concat('-').concat(mesValor).concat('-').concat(diaValor);
+    }
+
     showModalRegistro() {
         Swal.fire({
             title: 'Feito!',
@@ -105,14 +130,6 @@ export class EventosComponent implements OnInit {
             text: 'Algum problema ocorreu contate o administrador do sistema.',
             type: 'error'
         });
-    }
-
-    get filtroLista(): string {
-        return this._filtroLista;
-    }
-    set filtroLista(value: string) {
-        this._filtroLista = value;
-        this.eventosFiltrados = this.filtroLista ? this.filtrarEventos(this.filtroLista) : this.eventos;
     }
     // OnInit signifca q executa antes do html ficar pronto
     // pegar informações e atribuir a variaveis q serao utrilizadas dentro do html
