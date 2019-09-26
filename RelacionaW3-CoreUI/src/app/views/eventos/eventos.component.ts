@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap';
+import { BsModalService, BsModalRef, BsDatepickerConfig } from 'ngx-bootstrap';
 import Swal from 'sweetalert2';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { defineLocale, BsLocaleService, ptBrLocale} from 'ngx-bootstrap';
@@ -12,8 +12,7 @@ defineLocale('pt-br', ptBrLocale);
     selector: 'app-eventos',
     templateUrl: './eventos.component.html'
 })
-export class EventosComponent implements OnInit {
-
+    export class EventosComponent implements OnInit {
     constructor(
         private eventoService: EventoService
       , private modalService: BsModalService
@@ -21,7 +20,10 @@ export class EventosComponent implements OnInit {
       , private localeService: BsLocaleService
       , private toastr: ToastrService
         ) {
+            this.maxDate.setDate(this.maxDate.getDate() + 7);
+            this.bsRangeValue = [this.bsValue, this.maxDate];
             this.localeService.use('pt-br');
+          
         }
 
     get filtroLista(): string {
@@ -31,6 +33,9 @@ export class EventosComponent implements OnInit {
         this._filtroLista = value;
         this.eventosFiltrados = this.filtroLista ? this.filtrarEventos(this.filtroLista) : this.eventos;
     }
+
+  
+
     modalRef: BsModalRef;
     eventosFiltrados: Evento [];
     eventos: Evento[];
@@ -49,9 +54,20 @@ export class EventosComponent implements OnInit {
     bodyDeletarEvento = '';
     file: File;
 
+    color = 'accent';
+    checked = false;
+    disabled = false;
+
     dataAtual: string;
     dataAtualInput: number =  Date.now();
 
+    bsValue = new Date();
+    bsRangeValue: Date[];
+    maxDate = new Date();
+
+    respostaPadrao: boolean = false;
+
+    checked2: boolean = true;
     // Encapsulamento da propriedade
     // n acessa do lado de fora acessa o get ou o set da propriedade
     _filtroLista = '';
@@ -62,6 +78,8 @@ export class EventosComponent implements OnInit {
         template.show(this.config);
         // this.modalRef = this.modalService.show(template);
     }
+
+ 
 
     openModalDelete(evento: Evento) {
         Swal.fire({
@@ -169,9 +187,15 @@ export class EventosComponent implements OnInit {
             dataEvento: ['', Validators.required],
             imagemURL: [],
             meioDeContato: ['', Validators.required],
-            fonte:['', Validators.required],
+            respostaPadrao: [],
+            classificacao: ['', Validators.required],
+            caracteristica: ['', Validators.required],
+            areaEnvolvida: ['', Validators.required],
+            areaResponsavel: ['', Validators.required],
+            fonte: ['', Validators.required],
             telefone: ['', Validators.required],
-            email: ['', [Validators.required, Validators.email]]
+            celular: [],
+            email: ['', Validators.required]
         });
     }
 

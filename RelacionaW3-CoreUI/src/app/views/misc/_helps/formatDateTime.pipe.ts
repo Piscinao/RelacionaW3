@@ -4,10 +4,10 @@ import * as moment from 'moment';
 @Pipe({
    name: 'formatDateTime'
 })
-export class DatePipe implements PipeTransform {
+export class FormatDateTime implements PipeTransform {
    transform(date: any, args?: any): any {
      const d = new Date(date);
-     return moment(d).format('DD/MM/YYYY');
+     return moment(d).format('MM/dd/yyyy');
 
    }
 }

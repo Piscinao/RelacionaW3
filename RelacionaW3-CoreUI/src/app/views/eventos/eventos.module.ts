@@ -28,7 +28,7 @@ import { ApplicationPipesModuleModule } from '../shared/ApplicationPipesModule/A
         TooltipModule.forRoot(),
         ApplicationPipesModuleModule,
         ModalModule.forRoot(),
-        // DateTimeFormatPipePipe,
+
         ReactiveFormsModule
      ],
     declarations: [

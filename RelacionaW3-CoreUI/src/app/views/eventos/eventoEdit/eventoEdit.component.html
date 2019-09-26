@@ -290,7 +290,7 @@
                       <label>Data e Hora</label>
                       <input type="text" class="form-control"  
                       bsDatepicker
-                        value="{{dataEvento | DateTimeFormatPipe  }}"
+                        value="{{dataEvento }}"
                          [(ngModel)]="dataEvento"
                         [bsConfig]="{ dateInputFormat : 'DD/MM/YYYY hh:mm' }" 
                         [ngClass]="{'is-invalid': registerForm.get('dataEvento').errors 
@@ -460,7 +460,7 @@
                   <p class="card-text">
                     <b>Local:</b> {{evento.local}}
                     <br>
-                    <b>Data:</b> {{evento.dataEvento | DateTimeFormatPipe}}
+                    <b>Data:</b> {{evento.dataEvento}}
                   </p>
                   <hr>
                   <p class="card-text">

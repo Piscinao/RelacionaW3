@@ -19,12 +19,23 @@ namespace RelacionaW3.API.Dtos {
           [Required(ErrorMessage="Meio de contato deve ser selecionado")]
         public string MeioDeContato { get; set; }
 
+        public string RespostaPadrao {get; set; }
         public string Fonte{ get; set; }
+
+        public string Classificacao { get; set; }
+
+        public string Caracteristica {get; set; }
+
+        public string AreaEnvolvida {get; set;}
+
+        public string AreaResponsavel {get; set;}
 
         public string ImagemURL { get; set; }
 
         [Phone]
         public string Telefone { get; set; }
+
+          public string Celular { get; set; }
         //Validação back-end
         //Data annotation validação para o post 
         [EmailAddress]

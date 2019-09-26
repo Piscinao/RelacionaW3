@@ -27,20 +27,21 @@
           <thead class="thead-light">
             <tr>
               <th>
-                <button class="btn btn-outline-primary"
+                <!-- <button class="btn btn-outline-primary"
                 (click)='alterarImagem()'>
                 <i class="{{mostrarImagem ? 'fa fa-eye-slash' : 'fa fa-eye'}}"></i>
-                <!--  {{mostrarImagem ? 'Ocultar' : 'Mostrar'}}-->
+                  {{mostrarImagem ? 'Ocultar' : 'Mostrar'}}
                 
-              </button>
+              </button> -->
               
             </th>
-            <th>#</th>
-            <th>Tema</th>
+            
+            <th>Descrição</th>
             <th>Nome do contato</th>
+            <th>Característica</th>
             <th>Data</th>
             <th>Meio de Contato</th>
-            <th>Lote</th>
+            <th>Fonte</th>
             <th colspan="2" class="text-center">Opções</th>
           </tr>
         </thead>
@@ -49,27 +50,29 @@
           <tr *ngFor="let evento of eventosFiltrados">
             <td>
               <!--Diretiva Estrutural-->
-              <img *ngIf='mostrarImagem'
+              <!-- <img *ngIf='mostrarImagem'
               src='http://localhost:5000/resources/images/{{evento.imagemURL}}?_ts={{dataAtual}}'
               [style.width.px]="imagemLargura"
-              [style.margin.px]="imagemMargem">
+              [style.margin.px]="imagemMargem"> -->
               <!--Property Binding-->
             </td>
-            <td>{{evento.id}}</td>
+           
             <!--binding entre a propriedade da classe e o template-->
             <!--Interpolação-->
             <td>{{evento.tema | uppercase}}</td>
             <td>{{evento.nome}}</td>
-            <td>{{evento.dataEvento}}</td>
-            <td>{{evento.meioDeContato}}</td>
-            <td>
+            <td>{{evento.caracteristica}}</td>
+            <td>{{evento.dataEvento  }}</td>
+            <td>{{evento.meioDeContato }}</td>
+            <td>{{evento.fonte }}</td>
+            <!-- <td>
               <div *ngIf="!evento.lotes.length">
                 Não informado
               </div>
               <div *ngIf="evento.lotes.length">
                 {{evento.lotes[0].nome| uppercase}}
               </div>
-            </td>
+            </td> -->
             
             <td>
               <div class="btn-group">
@@ -117,85 +120,266 @@
           <div class="modal-body">
               <form [formGroup]= "registerForm">
                   <div class="form-row">
-                    <div class="form-group col-md-12">
-                      <label>Tema</label>
-                      <input type="text" class="form-control" 
-                      [ngClass]="{'is-invalid': registerForm.get('tema').errors
-                      && registerForm.get('tema').touched}"
-                      formControlName="tema"  placeholder="Insira o tema">
-                      <div *ngIf="registerForm.get('tema').hasError('required') 
-                      && registerForm.get('tema').touched" class="invalid-feedback">
-                      O tema é obrigatório.
-                    </div>
+                      <div class="col-md-15 mb-4">
+                         
+                          <tabset>
+                            <tab>
+                              <ng-template tabHeading><i class="icon-note">-Informações Gerais</i></ng-template>
+                              <div class="form-group col-md-12">
+                                  <label>Descrição</label>
+                                  <input type="text" class="form-control" 
+                                  [ngClass]="{'is-invalid': registerForm.get('tema').errors
+                                  && registerForm.get('tema').touched}"
+                                  formControlName="tema"  placeholder="Insira a descrição">
+                                  <div *ngIf="registerForm.get('tema').hasError('required') 
+                                  && registerForm.get('tema').touched" class="invalid-feedback">
+                                  A descrição é obrigatória.
+                                </div>
+                                
+                                <div *ngIf="registerForm.get('tema').hasError('minlength') 
+                                && registerForm.get('tema').touched" class="invalid-feedback">
+                                Tema deve ter no mínimo 4 caracteres.
+                              </div>
+                              
+                              <div *ngIf="registerForm.get('tema').hasError('maxlength') 
+                              && registerForm.get('tema').touched" class="invalid-feedback">
+                              Tema deve ter no máximo 50 caracteres.
+                            </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-8">
+                                  <label>Nome do contato</label>
+                                  <div class="input-group-prepend">
+                                  <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
+                                  <input type="text" class="form-control" 
+                                  [ngClass]="{'is-invalid': registerForm.get('nome').errors
+                                  && registerForm.get('nome').touched}"
+                                  formControlName="nome" placeholder="Insira o nome da pessoa ou indique anônimato">
+                                  <div *ngIf="registerForm.get('nome').hasError('required') 
+                                  && registerForm.get('nome').touched" class="invalid-feedback">
+                                  O nome é obrigatório
+                                </div>
+                              </div>
+                            </div>
+                              <div class="form-group col-md-4">
+                                  
+                                <label>Data do contato</label>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                <input type="text" class="form-control" 
+                                bsDatepicker 
+                                #dp="bsDatepicker"
+                             
+                                [(ngModel)]="dataEvento"
+                                 [bsConfig]="{ dateInputFormat : 'DD/MM/YYYY' }"
+                                [ngClass]="{'is-invalid': registerForm.get('dataEvento').errors
+                                && registerForm.get('dataEvento').touched}"
+                                formControlName="dataEvento" placeholder="">
+                                <div *ngIf="registerForm.get('dataEvento').hasError('required') 
+                                && registerForm.get('dataEvento').touched" class="invalid-feedback">
+                                A data do contato é obrigatória
+                              </div>
+                              </div>
+                            </div>
+                              </div> 
+
+                              <div class="form-row">
+
+                                  <div class="form-group col-md-4">
+                                      <label for="fonte">Fonte</label>
                     
-                    <div *ngIf="registerForm.get('tema').hasError('minlength') 
-                    && registerForm.get('tema').touched" class="invalid-feedback">
-                    Tema deve ter no mínimo 4 caracteres.
-                  </div>
+                                      <select name="fonte" id="fonte" formControlName="fonte" class="form-control">
+                                        <option value="Interna">Interna</option>
+                                        <option value="Externa">Externa</option>
+                    
+                                      </select>
+                            
+                                       <div class="text-danger" *ngIf=" registerForm.get('fonte').invalid &&  registerForm.get('fonte').touched">
+                                          <div *ngIf=" registerForm.get('fonte').hasError('required') ">Dado Obrigatório</div>
+                                          
+                                        </div> 
+                                     
+                                    </div>
+                                    <!-- <div class="form-group col-md-2">
+                                    <label class="switch switch-3d switch-primary" >
+                                      <br>
+              
+                                      
+                                 
+                                        <input type="checkbox" formControlName="respostaPadrao" class="form-control" class="switch-input" [(ngModel)]="respostaPadrao" binary="Sim">
+                                        <span class="switch-slider"></span>
+                                      </label>
+                                    </div> -->
+                                <div class="form-group col-md-4">
+                                  <label>Meio de Contato</label>
+                                  <select name="fonte" class="form-control" id="meioDeContato" [ngClass]="{'is-invalid': registerForm.get('meioDeContato').errors
+                                  && registerForm.get('meioDeContato').touched}"
+                                  formControlName="meioDeContato" placeholder="">
+                                    <option value="Telefonico">Telefônico</option>
+                                    <option value="Site">Site</option>
+                                    <option value="Redes Sociais">Redes Sociais</option>
+                                    <option value="E-mail">E-mail</option>
+                                    <option value="Formulario Impresso">Formulário Impresso</option>
+                                    <div *ngIf="registerForm.get('meioDeContato').hasError('required') 
+                                    && registerForm.get('meioDeContato').touched" class="invalid-feedback">
+                                  É necessário selecionar o meio de contato!
+                                  </div>
+                                  </select>
+              
+              
+                
+                                </div>
+              
+              
+                                <div class="form-group col-md-4">
+                                    <label>Classificação do contato</label>
+                                    <select name="fonte" class="form-control" id="classificacao" [ngClass]="{'is-invalid': registerForm.get('classificacao').errors
+                                    && registerForm.get('classificacao').touched}"
+                                    formControlName="classificacao" placeholder="">
+                                      <option value="Cliente">Cliente</option>
+                                      <option value="Representatnte">Representante</option>
+                                      <option value="Comunidade">Comunidade</option>
+                                      <option value="Colaborador">Colaborador</option>
+                                      <option value="Prestador de Serviço">Prestador de Serviço</option>
+                                      <option value="Fornecedor">Fornecedor</option>
+                                      <div *ngIf="registerForm.get('classificacao').hasError('required') 
+                                      && registerForm.get('classificacao').touched" class="invalid-feedback">
+                                    É necessário selecionar classificação de contato!
+                                    </div>
+                                    </select>
+                
+              
+                                  </div>
+              
+                                  <div class="form-group col-md-4">
+                                    <label>Característica do contato</label>
+                                    <select name="fonte" class="form-control" id="caracteristica" [ngClass]="{'is-invalid': registerForm.get('caracteristica').errors
+                                    && registerForm.get('caracteristica').touched}"
+                                    formControlName="caracteristica" placeholder="">
+                                      <option value="Denúncia Interna">Denúncia Interna</option>
+                                      <option value="Denúncia Externa">Denúncia Externa</option>
+                                      <option value="Reclamação">Reclamação</option>
+                                      <option value="Dúvida">Dúvida</option>
+                                      <option value="Sugestão">Sugestão</option>
+                                      <option value="Contato Comercial">Contato Comercial</option>
+                                      <option value="Pós-Venda">Pós-Venda</option>
+                                      <option value="Pesquisa de Satisfação">Pesquisa de Satisfação</option>
+                                      <option value="Como estou Dirigindo">Como estou Dirigindo</option>
+                                      <option value="Agradecimento">Agradecimento</option>
+                                      <div *ngIf="registerForm.get('caracteristica').hasError('required') 
+                                      && registerForm.get('caracteristica').touched" class="invalid-feedback">
+                                    É necessário selecionar classificação de contato!
+                                    </div>
+                                    </select>
+                
+                                    
                   
-                  <div *ngIf="registerForm.get('tema').hasError('maxlength') 
-                  && registerForm.get('tema').touched" class="invalid-feedback">
-                  Tema deve ter no máximo 50 caracteres.
-                </div>
-                </div>
-                </div>  
-                <div class="form-row">
-                  <div class="form-group col-md-8">
-                    <label>Nome do contato</label>
-                    <input type="text" class="form-control" 
-                    [ngClass]="{'is-invalid': registerForm.get('nome').errors
-                    && registerForm.get('nome').touched}"
-                    formControlName="nome" placeholder="">
-                    <div *ngIf="registerForm.get('nome').hasError('required') 
-                    && registerForm.get('nome').touched" class="invalid-feedback">
-                    O nome é obrigatório
-                  </div>
-                </div>
-                <div class="form-group col-md-4">
-                  <label>Data e Hora</label>
+                                  </div>
+              
+              
+                                  <div class="form-group col-md-4">
+                                      <label>Área(s) Envolvida(s)</label>
+                                      <input type="text"
+                                      [ngClass]="{'is-invalid': registerForm.get('areaEnvolvida').errors
+                                      && registerForm.get('areaEnvolvida').touched}"
+                                      class="form-control" formControlName="areaEnvolvida" placeholder="">
+                                      <div *ngIf="registerForm.get('areaEnvolvida').hasError('required') 
+                                      && registerForm.get('areaEnvolvida').touched" class="invalid-feedback">
+                                      Área envolvida é obrigatório.
+                                    </div>
+                                  </div>
+              
+                                  <div class="form-group col-md-4">
+                                      <label>Área Responsável</label>
+                                      <select name="fonte" class="form-control" id="areaResponsavel" [ngClass]="{'is-invalid': registerForm.get('areaResponsavel').errors
+                                      && registerForm.get('areaResponsavel').touched}"
+                                      formControlName="areaResponsavel" placeholder="">
+                                        <option value="Recursos Humanos">RH</option>
+                                        <option value="Comercial">Comercial</option>
+                                        <option value="Logística">Logística</option>
+                                        <option value="Qualidade">Qualidade</option>
+                                        <option value="Conselho">Conselho</option>
+                                        
+                                        <div *ngIf="registerForm.get('areaResponsavel').hasError('required') 
+                                        && registerForm.get('areaResponsavel').touched" class="invalid-feedback">
+                                      É necessário selecionar classificação de contato!
+                                      </div>
+                                      </select>
+                  
+                                      
+                    
+                                    </div>
 
-                  <input type="text" class="form-control" 
-                  bsDatepicker  
-                  value="{{ dataAtualInput| DateTimeFormatPipe}}"
-                  [(ngModel)]="dataEvento"
-                  
-                  (ngModelChange)="obterDataAtual($event)"
-                  [bsConfig]= "{ dateInputFormat : 'DD/MM/YYYY '}"
-                  [ngClass]="{'is-invalid': registerForm.get('dataEvento').errors
-                  && registerForm.get('dataEvento').touched}"
-                  formControlName="dataEvento" placeholder="">
-                  <div *ngIf="registerForm.get('dataEvento').hasError('required') 
-                  && registerForm.get('dataEvento').touched" class="invalid-feedback">
-                  A data e hora são obrigatórios
-                </div>
-                </div>
-                </div>  
-                <div class="form-row">
-                  <div class="form-group col-md-3">
-                    <label>Meio de Contato</label>
-                    <input type="text" class="form-control" 
-                    [ngClass]="{'is-invalid': registerForm.get('meioDeContato').errors
-                    && registerForm.get('meioDeContato').touched}"
-                    formControlName="meioDeContato" placeholder="">
-                    <div *ngIf="registerForm.get('meioDeContato').hasError('required') 
-                    && registerForm.get('meioDeContato').touched" class="invalid-feedback">
-                  É necessário selecionar o meio de contato!
-                  </div>
-                  
-                  
-                </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                          <label>Celular</label>
+                                          <input type="text" mask="(00) 00000-0000"
+                                          class="form-control" formControlName="celular" placeholder="">
+                                        </div>
+                                    
+                      
+                                      <div class="form-group col-md-6">
+                                          <label>Telefone</label>
+                                          <input type="text" mask="(00) 0000-0000"
+                                          [ngClass]="{'is-invalid': registerForm.get('telefone').errors
+                                          && registerForm.get('telefone').touched}"
+                                          class="form-control" formControlName="telefone" placeholder="">
+                                          <div *ngIf="registerForm.get('telefone').hasError('required') 
+                                          && registerForm.get('telefone').touched" class="invalid-feedback">
+                                          O telefone é obrigatório
+                                        </div>
+                                      </div>
+                      
+                                    </div> 
+                                 
+                               
+                                
+                                
+                              </div>
 
-                <div class="form-group col-md-3">
-                  <label>Fonte</label>
-                  <input type="text" class="form-control" 
-                  [ngClass]="{'is-invalid': registerForm.get('fonte').errors
-                  && registerForm.get('fonte').touched}"
-                  formControlName="fonte" placeholder="">
-                  <div *ngIf="registerForm.get('fonte').hasError('required') 
-                  && registerForm.get('fonte').touched" class="invalid-feedback">
-                É necessário selecionar a origem!
-                </div>
-              </div>
+
+
+                            </tab>
+                            <tab>
+                              <ng-template tabHeading><i class="icon-action-undo"></i>-Resposta Tratativa</ng-template>
+                              <div class="form-group col-md-12">
+                                  <label>Email</label>
+                                  <div class="input-group-prepend">
+                                      <span class="input-group-text"><i class="fa fa-envelope-open-o"></i></span>
+                                      
+                                
+                                    <input type="text" 
+                                    [ngClass]="{'is-invalid': registerForm.get('email').errors
+                                    && registerForm.get('email').touched}"
+                                    class="form-control" formControlName="email" placeholder="Insira o endereço de e-mail">
+                                    <div *ngIf="registerForm.get('email').hasError('required') 
+                                    && registerForm.get('email').touched" class="invalid-feedback"
+                                    class="invalid-feedback"> 
+                                    O endereço de email é obrigatório
+                                  </div>
+                                  
+                                  <div *ngIf="registerForm.get('email').hasError('email') 
+                                  && registerForm.get('email').touched" class="invalid-feedback"
+                                  class="invalid-feedback">
+                                  O email deve ser válido
+                                </div>
+                                </div>
+                                </div>
+                            </tab>
+                            <tab>
+                              <ng-template tabHeading><i class="icon-pie-chart"></i></ng-template>
+                              TESTE
+                            </tab>
+                          </tabset>
+                        </div>
+                      </div>
+                   
+  
+          
+               
+                
+
+                
                 <!-- <div class="form-group col-md-9">
                   <label>Imagem</label>
                   <table>
@@ -218,44 +402,10 @@
                   Imagem é obrigatório
                   
                 </div>
-                </div> -->
-                </div>  
+                </div></div>   -->
                 
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label>Telefone</label>
-                    <input type="text"
-                    [ngClass]="{'is-invalid': registerForm.get('telefone').errors
-                    && registerForm.get('telefone').touched}"
-                    class="form-control" formControlName="telefone" placeholder="">
-                    <div *ngIf="registerForm.get('telefone').hasError('required') 
-                    && registerForm.get('telefone').touched" class="invalid-feedback">
-                    O telefone é obrigatório
-                  </div>
-                </div>
-                <div class="form-group col-md-8">
-                  <label>Email</label>
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">@</span>
-                    
-                    <input type="text" 
-                    [ngClass]="{'is-invalid': registerForm.get('email').errors
-                    && registerForm.get('email').touched}"
-                    class="form-control" formControlName="email" placeholder="">
-                    <div *ngIf="registerForm.get('email').hasError('required') 
-                    && registerForm.get('email').touched" class="invalid-feedback"
-                    class="invalid-feedback"> 
-                    O endereço de email é obrigatório
-                  </div>
-                  
-                  <div *ngIf="registerForm.get('email').hasError('email') 
-                  && registerForm.get('email').touched" class="invalid-feedback"
-                  class="invalid-feedback">
-                  O email deve ser válido
-                </div>
-                </div>
-                </div>
-                </div> 
+                
+                
                 </form>
           </div>
           
