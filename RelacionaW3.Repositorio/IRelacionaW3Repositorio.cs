@@ -25,12 +25,20 @@ namespace RelacionaW3.Repositorio
 
         Task<User> GetUserAsyncById(int UserId, bool includeAspNetUsers);
 
-        //Eventos
+        //Evento
         Task<Evento[]> GetAllEventoAsyncByTema(string tema, bool includePalestrantes);
 
         Task<Evento[]> GetAllEventoAsync(bool includePalestrantes);
 
         Task<Evento> GetEventoAsyncById(int EventoId, bool includePalestrantes);
+
+        Task<Area[]> GetAllAreaAsyncByNome(string nome, bool includeAreas);
+
+        Task<Area[]> GetAllAreaAsync(bool includeAreas);
+
+        Task<Area> GetAreaAsyncById(int AreaId, bool includeAreas);
+
+    
 
         Task<Palestrante[]> GetAllPalestrantesAsyncByName(string name, bool includeEventos);
 

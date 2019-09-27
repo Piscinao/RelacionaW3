@@ -55,9 +55,9 @@ export class EventoEditComponent implements OnInit {
         .subscribe(
           (evento: Evento) => {
             this.evento = Object.assign({}, evento);
-           this.fileNameToUpdate = evento.imagemURL.toString();
-           this.imagemURL = ` http://localhost:5000/resources/images/${this.evento.imagemURL}?_ts=${this.dataAtual}`;
-           this.evento.imagemURL = ' ';
+          //  this.fileNameToUpdate = evento.imagemURL.toString();
+          //  this.imagemURL = ` http://localhost:5000/resources/images/${this.evento.imagemURL}?_ts=${this.dataAtual}`;
+          //  this.evento.imagemURL = ' ';
           // preenche o formulario
            this.registerForm.patchValue(this.evento);
 
@@ -85,10 +85,10 @@ export class EventoEditComponent implements OnInit {
           this.registerForm = this.fb.group({
             id: [],
               tema: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
-              local: ['', Validators.required],
+              nome: ['', Validators.required],
               dataEvento: ['', Validators.required],
-              imagemURL: [''],
-              qtdPessoas: ['', [Validators.required, Validators.max(120000)]],
+              imagemURL: [],
+              meioDeContato: [],
               telefone: ['', Validators.required],
               email: ['', [Validators.required, Validators.email]],
          lotes: this.fb.array([]) ,
@@ -114,8 +114,8 @@ export class EventoEditComponent implements OnInit {
 
       salvarEvento() {
         this.evento = Object.assign({id: this.evento.id}, this.registerForm.value);
-        this.evento.imagemURL = this.fileNameToUpdate;
-            this.uploadImagem();
+        // this.evento.imagemURL = this.fileNameToUpdate;
+        //     this.uploadImagem();
             this.eventoService.putEvento(this.evento).subscribe(
                 () => {
                     this.showModalAtualizar();

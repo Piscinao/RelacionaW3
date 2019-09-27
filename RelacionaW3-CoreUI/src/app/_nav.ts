@@ -49,6 +49,11 @@ export const navItems: NavData[] = [
     icon: 'icon-note'
   },
   {
+    name: 'Areas',
+    url: '/areas/areas',
+    icon: 'icon-user'
+  },
+  {
     name: 'Usuários',
     url: '/user/user',
     icon: 'icon-user'

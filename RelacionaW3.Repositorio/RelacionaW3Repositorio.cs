@@ -122,6 +122,45 @@ namespace RelacionaW3.Repositorio
             return await query.FirstOrDefaultAsync();
         }
 
+
+//Area
+
+        public async Task<Area[]> GetAllAreaAsync(bool includeAreas)
+        {                                           //se for passado com parametro true vai no IF
+            IQueryable<Area> query = _context.Areas
+            //atribuição
+       
+            ;
+            query = query.AsNoTracking()
+            .OrderBy(c => c.Id);
+
+            return await query.ToArrayAsync();
+        }
+
+        public async Task<Area[]> GetAllAreaAsyncByNome(string nome, bool includeAreas)
+        {
+             IQueryable<Area> query = _context.Areas;
+
+            query = query.AsNoTracking()
+            .Where(c => c.Nome.ToLower().Contains(nome.ToLower()));
+
+            return await query.ToArrayAsync();
+        }
+        public async Task<Area> GetAreaAsyncById(int AreaId, bool includeAreas)
+        {
+            IQueryable<Area> query = _context.Areas;
+
+            query = query.AsNoTracking()
+            .OrderByDescending(c => c.Nome)
+            .Where(c => c.Id == AreaId);
+
+            return await query.FirstOrDefaultAsync();
+        }
+
+
+
+
+
 //Palestrante
        
         public async Task<Palestrante> GetPalestranteAsync(int PalestranteId, bool includeEventos = false)

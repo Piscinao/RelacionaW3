@@ -53,6 +53,7 @@ import { DateTimeFormatPipePipe } from './views/misc/_helps/DateTimeFormatPipe.p
 import { EventosComponent } from './views/eventos/eventos.component';
 import { SafeHtmlPipe } from './views/misc/_helps/safeHtml.pipe';
 import { ApplicationPipesModuleModule } from './views/shared/ApplicationPipesModule/ApplicationPipesModule.module';
+import { NgxCurrencyModule } from 'ngx-currency';
 
 
 
@@ -78,6 +79,7 @@ import { ApplicationPipesModuleModule } from './views/shared/ApplicationPipesMod
     BsDatepickerModule.forRoot(),
     TabsModule.forRoot(),
     NgxMaskModule.forRoot(),
+    NgxCurrencyModule,
     // DateTimeFormatPipePipe,
     ChartsModule
   ],

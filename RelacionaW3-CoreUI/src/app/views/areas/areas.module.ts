@@ -4,37 +4,32 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BsDropdownModule, ModalModule, TooltipModule, TabsModule} from 'ngx-bootstrap';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { EventosRoutingModule } from './eventos-routing.module';
-import { EventosComponent } from './eventos.component';
-import { DateTimeFormatPipePipe } from '../misc/_helps/DateTimeFormatPipe.pipe';
 import { NgxMaskModule } from 'ngx-mask';
-import { EventoEditComponent } from './eventoEdit/eventoEdit.component';
 import { NgxCurrencyModule } from 'ngx-currency';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ApplicationPipesModuleModule } from '../shared/ApplicationPipesModule/ApplicationPipesModule.module';
+import { AreasRoutingModule } from './areas-routing.module';
+import { AreasComponent } from './areas.component';
+import { AppModule } from '../../app.module';
 
 
 
 @NgModule({
     imports: [
         CommonModule,
-        EventosRoutingModule,
+        AreasRoutingModule,
         FormsModule,
         NgxMaskModule.forRoot(),
         NgxCurrencyModule,
-                // AppModule,
+        //  AppModule,
         TabsModule.forRoot(),
-        BsDatepickerModule.forRoot(),
         BsDropdownModule.forRoot(),
         TooltipModule.forRoot(),
         ApplicationPipesModuleModule,
         ModalModule.forRoot(),
-
         ReactiveFormsModule
      ],
     declarations: [
-        EventosComponent,
+        AreasComponent,
         // DateTimeFormatPipePipe
         // EventoEditComponent
     ],
@@ -43,4 +38,4 @@ import { ApplicationPipesModuleModule } from '../shared/ApplicationPipesModule/A
         // EventoEditComponent
     ],
 })
-export class EventosModule {}
+export class AreasModule {}

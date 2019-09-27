@@ -15,10 +15,11 @@ namespace RelacionaW3.Repositorio
         
         public DbSet<Evento> Eventos {get; set;}
 
-
         public DbSet<Palestrante> Palestrantes {get; set;}
 
         public DbSet<User> AspNetUsers {get; }
+
+        public DbSet<Area> Areas {get; set;}
 
         public DbSet<PalestranteEvento> PalestranteEventos {get; set;}
 
