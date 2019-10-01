@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RelacionaW3.Dominio
 {
@@ -10,18 +11,19 @@ namespace RelacionaW3.Dominio
 
         public string Nome { get; set; }
 
-        public DateTime? DataEvento { get; set; }
+        public DateTime DataEvento { get; set; }
 
         public string Tema { get; set; }
 
         public string MeioDeContato{ get; set; }
 
         public string RespostaPadrao {get; set; }
+
         public string Fonte{ get; set; }
 
         public string Classificacao { get; set; }
 
-        public string Caracteristica {get; set; }
+        public string Caracteristica {get; set;}
 
         public string AreaEnvolvida {get; set;}
 
@@ -37,10 +39,21 @@ namespace RelacionaW3.Dominio
 
         public string Lote { get; set; }
 
+
+//ALTERNATIVA TENTATIVA CHAVE ESTRANGEIRA
+        public int? AreaId { get; set; }
+
+        public virtual Area Area { get; set; }
+
+        public List<Area> Areas { get; set; }
+
+
+        // public int AreaId { get; set; }
+        // [ForeignKey("AreaId")]
+        // public Area Area { get; }
+        // public string Area { get; set; }
         public List<Lote> Lotes { get; set; }
-
         public List<RedeSocial> RedesSociais { get; set; }
-
         public List<PalestranteEvento> PalestrantesEventos { get; set; }
     }
 }

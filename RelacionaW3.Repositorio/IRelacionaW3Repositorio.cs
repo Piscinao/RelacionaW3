@@ -15,8 +15,6 @@ namespace RelacionaW3.Repositorio
 
         void DeleteRange<T>(T[] entity) where T : class;
 
-
-
         Task<bool> SaveChangeAsync();
 
         //Users
@@ -37,8 +35,6 @@ namespace RelacionaW3.Repositorio
         Task<Area[]> GetAllAreaAsync(bool includeAreas);
 
         Task<Area> GetAreaAsyncById(int AreaId, bool includeAreas);
-
-    
 
         Task<Palestrante[]> GetAllPalestrantesAsyncByName(string name, bool includeEventos);
 

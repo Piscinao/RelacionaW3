@@ -149,8 +149,6 @@ export class EventoEditComponent implements OnInit {
           });
       }
 
-
-
       criaRedeSocial(redeSocial: any): FormGroup {
           return this.fb.group({
           id: [redeSocial.id],

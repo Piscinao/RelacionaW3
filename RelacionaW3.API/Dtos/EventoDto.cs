@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using RelacionaW3.Dominio;
 
 namespace RelacionaW3.API.Dtos {
     public class EventoDto {
@@ -30,12 +32,17 @@ namespace RelacionaW3.API.Dtos {
 
         public string AreaResponsavel {get; set;}
 
+        // public int AreaId { get; set; }
+        
+        // [ForeignKey("AreaId")]
+        // public Area Area { get; set; }
+       
         public string ImagemURL { get; set; }
 
         [Phone]
         public string Telefone { get; set; }
 
-          public string Celular { get; set; }
+        public string Celular { get; set; }
         //Validação back-end
         //Data annotation validação para o post 
         [EmailAddress]

@@ -45,6 +45,7 @@ namespace RelacionaW3.API.Controllers
 
 
  [HttpGet("Get")]
+  [AllowAnonymous]
   public async Task<IActionResult> Get()
         {
 
@@ -67,7 +68,7 @@ namespace RelacionaW3.API.Controllers
         }
 
         [HttpGet("GetUser")]
-        // [AllowAnonymous]
+        [AllowAnonymous]
         public async Task<IActionResult> GetUser()
         {
             return Ok(new UserDto());
@@ -82,7 +83,7 @@ namespace RelacionaW3.API.Controllers
         // }
 
         [HttpPost("Register")]
-        // [AllowAnonymous]
+        [AllowAnonymous]
         public async Task<IActionResult> Register(UserDto userDto)
         {
            try
@@ -109,7 +110,8 @@ namespace RelacionaW3.API.Controllers
             
         }
 
- [HttpPut("{Userid}")]
+    [HttpPut("{Userid}")]
+     [AllowAnonymous]
         //requisição assincrona
         public async Task<IActionResult> Put(int UserId, UserDto model)
         {
@@ -140,6 +142,7 @@ namespace RelacionaW3.API.Controllers
         }
 
         [HttpDelete("{Userid}")]
+         [AllowAnonymous]
         //requisição assincrona
         public async Task<IActionResult> Delete(int UserId)
         {

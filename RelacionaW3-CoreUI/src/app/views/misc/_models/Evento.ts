@@ -1,13 +1,10 @@
 import { Lote } from './Lote';
 import { RedeSocial } from './RedeSocial';
 import { Palestrante } from './Palestrante';
+import { Area } from './Area';
 
 export class Evento {
     // interface de referencia de um tipo específico
-
-    /**
-     *
-     */
     constructor() {
     }
 
@@ -61,6 +58,8 @@ export class Evento {
     telefone: string;
     celular: string;
     email: string;
+    // areaId: number;
+    // areas: Area[];
     lotes: Lote[];
     redesSociais: RedeSocial[];
     palestranteseventos: Palestrante [];

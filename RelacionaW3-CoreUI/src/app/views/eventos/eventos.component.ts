@@ -1,11 +1,13 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef, BsDatepickerConfig } from 'ngx-bootstrap';
 import Swal from 'sweetalert2';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { defineLocale, BsLocaleService, ptBrLocale} from 'ngx-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { Evento } from '../misc/_models/Evento';
 import { EventoService } from '../misc/_services/evento.service';
+import { AreaService } from '../misc/_services/area.service';
+import { Area } from '../misc/_models/Area';
 defineLocale('pt-br', ptBrLocale);
 
 @Component({
@@ -15,6 +17,7 @@ defineLocale('pt-br', ptBrLocale);
     export class EventosComponent implements OnInit {
     constructor(
         private eventoService: EventoService
+      , private areaService: AreaService
       , private modalService: BsModalService
       , private fb: FormBuilder
       , private localeService: BsLocaleService
@@ -23,8 +26,11 @@ defineLocale('pt-br', ptBrLocale);
             this.maxDate.setDate(this.maxDate.getDate() + 7);
             this.bsRangeValue = [this.bsValue, this.maxDate];
             this.localeService.use('pt-br');
-          
         }
+
+    // get areas(): FormArray {
+    //         return <FormArray>this.registerForm.get('areas');
+    //  }
 
     get filtroLista(): string {
         return this._filtroLista;
@@ -34,12 +40,27 @@ defineLocale('pt-br', ptBrLocale);
         this.eventosFiltrados = this.filtroLista ? this.filtrarEventos(this.filtroLista) : this.eventos;
     }
 
-  
+    get filtroListaArea(): string {
+        return this._filtroListaArea;
+    }
+
+    set filtroListaArea(value: string) {
+        this._filtroListaArea = value;
+        this.areasFiltrados = this.filtroListaArea ? this.filtrarAreas(this.filtroListaArea) : this.areas;
+    }
+
+    numero: number = 1;
 
     modalRef: BsModalRef;
     eventosFiltrados: Evento [];
+    areasFiltrados: Area [];
     eventos: Evento[];
     evento: Evento;
+    // area: Area[];
+    area: Area;
+    areas: Area[];
+    areasEvento: Evento[];
+
     modoSalvar = 'post';
     config = {
         animated: true,
@@ -71,15 +92,16 @@ defineLocale('pt-br', ptBrLocale);
     // Encapsulamento da propriedade
     // n acessa do lado de fora acessa o get ou o set da propriedade
     _filtroLista = '';
+    _filtroListaArea = '';
     fileNameToUpdate: string;
-  
+
     openModal(template: any) {
         this.registerForm.reset();
         template.show(this.config);
         // this.modalRef = this.modalService.show(template);
     }
 
- 
+
 
     openModalDelete(evento: Evento) {
         Swal.fire({
@@ -108,22 +130,6 @@ defineLocale('pt-br', ptBrLocale);
               );
             }
           });
-    }
-
-    obterDataAtual(event) {
-        const date = new Date();
-    
-        const ano = date.getFullYear();
-        const mes = date.getMonth();
-        const dia = date.getDate();
-    
-        let mesValor = '';
-        let diaValor = '';
-    
-        mesValor = ((mes < 10) ? '0' : '').concat(mes.toString())
-        diaValor = ((dia < 10) ? '0' : '').concat(dia.toString())
-    
-        return ano.toString().concat('-').concat(mesValor).concat('-').concat(diaValor);
     }
 
     showModalRegistro() {
@@ -174,6 +180,7 @@ defineLocale('pt-br', ptBrLocale);
     ngOnInit() {
         this.validation();
         this.getEventos();
+        this.getAreas();
     }
 
     alterarImagem() {
@@ -195,7 +202,8 @@ defineLocale('pt-br', ptBrLocale);
             fonte: ['', Validators.required],
             telefone: ['', Validators.required],
             celular: [],
-            email: ['', Validators.required]
+            email: ['', Validators.required],
+            areas: this.fb.array([])
         });
     }
 
@@ -269,6 +277,28 @@ defineLocale('pt-br', ptBrLocale);
         );
     }
 
+    filtrarAreas(filtrarPor: string): Area[] {
+        filtrarPor = filtrarPor.toLocaleLowerCase();
+        return this.areas.filter(
+            area => area.nome.toLocaleLowerCase().indexOf(filtrarPor) !== -1
+        );
+    }
+
+    getAreas() {
+        // requisição na api em ajax
+
+        this.areaService.getAllArea().subscribe(
+            (_areas: Area[]) => {
+                this.areas = _areas;
+                this.areasFiltrados = this.areas;
+                // this.evento.areas.forEach(area => {
+                //     this.areas.push(this.criaArea(area));
+                //   });
+            }, error => {
+                this.toastr.error(`Erro ao tentar carregar areas: ${error}`);
+            });
+    }
+
     getEventos() {
         // requisição na api em ajax
         this.dataAtual = new Date().getMilliseconds().toString();
@@ -276,6 +306,9 @@ defineLocale('pt-br', ptBrLocale);
             (_eventos: Evento[]) => {
                 this.eventos = _eventos;
                 this.eventosFiltrados = this.eventos;
+                // this.evento.areas.forEach(area => {
+                //     this.areas.push(this.criaArea(area));
+                //   });
             }, error => {
                 this.toastr.error(`Erro ao tentar carregar eventos: ${error}`);
             });

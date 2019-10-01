@@ -24,6 +24,8 @@ namespace RelacionaW3.API.Helpers {
         
         });
 
+        CreateMap<AreaDto, Area>();
+
         CreateMap<Lote, LoteDto>().ReverseMap();
       
         CreateMap<RedeSocial, RedeSocialDto>().ReverseMap();

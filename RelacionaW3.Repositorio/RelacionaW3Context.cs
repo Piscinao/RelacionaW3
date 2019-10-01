@@ -47,8 +47,11 @@ namespace RelacionaW3.Repositorio
 
             }
         );
+
+
          modelBuilder.Entity<PalestranteEvento>()
          .HasKey(PE => new {PE.EventoId, PE.PalestranteId});
     }
     }
+    
 }

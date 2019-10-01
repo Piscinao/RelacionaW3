@@ -35,7 +35,7 @@ defineLocale('pt-br', ptBrLocale);
     }
 
     modalRef: BsModalRef;
-    areasFiltrados: Area [];
+    areasFiltrados: Area[];
     areas: Area[];
     area: Area;
     modoSalvar = 'post';
@@ -161,7 +161,6 @@ defineLocale('pt-br', ptBrLocale);
         if (this.registerForm.valid) {
             if (this.modoSalvar === 'post') {
             this.area = Object.assign({}, this.registerForm.value);
-            // this.uploadImagem();
             this.areaService.postArea(this.area).subscribe(
                 (novoArea: Area) => {
                     template.hide();

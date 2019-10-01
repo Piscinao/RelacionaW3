@@ -169,16 +169,12 @@
                                 <input type="text" class="form-control" 
                                 bsDatepicker 
                                 #dp="bsDatepicker"
-                             
-                                [(ngModel)]="dataEvento"
-                                 [bsConfig]="{ dateInputFormat : 'DD/MM/YYYY' }"
+                                  
+                                [bsConfig]="{ dateInputFormat : 'DD/MM/YYYY' }"
                                 [ngClass]="{'is-invalid': registerForm.get('dataEvento').errors
                                 && registerForm.get('dataEvento').touched}"
                                 formControlName="dataEvento" placeholder="">
-                                <div *ngIf="registerForm.get('dataEvento').hasError('required') 
-                                && registerForm.get('dataEvento').touched" class="invalid-feedback">
-                                A data do contato é obrigatória
-                              </div>
+                                
                               </div>
                             </div>
                               </div> 
@@ -288,17 +284,24 @@
                                       Área envolvida é obrigatório.
                                     </div>
                                   </div>
+
+                                  
               
                                   <div class="form-group col-md-4">
                                       <label>Área Responsável</label>
-                                      <select name="fonte" class="form-control" id="areaResponsavel" [ngClass]="{'is-invalid': registerForm.get('areaResponsavel').errors
+                                      <h1 *ngIf="numero === 2">Esse será Exibido</h1>
+                                      <select name="areaResponsavel" class="form-control" id="areaResponsavel"  [ngClass]="{'is-invalid': registerForm.get('areaResponsavel').errors
                                       && registerForm.get('areaResponsavel').touched}"
                                       formControlName="areaResponsavel" placeholder="">
-                                        <option value="Recursos Humanos">RH</option>
-                                        <option value="Comercial">Comercial</option>
+                                        <option *ngFor="let area of areasFiltrados">
+                                          {{area.nome}}
+                                        </option>
+                                        
+                                        
+                                        <!-- <option value="Comercial">Comercial</option>
                                         <option value="Logística">Logística</option>
                                         <option value="Qualidade">Qualidade</option>
-                                        <option value="Conselho">Conselho</option>
+                                        <option value="Conselho">Conselho</option> -->
                                         
                                         <div *ngIf="registerForm.get('areaResponsavel').hasError('required') 
                                         && registerForm.get('areaResponsavel').touched" class="invalid-feedback">

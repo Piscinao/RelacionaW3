@@ -99,7 +99,7 @@ namespace RelacionaW3.API.Controllers
 
         }
 
-        [HttpPost("Area")]
+        [HttpPost]
 
         //requisição assincrona
         //via corpo e n query

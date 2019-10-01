@@ -25,7 +25,6 @@ getAreaById(id: number): Observable<Area> {
 
 }
 
-
 postArea(area: Area) {
   return this.http.post(this.baseURL , area);
   // primeiro parametro do post é a url, e o segundo é o elemento todo copia do register e apssa para area
