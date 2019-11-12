@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Gráfico";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+
+<h2>Total de Respostas por Evento</h2>
+<hr />
+
+<canvas id="myChart"></canvas>
+
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'pie',
+
+        // The data for our dataset
+        data: {
+            labels: [@Html.Raw(ViewBag.Labels)],
+            datasets: [{               
+                backgroundColor: [@Html.Raw(@ViewBag.Cores)],
+                borderColor: '#fff',
+                data: [@Html.Raw(@ViewBag.Valores)]
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+</script>

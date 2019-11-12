@@ -1,0 +1,10 @@
+D:\FILIPE\mystock\SistemaResposta\2-Dominio\bin\Debug\netcoreapp2.2\Dominio.deps.json
+D:\FILIPE\mystock\SistemaResposta\2-Dominio\bin\Debug\netcoreapp2.2\Dominio.runtimeconfig.json
+D:\FILIPE\mystock\SistemaResposta\2-Dominio\bin\Debug\netcoreapp2.2\Dominio.runtimeconfig.dev.json
+D:\FILIPE\mystock\SistemaResposta\2-Dominio\bin\Debug\netcoreapp2.2\Dominio.dll
+D:\FILIPE\mystock\SistemaResposta\2-Dominio\bin\Debug\netcoreapp2.2\Dominio.pdb
+D:\FILIPE\mystock\SistemaResposta\2-Dominio\obj\Debug\netcoreapp2.2\Dominio.csproj.CoreCompileInputs.cache
+D:\FILIPE\mystock\SistemaResposta\2-Dominio\obj\Debug\netcoreapp2.2\Dominio.AssemblyInfoInputs.cache
+D:\FILIPE\mystock\SistemaResposta\2-Dominio\obj\Debug\netcoreapp2.2\Dominio.AssemblyInfo.cs
+D:\FILIPE\mystock\SistemaResposta\2-Dominio\obj\Debug\netcoreapp2.2\Dominio.dll
+D:\FILIPE\mystock\SistemaResposta\2-Dominio\obj\Debug\netcoreapp2.2\Dominio.pdb

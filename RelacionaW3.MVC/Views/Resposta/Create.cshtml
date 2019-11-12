@@ -1,0 +1,170 @@
+﻿@{
+    ViewData["Title"] = "Resposta";
+}
+
+<h2>Resposta</h2>
+<hr />
+
+@model RelacionaW3.MVC.Models.RespostaViewModel
+
+@{
+    var disabled = (Model.Id == null) ? "disabled" : string.Empty;
+}
+<div class="animated fadeIn">
+  <div class="card">
+    <div class="card-header">
+        <i class="fa fa-reply-all"></i> 
+      <strong>Registrar Retorno</strong>
+    </div>
+    <hr>
+<form asp-controller="Resposta" asp-action="Create" method="post">
+    <input type="hidden" asp-for="Id" value="@Model.Id" />
+
+    <div class="form-group">
+        <div class="col-4">
+            <label>Data do Retorno: <span class="text-danger">*</span></label>
+            <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+            <input asp-for="Data" type="date" id="txtDataRetorno"  value="@Model.Data" class="form-control" />
+            <span asp-validation-for="Data"  class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group col-md-5">
+                <label>Resposta: <span class="text-danger">*</span></label>          
+                <textarea asp-for="Descricao" rows="5" type="text" value="@Model.Descricao" class="form-control"  placeholder="Insira a observação"></textarea>
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+     </div>
+
+    <div class="form-group">
+        <div class="col-4">
+            <label>Pessoa: <span class="text-danger">*</span></label>
+             <div class="input-group-prepend">
+             <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
+            <select asp-for="IdPessoa" asp-items="@Model.ListaPessoas" class="form-control" input-lg></select>
+            <span asp-validation-for="IdPessoa" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-4">
+            <label>Eventos: <span class="text-danger">*</span></label>
+            <select id="cboEvento"  asp-items="@Model.ListaEventos" class="form-control" input-lg></select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-4">
+            <label>Prazo Final:</label>
+            <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+            <input asp-for="Prazo" type="date" id="txtPrazoFinal" value="@Model.Prazo" class="form-control" />
+            <span asp-validation-for="Prazo"  class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <div class="form-group col-md-4">
+                                    <label>Satisfação do Retorno:</label>
+                                      <select asp-for="VerificaRetorno" value="@Model.VerificaRetorno" class="form-control">
+                                    <span asp-validation-for="VerificaRetorno" class="text-danger"></span>
+                                      <option value="Selecionar">Selecionar</option>
+                                      <option value="Sim">Sim</option>
+                                      <option value="Não">Não</option>
+                                      
+                                      
+                                    </select>
+           
+                  
+                                  </div>
+         <div class="form-group col-md-5">
+                <label >Observações:</label>
+                                       
+                <textarea asp-for="Observacoes" rows="5" type="text" value="@Model.Observacoes" class="form-control"  placeholder="Insira a observação"></textarea>
+                <span asp-validation-for="Observacoes" class="text-danger"></span>
+          </div>
+
+        <div class="col-md-2">
+            <br />
+            <button type="button" class="btn btn-info" onclick="AddEvento()">Adiconar</button>
+            <br />
+        </div>        
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead class="thread-inverse">
+                    <tr style="background-color:#f6f6f6;">
+                        <th>Evento</th>
+                        <th>TESTE</th>
+                        <th>TESTE</th>
+                        <th>TESTE</th>
+                    </tr>
+                </thead>
+                <tbody id="gridEventos"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <textarea asp-for="JsonEventos" id="txtJsonEventos" class="col" style="display:none;"></textarea>
+
+    <br />
+   <div class="card-footer">
+
+        <button type="button" class="btn btn-info" onclick="Novo()">Limpar</button>
+        <button type="submit" class="btn btn-success"><i class="fa fa-check"></i>Gravar</button>
+        <button type="button" class="btn btn-warning" onclick="Listagem()">Voltar</button>
+        <button type="button" class="btn btn-danger" onclick="Excluir(@Model.Id)" @disabled><i class="fa fa-ban"></i>Excluir</button>
+       
+      </div>
+</form>
+
+ </div>
+  </div>
+<script>
+    var Items = new Object();
+    Items.Eventos = new Array();
+    var gridEventos = document.getElementById("gridEventos");
+
+    function AddEvento() {
+        var IdEvento = document.getElementById("cboEvento");
+        var DataRetorno = document.getElementById("txtDataRetorno").value;
+        var PrazoFinal = document.getElementById("txtPrazoFinal").value;
+      
+
+        Items.Eventos.push({
+            "IdEvento": IdEvento.value,
+            "DataRetorno": DataRetorno,
+            "PrazoFinal": PrazoFinal
+          
+        });
+
+        document.getElementById("txtJsonEventos").value = JSON.stringify(Items.Eventos);
+
+        var linhaGrid =
+            "<tr id='" + IdEvento.value + "'>" +
+            "<td>" + IdEvento.options[IdEvento.selectedIndex].text + "</td>" +
+            "<td>" + DataRetorno + "</td>" +
+            "<td>" + PrazoFinal + "</td>" +
+            "</tr>";
+
+        gridEventos.innerHTML += linhaGrid;
+
+        document.getElementById("cboEvento").selectedIndex = -1;            
+    }
+
+    function Novo() {
+        Request("Create");
+    }
+    function Listagem() {
+        Request("");
+    }
+    function Excluir(Id) {
+        Request("Excluir\\" + Id);
+    }
+    function Request(request) {
+        window.location = window.origin + "\\Resposta\\" + request;
+    }
+</script>

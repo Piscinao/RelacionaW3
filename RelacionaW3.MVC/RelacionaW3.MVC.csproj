@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <UserSecretsId>aspnet-RelacionaW3.MVC-5CEE7911-C4B5-4DBE-B058-E8DE44E791E7</UserSecretsId>
+    <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+   
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+    <Folder Include="wwwroot\images\vendas\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dominio\Dominio.csproj" />
+    <ProjectReference Include="..\Repositorio\Repositorio.csproj" />
+  </ItemGroup>
+
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>

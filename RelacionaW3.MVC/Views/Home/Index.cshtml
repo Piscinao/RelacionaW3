@@ -1,0 +1,77 @@
+﻿@{
+  ViewData["Title"] = "Home Page";
+}
+
+@using RelacionaW3.MVC.Entidades;
+@model List<Area>;
+
+  <center><h1>MENU - TESTE</h1></center>
+<hr></hr>
+<div class="row" style="text-align:center;">
+  <div class="col-md">
+
+    <div>
+      <a href="../Pessoa/Index"> <img src="~/images/icons/pessoas.png" id="upButton" width="100" height="100" /></a>
+    </div>
+    <span>Cadastro de Pessoas</span>
+  </div>
+
+  <div class="col-md-4">
+
+    <div>
+      <a href="../Area/Index"><img src="~/images/icons/areas.png" id="upButton" width="100" height="100" /></a>
+    </div>
+    <span>Areas</span>
+  </div>
+
+  <div class="col-md-4">
+
+    <div>
+      <a href="../Evento/Index"><img src="~/images/icons/eventos.png" id="upButton" width="100" height="100" /></a>
+    </div>
+    <span>Registrar Evento</span>
+  </div>
+  @*@foreach (var item in Model)
+    {
+      var aux = item.Id + " - " + item.Descricao;
+      <span>@aux</span><br />
+    }*@
+</div>
+
+<br />
+<br />
+
+<div class="row" style="text-align:center;">
+  <div class="col-md-4">
+
+    <div>
+      <a href="../Resposta/Index"> <img src="~/images/icons/respostas.png" id="upButton" width="100" height="100" /></a>
+    </div>
+    <span>Registro de Retorno</span>
+  </div>
+
+  <div class="col-md-4">
+
+    <div>
+      <a href="../Relatorio/Grafico"><img src="~/images/icons/relatorios.png" id="upButton" width="100" height="100" /></a>
+    </div>
+    <span>Relatórios</span>
+  </div>
+
+  <div class="col-md-4">
+
+    <div>
+      <a href="../Configuracao/Index"><img src="~/images/icons/configuracoes.png" id="upButton" width="100" height="100" /></a>
+    </div>
+    <span>Configurações</span>
+  </div>
+  @*@foreach (var item in Model)
+    {
+      var aux = item.Id + " - " + item.Descricao;
+      <span>@aux</span><br />
+    }*@
+</div>
+
+
+
+

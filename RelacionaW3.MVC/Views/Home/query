@@ -1,0 +1,149 @@
+USE [RelacionaW3_TESTE]
+GO
+/****** Object:  Table [dbo].[Area]    Script Date: 25/06/2019 18:28:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Area](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Descricao] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Area] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Pessoa]    Script Date: 25/06/2019 18:28:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Pessoa](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nome] [nvarchar](max) NOT NULL,
+	[CPF] [nvarchar](max) NULL,
+	[CNPJ] [nvarchar](max) NULL,
+	[Tipo] [nvarchar] (max) NULL,
+	[Email] [nvarchar](max) NULL,
+	[Telefone] [nvarchar] (max) NULL,
+	[Celular] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Pessoa] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Evento]    Script Date: 25/06/2019 18:28:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Evento](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Descricao] [nvarchar](max) NULL,
+	[Quantidade] [float] NOT NULL,
+	[DataDeContato] [datetime2](7) NOT NULL,
+	[IdPessoa] [int] NOT NULL,
+	[MeioDeContato] [nvarchar](max) NULL,
+	[Email] [nvarchar](max) NULL,
+	[Telefone] [nvarchar](max) NULL,
+	[Fonte] [nvarchar](max) NULL,
+	[ClassificacaoDeContato] [nvarchar](max) NULL,
+	[EmpresaCliente] [nvarchar](max) NULL,
+	[CNPJ] [nvarchar](max) NULL,
+	[DescritivoDeContato] [nvarchar](max) NULL,
+	[NotaFiscal] [nvarchar](max) NULL,
+	[DescricaoMaterial] [nvarchar](max) NULL,
+	[Evidencias] [nvarchar](max) NULL,
+	[CaracteristicaDoContato] [nvarchar](max) NULL,
+	[AreaEnvolvida] [nvarchar](max) NULL,
+	[RespostaPadrao] [nvarchar](max) NULL,
+	[DataDeEncaminhamento] [nvarchar](max) NULL,
+	[Prazo] [nvarchar](max) NULL,
+	[Valor] [decimal](18, 2) NOT NULL,
+	[IdArea] [int] NOT NULL,
+ CONSTRAINT [PK_Evento] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Usuario]    Script Date: 25/06/2019 18:28:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Usuario](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nome] [nvarchar](max) NULL,
+	[Email] [nvarchar](max) NULL,
+	[Senha] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Usuario] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Resposta]    Script Date: 25/06/2019 18:28:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Resposta](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Data] [datetime2](7) NOT NULL,
+	[Descricao] [nvarchar](max) NULL,
+	[Prazo] [datetime2](7) NOT NULL,
+	[VerificaRetorno] [nvarchar](max) NULL,
+	[Observacoes] [nvarchar](max) NULL,
+	[IdPessoa] [int] NOT NULL,
+	[Total] [decimal](18, 2) NOT NULL,
+ CONSTRAINT [PK_Resposta] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[RespostaEventos]    Script Date: 25/06/2019 18:28:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RespostaEventos](
+	[IdResposta] [int] NOT NULL,
+	[IdEvento] [int] NOT NULL,
+	[Quantidade] [float] NOT NULL,
+	[ValorUnitario] [decimal](18, 2) NOT NULL,
+	[ValorTotal] [decimal](18, 2) NOT NULL,
+ CONSTRAINT [PK_RespostaEventos] PRIMARY KEY CLUSTERED 
+(
+	[IdResposta] ASC,
+	[IdEvento] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Evento]  WITH CHECK ADD  CONSTRAINT [FK_Evento_Area_IdArea] FOREIGN KEY([IdArea])
+REFERENCES [dbo].[Area] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Evento] CHECK CONSTRAINT [FK_Evento_Area_IdArea]
+GO
+ALTER TABLE [dbo].[Resposta]  WITH CHECK ADD  CONSTRAINT [FK_Resposta_Pessoa_IdPessoa] FOREIGN KEY([IdPessoa])
+REFERENCES [dbo].[Pessoa] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Resposta] CHECK CONSTRAINT [FK_Resposta_Pessoa_IdPessoa]
+GO
+ALTER TABLE [dbo].[RespostaEventos]  WITH CHECK ADD  CONSTRAINT [FK_RespostaEventos_Evento_IdEvento] FOREIGN KEY([IdEvento])
+REFERENCES [dbo].[Evento] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[RespostaEventos] CHECK CONSTRAINT [FK_RespostaEventos_Evento_IdEvento]
+GO
+ALTER TABLE [dbo].[RespostaEventos]  WITH CHECK ADD  CONSTRAINT [FK_RespostaEventos_Resposta_IdResposta] FOREIGN KEY([IdResposta])
+REFERENCES [dbo].[Resposta] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[RespostaEventos] CHECK CONSTRAINT [FK_RespostaEventos_Resposta_IdResposta]
+GO

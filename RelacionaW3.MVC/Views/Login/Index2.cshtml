@@ -1,0 +1,92 @@
+﻿@{
+  ViewData["Title"] = "Login";
+  Layout = null;
+}
+
+@model RelacionaW3.MVC.Models.LoginViewModel
+
+
+
+
+<link href="~/lib/@@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+<link href="~/lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+<link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="~/lib/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+<!-- Main styles for this application-->
+<link href="~/css/style.css" rel="stylesheet">
+<link href="~/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+
+<hr>
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body">
+                <div class="form-group">
+
+                  <h1>Login</h1>
+                  <p class="text-muted">Entre com sua conta</p>
+                  <form asp-controller="Login" asp-action="Index" method="post">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="icon-user"></i></span>
+                      </div>
+                      <input asp-for="Email" type="text" class="form-control" placeholder="Email"
+                             name="username">
+
+                      <span asp-validation-for="Email" class="text-danger"></span>
+
+                    </div>
+                    <div class="input-group mb-4">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="icon-lock"></i></span>
+                      </div>
+                      <input asp-for="Senha" type="password" class="form-control" placeholder="Senha" name="password">
+                      <span asp-validation-for="Senha" class="text-danger"></span>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <input type="submit" class="btn btn-primary px-4" value="Entrar"></input>
+                        <span style="color:red">@ViewData["ErroLogin"]</span>
+                      </div>
+                  </form>
+                  <div class="col-6 text-right">
+                    <button type="button" class="btn btn-link px-0">Esqueceu a Senha?</button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+            <div class="card-body text-center">
+              <div>
+
+                <img src="~/images/brand/RELACIONA W3 PNG BRANCA.png" width="280px" class="user-avatar" />
+                @*<img class="mb-4" src="" alt="" width="128" height="128">*@
+                <p></p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  </main>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/popper.js/dist/umd/popper.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/lib/pace-progress/pace.min.js"></script>
+<script src="~/lib/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+<script src="~/lib/@@coreui/coreui/dist/js/coreui.min.js"></script>
+
+

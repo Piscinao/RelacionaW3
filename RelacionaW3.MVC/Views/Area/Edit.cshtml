@@ -1,0 +1,52 @@
+﻿
+@{
+  ViewData["Title"] = "Area";
+}
+
+<h2>Areas</h2>
+<hr />
+
+@model RelacionaW3.MVC.Models.AreaViewModel
+
+<form asp-controller="Area" asp-action="Create" method="post">
+
+  <input type="hidden" asp-for="Id" value="@Model.Id" />
+  <div class="form-group">
+    <div class="col-4">
+      <label>Descrição</label>
+      <input asp-for="Descricao" type="text" value="@Model.Descricao" class="form-control" />
+    </div>
+
+    <br />
+
+    <div class="col">
+      <button typer="button" class="btn btn-info" onclick="New()">Novo</button>
+      <button typer="submit" class="btn btn-success">Salvar</button>
+      <button typer="button" class="btn btn-warning" onclick="List()">Listagem</button>
+      <button typer="button" class="btn btn-danger" onclick="Delete(@Model.Id)">Excluir</button>
+    </div>
+
+
+  </div>
+</form>
+
+<script>
+  function New() {
+    Request("Create");
+
+  }
+
+  function List() {
+    Request("");
+
+  }
+
+  function Delete(Id) {
+    Request("Delete\\" + Id);
+
+  }
+
+  function Request(request) {
+    window.location = window.origin + "\\Area\\" + request;
+  }
+</script>

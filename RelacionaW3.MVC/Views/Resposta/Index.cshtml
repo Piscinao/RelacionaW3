@@ -1,0 +1,142 @@
+﻿@{
+    ViewData["Title"] = "Respostas";
+}
+
+@model List<RelacionaW3.MVC.Models.RespostaViewModel>;
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> 
+        <div class="card-header-actions">
+          
+        </div>
+      </div>
+      <div class="card-body">
+
+<h2>Respostas</h2>
+ <button type="submit" class="btn btn btn-primary btn-3d" 
+                onclick="Create()">
+          <i class="fa fa-plus"></i> Registrar
+        </button>
+        <button type="reset" class="btn btn btn-info btn-3d" onclick="Return()"><i class="fa fa-arrow-left"></i> Voltar</button>
+
+<hr />
+
+<table id="dataTable" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr style="background-color:#f6f6f6">
+            <th>Código</th>
+            <th>Data</th>
+            <th>Pessoa</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr onclick="Editar(@item.Id)" style="cursor:pointer;">
+            <td>@item.Id</td>
+            <td>@item.Data.ToString().Substring(0, 10)</td>
+            <td>@item.IdPessoa</td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+<br />
+
+ </div>
+    </div>
+  </div>
+</div>
+
+<!-- 
+<div class="card-footer">
+        <button type="submit" class="btn btn btn-primary btn-3d" 
+                onclick="Create()">
+          <i class="fa fa-plus"></i> Registrar
+        </button>
+        <button type="reset" class="btn btn btn-info btn-3d" onclick="Return()"><i class="fa fa-arrow-left"></i> Voltar</button>
+</div> -->
+
+@section scripts
+{
+    <script>
+        $(document)
+            .ready(function () {
+
+                $('#dataTable')
+                    .DataTable({
+                        "order": [],
+                        "responsive": true,
+                        "columnDefs": [
+                            {
+                                "targets": 'no-sort',
+                                "orderable": false
+                            }
+                        ],
+                        "oLanguage": {
+                            "sProcessing": "Aguarde enquanto os dados são carregados ...",
+                            "sLengthMenu": "Mostrar _MENU_ registros por página",
+                            "sZeroRecords": "Nenhum registro correspondente ao critério encontrado",
+                            "sInfoEmpty": "Exibindo 0 a 0 de 0 registros",
+                            "sInfo": "Exibindo de _START_ a _END_ de _TOTAL_ registros",
+                            "sInfoFiltered": "",
+                            "sSearch": "Procurar",
+                            "oPaginate": {
+                                "sFirst": "Primeiro",
+                                "sPrevious": "Anterior",
+                                "sNext": "Próximo",
+                                "sLast": "Último"
+                            }
+                        },
+                        "stateSave": true,
+                        "orderCellsTop": true,
+                        //initComplete: function () {
+                        //    this.api().columns([0]).every(function () {
+                        //        var column = this;
+                        //        var select = $('<select class="form-control"><option value=""></option></select>')
+                        //            .appendTo($(column.footer()).empty())
+                        //            .on('change',
+                        //                function () {
+                        //                    var val = $.fn.dataTable.util.escapeRegex(
+                        //                        $(this).val()
+                        //                    );
+
+                        //                    column
+                        //                        .search(val ? '^' + val + '$' : '', true, false)
+                        //                        .draw();
+                        //                });
+
+                        //        column.data().unique().sort().each(function (d, j) {
+                        //            if (d.length > 40) {
+                        //                d = $(d).text();
+                        //            }
+                        //            select.append('<option value="' + d + '">' + d + '</option>');
+                        //        });
+                        //    });
+                        //    $('#tableDataFiltro tfoot tr').insertAfter($('#tableDataFiltro thead tr'));
+                        //}
+                    });
+            });
+
+  </script>
+
+
+    <script>
+    function Editar(Id) {
+        window.location = window.origin + "\\Resposta\\Create\\" + Id;
+    }
+
+    function Create() {
+        window.location = window.origin + "\\Resposta\\Create";
+    }
+
+     function Return() {
+        window.location = window.origin + "\\Home\\";
+    }
+</script>
+
+}
+

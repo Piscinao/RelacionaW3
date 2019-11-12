@@ -1,0 +1,224 @@
+﻿@{
+    ViewData["Title"] = "Pessoa";
+}
+
+<h2>Pessoa</h2>
+<hr />
+
+@model RelacionaW3.MVC.Models.PessoaViewModel
+
+@{
+    var disabled = (Model.Id == null) ? "disabled" : string.Empty;
+}
+
+<div class="animated fadeIn">
+  <div class="card">
+    <div class="card-header">
+    <i class="fa fa-address-card-o"></i> 
+      <strong>Cadastrar Pessoa </strong>
+    </div>
+    <div class="card-body">
+      <form asp-controller="Pessoa" asp-action="Create" method="post">
+    <input type="hidden" asp-for="Id" value="@Model.Id" />
+
+    <div class="form-group">
+        
+        <div class="col-4">
+            <label>Nome do contato: <span class="text-danger">*</span></label>
+            <div class="input-group-prepend">
+             <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
+            <input asp-for="Nome" type="text" value="@Model.Nome" class="form-control" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+    </div>
+                                  
+     <div class="form-group col-md-4">
+      <label>Classificação do contato: <span class="text-danger">*</span></label>
+        <select asp-for="Classificacao" value="@Model.Classificacao" class="form-control">
+        <span asp-validation-for="Classificacao" class="text-danger"></span>
+               <option value="Selecionar">Selecionar</option>
+               <option value="Cliente">Cliente</option>
+               <option value="Representatnte">Representante</option>
+               <option value="Comunidade">Comunidade</option>
+               <option value="Colaborador">Colaborador</option>
+               <option value="Prestador de Serviço">Prestador de Serviço</option>
+               <option value="Fornecedor">Fornecedor</option>
+
+       </select>
+              
+             </div>
+
+    <div class="form-group">
+        <div class="col-4">
+            <label>Empresa:  <span class="text-danger">*</span></label>
+            <input asp-for="Empresa" type="text" value="@Model.Empresa" class="form-control" />
+            <span asp-validation-for="Empresa" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-4">
+            <label>CNPJ:</label>
+            <input asp-for="CNPJ" type="text" value="@Model.CNPJ" class="cnpj form-control" />
+            <span asp-validation-for="CNPJ" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-4">
+            <label>CPF:</label>
+            <input asp-for="CPF"  type="text" value="@Model.CPF" class="cpf form-control" />
+            <span asp-validation-for="CPF" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-4">
+            <label>Email:</label>
+            <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-envelope-open-o"></i></span>
+            <input asp-for="Email" type="email" value="@Model.Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-4">
+            <label>Celular:</label>
+            <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-mobile-phone"></i></span>
+            <input asp-for="Celular" type="text" value="@Model.Celular" class="celular form-control" />
+            <span asp-validation-for="Celular" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-4">
+            <label>Telefone:</label>
+            <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-phone"></i></span>
+            <input asp-for="Telefone" type="text" value="@Model.Telefone"  class="telefone form-control" />
+            <span asp-validation-for="Telefone" class="text-danger"></span>
+        </div>
+    </div>
+
+    <br />
+
+      <div class="card-footer">
+
+        <button type="button" class="btn btn-info" onclick="Novo()">Limpar</button>
+        <button type="submit" class="btn btn-success"><i class="fa fa-check"></i>Gravar</button>
+        <button type="button" class="btn btn-warning" onclick="Listagem()">Voltar</button>
+        <button type="button" class="btn btn-danger" onclick="Excluir(@Model.Id)" @disabled><i class="fa fa-ban"></i>Excluir</button>
+       
+      </div>
+    </form>
+
+    </div>
+  </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+
+<script>
+    jQuery("input.telefone")
+        .mask("(99) 9999-999?9")
+        .focusout(function (event) {  
+            var target, phone, element;  
+            target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
+            phone = target.value.replace(/\D/g, '');
+            element = $(target);  
+            element.unmask();  
+            if(phone.length > 10) {  
+                element.mask("(99) 99999-999?9");  
+            } else {  
+                element.mask("(99) 9999-9999?9");  
+            }  
+        });
+
+        jQuery("input.celular")
+        .mask("(99) 99999-999?9")
+        .focusout(function (event) {  
+            var target, phone, element;  
+            target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
+            phone = target.value.replace(/\D/g, '');
+            element = $(target);  
+            element.unmask();  
+            if(phone.length > 10) {  
+                element.mask("(99) 99999-999?9");  
+            } else {  
+                element.mask("(99) 9999-9999?9");  
+            }  
+        });
+
+        jQuery("input.cnpj")
+        .mask("99.999.999/9999-99")
+        .focusout(function (event) {  
+            var target, cnpj, element;  
+            target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
+            cnpj = target.value.replace(/\D/g, '');
+            element = $(target);  
+            element.unmask();  
+            if(cnpj.length < 11) {  
+                element.mask("99.999.999/9999-99");  
+            } else if(cnpj.length >= 11) {  
+                element.mask("99.999.999/9999-99");  
+            }  
+        });
+
+        jQuery("input.cpf")
+        .mask("999.999.999-99")
+        .focusout(function (event) {  
+            var target, cpf, element;  
+            target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
+            cpf = target.value.replace(/\D/g, '');
+            element = $(target);  
+            element.unmask();  
+            if(cpf.length < 11) {  
+                element.mask("999.999.999-99");  
+            } else if(cpf.length >= 11) {  
+                element.mask("99.999.999/9999-99");  
+            }  
+        });
+
+    $("#cpfcnpj").keydown(function(){
+    try {
+    	$("#cpfcnpj").unmask();
+    } catch (e) {}
+    
+    var tamanho = $("#cpfcnpj").val().length;
+	
+    if(tamanho < 11){
+        $("#cpfcnpj").mask("999.999.999-99");
+    } else if(tamanho >= 11){
+        $("#cpfcnpj").mask("99.999.999/9999-99");
+    }
+    
+    // ajustando foco
+    var elem = this;
+    setTimeout(function(){
+    	// mudo a posição do seletor
+    	elem.selectionStart = elem.selectionEnd = 10000;
+    }, 0);
+    // reaplico o valor para mudar o foco
+    var currentValue = $(this).val();
+    $(this).val('');
+    $(this).val(currentValue);
+});
+     
+</script>
+
+<script>
+    function Novo() {
+        Request("Create");
+    }
+    function Listagem() {
+        Request("");
+    }
+    function Excluir(Id) {
+        Request("Excluir\\" + Id);
+    }
+    function Request(request) {
+        window.location = window.origin + "\\Pessoa\\" + request;
+    }
+</script>
