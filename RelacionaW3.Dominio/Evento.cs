@@ -10,10 +10,6 @@ namespace RelacionaW3.Dominio
 
         public string Local { get; set; }
 
-        public string Local2 { get; set; }
-
-        public string Local3 { get; set; }
-
         public DateTime DataEvento { get; set; }
 
         public string Tema { get; set; }
