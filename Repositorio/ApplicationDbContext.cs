@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Repositorio.Contexto
 {
+    // Teste dbcontext com identity
     public class ApplicationDbContext : IdentityDbContext
     {
         public DbSet<Area> Area { get; set; }
