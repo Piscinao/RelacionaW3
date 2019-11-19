@@ -17,7 +17,7 @@ namespace Dominio.Servicos
             RepositorioArea = repositorioArea;
         }
 
-        // Representa o insert da area
+        // Representa o insert da area Passa a entidade como parametro
         public void Create(Area area)
         {
             RepositorioArea.Create(area);

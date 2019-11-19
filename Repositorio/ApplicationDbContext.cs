@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RelacionaW3.Dominio.Entidades;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Repositorio.Contexto
 {
     // Teste dbcontext com identity
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext <IdentityUser>
     {
         public DbSet<Area> Area { get; set; }
         public DbSet<Evento> Evento { get; set; }

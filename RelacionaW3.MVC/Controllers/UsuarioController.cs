@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace RelacionaW3.MVC.Controllers
 {
+    [Authorize]
     [Route("Usuario")]
     public class UsuarioController : Controller
     {

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Aplicacao.Servico.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RelacionaW3.MVC.Models;
 
 namespace RelacionaW3.Controllers
 {
-
+    [Authorize]
     public class PessoaController : Controller
     {
         readonly IServicoAplicacaoPessoa ServicoAplicacaoPessoa;

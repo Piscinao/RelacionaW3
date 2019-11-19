@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Repositorio.Contexto;
+
 using Repositorio.Entidades;
 using Aplicacao.Servico.Interfaces;
 using Aplicacao.Servico;
@@ -21,6 +21,7 @@ using Dominio.Servicos;
 using Dominio.Repositorio;
 using RelacionaW3.Dominio.Entidades;
 using RelacionaW3.MVC.Entidades;
+using Repositorio.Contexto;
 
 namespace RelacionaW3.MVC
 {
@@ -133,8 +134,8 @@ namespace RelacionaW3.MVC
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseSession();  
-            // app.UseAuthentication();
+            app.UseSession();
+            app.UseAuthentication();
             
             // app.UseAuthentication();
             

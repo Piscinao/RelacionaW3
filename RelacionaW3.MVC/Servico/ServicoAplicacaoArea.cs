@@ -40,6 +40,7 @@ namespace Aplicacao.Servico
         {
             var registro = ServicoArea.CarregarRegistro(idArea);
 
+            // Maepamento do objeto que recebeu para o objeto que queira utilzar
             AreaViewModel area = new AreaViewModel()
             {
                 Id = registro.Id,
@@ -75,10 +76,11 @@ namespace Aplicacao.Servico
 
         public IEnumerable<AreaViewModel> Listagem()
         {
-            // variavel que busca a listagem da interface
+            // variavel que busca a listagem da interface pelo dominio
+            // Dominio que retorna o objeto
             var lista = ServicoArea.Listagem();
 
-            // Retorna em uma lista
+            // Retorna em uma lista via viewmodel
             List<AreaViewModel> listaArea = new List<AreaViewModel>();
             
             // loop 
