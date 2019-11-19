@@ -431,3 +431,4 @@ C:\Projetos\RelacionaW3-BETA-RAZOR\RelacionaW3.MVC\obj\Debug\netcoreapp2.2\Razor
 C:\Projetos\RelacionaW3-BETA-RAZOR\RelacionaW3.MVC\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
 C:\Projetos\RelacionaW3-BETA-RAZOR\RelacionaW3.MVC\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Projetos\RelacionaW3-BETA-RAZOR\RelacionaW3.MVC\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Projetos\RelacionaW3-BETA-RAZOR\relacionaw3.mvc\obj\Debug\netcoreapp2.2\Razor\Views\Login\Login.cshtml.g.cs
