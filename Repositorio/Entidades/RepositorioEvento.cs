@@ -15,6 +15,11 @@ namespace Repositorio.Entidades
         {  //Area
             return DbSetContext.Include(x => x.Area).Include(x => x.Pessoa).AsNoTracking().ToList();
            
-       }
+        }
+
+        public override Evento Read(int id)
+        {  
+            return DbSetContext.Where(x => x.Id == id).Include(x => x.Area).Include(x => x.Pessoa).AsNoTracking().FirstOrDefault();
+        }
 }
 }

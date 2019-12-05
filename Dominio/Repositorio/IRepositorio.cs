@@ -11,5 +11,6 @@ namespace Dominio.Repositorio
         TEntidade Read(int id);
         void Delete(int id);
         IEnumerable<TEntidade> Read();
+
     }
 }

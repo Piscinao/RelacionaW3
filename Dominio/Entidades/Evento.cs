@@ -24,7 +24,7 @@ namespace RelacionaW3.Dominio.Entidades
         // public DateTime DataEncaminhamento {get; set;}
         // public DateTime Prazo {get; set;} 
         public decimal Valor { get; set; }
-        public string Status { get; set;}
+        public string Status { get; set; }
 
         [ForeignKey("Area")]
         public int IdArea { get; set; }

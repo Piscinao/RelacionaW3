@@ -8,5 +8,7 @@ namespace Dominio.Repositorio
     public interface IRepositorioEvento : IRepositorio<Evento>
     {
         new IEnumerable<Evento> Read();
+
+        new Evento Read(int id);
     }
 }

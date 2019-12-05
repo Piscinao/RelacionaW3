@@ -30,13 +30,7 @@
         </div>
     </div>
 
-    <div class="form-group col-md-5">
-                <label>Resposta: <span class="text-danger">*</span></label>          
-                <textarea asp-for="Descricao" rows="5" type="text" value="@Model.Descricao" class="form-control"  placeholder="Insira a observação"></textarea>
-                <span asp-validation-for="Descricao" class="text-danger"></span>
-     </div>
-
-    <div class="form-group">
+     <div class="form-group">
         <div class="col-4">
             <label>Pessoa: <span class="text-danger">*</span></label>
              <div class="input-group-prepend">
@@ -53,6 +47,15 @@
         </div>
     </div>
 
+
+    <div class="form-group col-md-5">
+                <label>Resposta: <span class="text-danger">*</span></label>          
+                <textarea asp-for="Descricao" rows="5" type="text" value="@Model.Descricao" class="form-control"  placeholder="Insira a observação"></textarea>
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+     </div>
+
+   
+
     <div class="form-group">
         <div class="col-4">
             <label>Prazo Final:</label>
@@ -67,8 +70,8 @@
 
         <div class="form-group col-md-4">
                                     <label>Satisfação do Retorno:</label>
-                                      <select asp-for="VerificaRetorno" value="@Model.VerificaRetorno" class="form-control">
-                                    <span asp-validation-for="VerificaRetorno" class="text-danger"></span>
+                                      <select asp-for="VerificaRetorno" id="txtVerificaRetorno" value="@Model.VerificaRetorno" class="form-control">
+                                      <span asp-validation-for="VerificaRetorno" class="text-danger"></span>
                                       <option value="Selecionar">Selecionar</option>
                                       <option value="Sim">Sim</option>
                                       <option value="Não">Não</option>
@@ -87,7 +90,7 @@
 
         <div class="col-md-2">
             <br />
-            <button type="button" class="btn btn-info" onclick="AddEvento()">Adiconar</button>
+            <button type="button" class="btn btn-info" onclick="AddEvento()">Adicionar</button>
             <br />
         </div>        
     </div>
@@ -98,9 +101,9 @@
                 <thead class="thread-inverse">
                     <tr style="background-color:#f6f6f6;">
                         <th>Evento</th>
-                        <th>TESTE</th>
-                        <th>TESTE</th>
-                        <th>TESTE</th>
+                        <th>Data do retorno</th>
+                        <th>Prazo final</th>
+                        <th>Satisfação de retorno</th>
                     </tr>
                 </thead>
                 <tbody id="gridEventos"></tbody>
@@ -132,12 +135,14 @@
         var IdEvento = document.getElementById("cboEvento");
         var DataRetorno = document.getElementById("txtDataRetorno").value;
         var PrazoFinal = document.getElementById("txtPrazoFinal").value;
+        var VerificaRetorno = document.getElementById("txtVerificaRetorno").value;
       
 
         Items.Eventos.push({
             "IdEvento": IdEvento.value,
             "DataRetorno": DataRetorno,
-            "PrazoFinal": PrazoFinal
+            "PrazoFinal": PrazoFinal,
+            "VerificaRetorno": VerificaRetorno
           
         });
 
@@ -148,6 +153,7 @@
             "<td>" + IdEvento.options[IdEvento.selectedIndex].text + "</td>" +
             "<td>" + DataRetorno + "</td>" +
             "<td>" + PrazoFinal + "</td>" +
+            "<td>" + VerificaRetorno + "</td>" +
             "</tr>";
 
         gridEventos.innerHTML += linhaGrid;

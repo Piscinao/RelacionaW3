@@ -12,6 +12,8 @@ namespace RelacionaW3.MVC
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+
+                .UseStartup<Startup>()
+                .UseIISIntegration();
     }
 }

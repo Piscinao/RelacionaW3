@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Eventos";
+    
 }
 
 @model List<RelacionaW3.MVC.Models.EventoViewModel>;
@@ -24,6 +25,11 @@
 
 <hr />
 
+
+
+
+
+
 <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
     <thead>
         <tr style="background-color:#f6f6f6">
@@ -43,7 +49,8 @@
 
         @foreach (var item in Model)
         {
-            <tr onclick="Editar(@item.Id)" style="cursor:pointer;">
+            <!-- <tr onclick="Editar(@item.Id)" style="cursor:pointer;"> -->
+            <tr  style="cursor:pointer;">
                 <td>@item.Id</td>
                 <td>@item.Descricao</td>
                 <td>@item.DescricaoArea</td>
@@ -52,42 +59,47 @@
                 <!-- <td>@item.Caracteristica</td> -->
                 <td>@item.NomePessoa</td>
                  
-                <td style="vertical-align: middle;text-align: center">
-                        @if (item.Status == "Pendente")
+                 <td style="vertical-align: middle;text-align: center">
+                        @if (item.Status == "2")
                         {
-                            <span class="badge badge-success float-right">Pendente</span>
+                            <span class="badge badge-success float-right">Concluído</span>
                         }
-                        else if (item.Status == "Em análise")
+                        else if (item.Status == "1")
                         {
-                            <span class="label label-info">Em análise</span>
+                            <span class="badge badge-info float-right">Em análise</span>
                         }
-                        else if (item.Status == "Aguardando")
+                        else if (item.Status == "4")
                         {
                             <span class="label label-warning">Aguardando</span>
                         }
-                        else if (item.Status == "Concluído")
+                        else if (item.Status == "6")
                         {
-                            <span class="label label-success">Concluído</span>
+                            <span class="badge badge-suce">Concluído</span>
                         }
-                    </td>
+                    </td> 
                
             
                 <td>
               <div class="btn-group">
-                <button class="btn btn-sm btn-success" 
+                <button onclick="Editar(@item.Id)" class="btn btn-sm btn-success" 
                 data-toggle="tooltip" data-placement="top" title="Editar" >
                 <i class="fa fa-edit"></i>
-              </button>    
-              <button class="btn btn-sm btn-danger"
+              </button> 
+              <button onclick="Details(@item.Id)" class="btn btn-sm btn-info"
+              data-toggle="tooltip" data-placement="top" title="Detalhes" >
+              <i class="fa fa-book"></i>   
+            </button>    
+              <button onclick="ExibirModal(@item.Id, '@item.Descricao')" class="btn btn-sm btn-danger"
               data-toggle="tooltip" data-placement="top" title="Excluir" >
               <i class="fa fa-eraser"></i>   
             </button> 
+            
           </div>
         
         
-          <a [routerLink]= "['/evento', evento.id, 'edit']" tooltip="Edição Detalhada" class="btn btn-sm btn-warning">
+          <!-- <a [routerLink]= "['/evento', evento.id, 'edit']" tooltip="Edição Detalhada" class="btn btn-sm btn-warning">
             <i class="fa fa-edit"></i>
-          </a>
+          </a> -->
 
         </td>
             </tr>
@@ -100,9 +112,10 @@
   </div>
 </div>
 
+
 @section scripts
 {
-     
+
     <script>
         $(document)
             .ready(function () {
@@ -134,35 +147,44 @@
                         },
                         "stateSave": true,
                         "orderCellsTop": true,
-                        //initComplete: function () {
-                        //    this.api().columns([0]).every(function () {
-                        //        var column = this;
-                        //        var select = $('<select class="form-control"><option value=""></option></select>')
-                        //            .appendTo($(column.footer()).empty())
-                        //            .on('change',
-                        //                function () {
-                        //                    var val = $.fn.dataTable.util.escapeRegex(
-                        //                        $(this).val()
-                        //                    );
-
-                        //                    column
-                        //                        .search(val ? '^' + val + '$' : '', true, false)
-                        //                        .draw();
-                        //                });
-
-                        //        column.data().unique().sort().each(function (d, j) {
-                        //            if (d.length > 40) {
-                        //                d = $(d).text();
-                        //            }
-                        //            select.append('<option value="' + d + '">' + d + '</option>');
-                        //        });
-                        //    });
-                        //    $('#tableDataFiltro tfoot tr').insertAfter($('#tableDataFiltro thead tr'));
-                        //}
                     });
             });
 
   </script>
+
+
+    <script>
+    function ExibirModal(id) {
+    Swal.fire({
+         title: 'Você tem certeza?',
+         text: "Esta ação não poderá ser desfeita!",
+         icon: 'warning',
+         showCancelButton: true,
+         confirmButtonColor: '#3085d6',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Sim, excluir!',
+         cancelButtonText: 'Cancelar'
+    }).then((result) => {
+       if (result.value) {
+         $.ajax({
+            method: "GET",
+            url: "/Evento/Excluir",
+            data: { id: id },
+            success: function () {
+              Swal.fire(
+               'Excluído!',
+               'O item foi excluído com sucesso.',
+               'success'
+               )
+            //location.reload();
+        
+           dataTable.reload();
+                    }
+        });
+    
+  }
+})}
+ </script>
 
 
 
@@ -172,6 +194,9 @@
     }
     function Create() {
         window.location = window.origin + "\\Evento\\Create\\";
+    }
+    function Details(Id) {
+        window.location = window.origin + "\\Evento\\Details\\" + Id;
     }
     function Excluir(Id) {
          window.location = window.origin + "\\Evento\\Excluir\\" + Id;

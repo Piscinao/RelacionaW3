@@ -38,7 +38,7 @@
         <tr onclick="Editar(@item.Id)" style="cursor:pointer;">
             <td>@item.Id</td>
             <td>@item.Data.ToString().Substring(0, 10)</td>
-            <td>@item.IdPessoa</td>
+            <td>@item.NomePessoa</td>
 
         </tr>
         }
@@ -122,6 +122,38 @@
             });
 
   </script>
+
+    <script>
+    function ExibirModal(id) {
+    Swal.fire({
+         title: 'Você tem certeza?',
+         text: "Esta ação não poderá ser desfeita!",
+         icon: 'warning',
+         showCancelButton: true,
+         confirmButtonColor: '#3085d6',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Sim, excluir!',
+         cancelButtonText: 'Cancelar'
+    }).then((result) => {
+       if (result.value) {
+         $.ajax({
+            method: "GET",
+            url: "/Resposta/Excluir",
+            data: { id: id },
+            success: function () {
+              Swal.fire(
+               'Excluído!',
+               'O item foi excluído com sucesso.',
+               'success'
+               )
+            //location.reload();
+           dataTable.reload();
+                    }
+        });
+    
+  }
+})}
+ </script>
 
 
     <script>

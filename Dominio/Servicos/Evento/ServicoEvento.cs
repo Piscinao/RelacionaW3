@@ -29,7 +29,7 @@ namespace Dominio.Servicos
         {
             RepositorioEvento.Delete(id);
         }
-
+        
         public IEnumerable<Evento> Listagem()
         {
             return RepositorioEvento.Read();          

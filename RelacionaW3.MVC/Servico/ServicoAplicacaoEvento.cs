@@ -5,8 +5,6 @@ using RelacionaW3.Dominio.Entidades;
 using RelacionaW3.MVC.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Aplicacao.Servico
 {
@@ -56,6 +54,7 @@ namespace Aplicacao.Servico
                 DescricaoMaterial = (string)evento.DescricaoMaterial,
                 Evidencias = (string)evento.Evidencias,
                 Quantidade = evento.Quantidade,
+                Status = "1",
                 // DataEncaminhamento = (DateTime)evento.DataEncaminhamento,
                 // Prazo = (DateTime)evento.Prazo,
                 // Valor = (decimal)evento.Valor,
@@ -90,7 +89,9 @@ namespace Aplicacao.Servico
                 // Prazo = (DateTime)registro.Prazo,
                 Valor = (decimal)registro.Valor,
                 IdPessoa = (int)registro.IdPessoa,
-                IdArea = (int)registro.IdArea
+                IdArea = (int)registro.IdArea,
+                DescricaoArea = registro.Area.Descricao,
+                NomePessoa = registro.Pessoa.Nome
             };
 
             return evento;
@@ -117,7 +118,7 @@ namespace Aplicacao.Servico
                     DataEvento = (DateTime)item.DataEvento,
                     Fonte = (string)item.Fonte,
                     Meio = (string)item.Meio,
-                    Classificacao = (string)item.Classificacao,
+                    Classificacao = (string)item.Pessoa.Classificacao,
                     Caracteristica = (string)item.Caracteristica,
                     Produto = (string)item.Produto,
                     Quantidade = item.Quantidade,

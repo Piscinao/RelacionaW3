@@ -5,8 +5,6 @@ using RelacionaW3.Dominio.Entidades;
 using RelacionaW3.MVC.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Aplicacao.Servico
 {
@@ -54,6 +52,7 @@ namespace Aplicacao.Servico
               
             };
 
+            
             return resposta;
         }
 
@@ -79,12 +78,13 @@ namespace Aplicacao.Servico
                     VerificaRetorno = (string)item.VerificaRetorno,
                     // IdEvento= (int)item.IdEvento,
                     //  DescricaoEvento = item.Evento.Descricao,
+                    NomePessoa = (string)item.Pessoa.Nome,
                     IdPessoa = (int)item.IdPessoa
                 };
 
                 listaResposta.Add(resposta);
             }
-
+            
             return listaResposta;
         }
 

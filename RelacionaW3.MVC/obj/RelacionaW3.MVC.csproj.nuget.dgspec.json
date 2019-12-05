@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\relacionaw3.mvc\\RelacionaW3.MVC.csproj": {}
+    "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\relacionaw3.mvc\\RelacionaW3.MVC.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Dominio\\Dominio.csproj": {
+    "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Dominio\\Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Dominio\\Dominio.csproj",
-        "packagesPath": "C:\\Users\\henrique\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Dominio\\obj\\",
+        "projectPath": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\Dominio.csproj",
+        "packagesPath": "C:\\Users\\pgcit\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\henrique\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pgcit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -62,20 +62,20 @@
         }
       }
     },
-    "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\relacionaw3.mvc\\RelacionaW3.MVC.csproj": {
+    "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\relacionaw3.mvc\\RelacionaW3.MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\relacionaw3.mvc\\RelacionaW3.MVC.csproj",
+        "projectUniqueName": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\relacionaw3.mvc\\RelacionaW3.MVC.csproj",
         "projectName": "RelacionaW3.MVC",
-        "projectPath": "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\relacionaw3.mvc\\RelacionaW3.MVC.csproj",
-        "packagesPath": "C:\\Users\\henrique\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\relacionaw3.mvc\\obj\\",
+        "projectPath": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\relacionaw3.mvc\\RelacionaW3.MVC.csproj",
+        "packagesPath": "C:\\Users\\pgcit\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\relacionaw3.mvc\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\henrique\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pgcit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,11 +88,11 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Dominio\\Dominio.csproj": {
-                "projectPath": "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Dominio\\Dominio.csproj"
+              "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\Dominio.csproj": {
+                "projectPath": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\Dominio.csproj"
               },
-              "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Repositorio\\Repositorio.csproj": {
-                "projectPath": "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Repositorio\\Repositorio.csproj"
+              "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Repositorio\\Repositorio.csproj": {
+                "projectPath": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Repositorio\\Repositorio.csproj"
               }
             }
           }
@@ -154,20 +154,20 @@
         }
       }
     },
-    "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Repositorio\\Repositorio.csproj": {
+    "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Repositorio\\Repositorio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Repositorio\\Repositorio.csproj",
+        "projectUniqueName": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Repositorio\\Repositorio.csproj",
         "projectName": "Repositorio",
-        "projectPath": "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Repositorio\\Repositorio.csproj",
-        "packagesPath": "C:\\Users\\henrique\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Repositorio\\obj\\",
+        "projectPath": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Repositorio\\Repositorio.csproj",
+        "packagesPath": "C:\\Users\\pgcit\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Repositorio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\henrique\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pgcit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -180,8 +180,8 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Dominio\\Dominio.csproj": {
-                "projectPath": "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Dominio\\Dominio.csproj"
+              "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\Dominio.csproj": {
+                "projectPath": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\Dominio.csproj"
               }
             }
           }

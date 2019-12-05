@@ -34,31 +34,81 @@
             <th>Empresa</th>
             <th>E-mail</th>
             <th>Celular</th>
+            <th>Opções</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-        <tr onclick="Editar(@item.Id)" style="cursor:pointer;">
+        <tr  style="cursor:pointer;">
             <td>@item.Id</td>
             <td>@item.Nome</td>
             <td>@item.Classificacao</td>
             <td>@item.Empresa</td>   
             <td>@item.Email</td>
             <td>@item.Celular</td>
+             <td>
+              <div class="btn-group">
+                <button onclick="Editar(@item.Id)" class="btn btn-sm btn-success" 
+                data-toggle="tooltip" data-placement="top" title="Editar" >
+                <i class="fa fa-edit"></i>
+              </button> 
+              <button onclick="Details(@item.Id)" class="btn btn-sm btn-info"
+              data-toggle="tooltip" data-placement="top" title="Detalhes" >
+              <i class="fa fa-book"></i>   
+            </button>    
+              <button onclick="ExibirModal(@item.Id, '@item.Nome')" class="btn btn-sm btn-danger"
+              data-toggle="tooltip" data-placement="top" title="Excluir" >
+              <i class="fa fa-eraser"></i>   
+            </button> 
+            
+          </div>
+        
+        
+          <!-- <a [routerLink]= "['/evento', evento.id, 'edit']" tooltip="Edição Detalhada" class="btn btn-sm btn-warning">
+            <i class="fa fa-edit"></i>
+          </a> -->
+
+        </td>
         </tr>
         }
     </tbody>
 </table>
 <br />
+
+
       
       </div>
     </div>
   </div>
 </div>
 
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btnConfirmar">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 @section scripts
 {
+
+
     <script>
         $(document)
             .ready(function () {
@@ -120,6 +170,40 @@
 
   </script>
 
+   <script>
+    function ExibirModal(id) {
+    Swal.fire({
+         title: 'Você tem certeza?',
+         text: "Esta ação não poderá ser desfeita!",
+         icon: 'warning',
+         showCancelButton: true,
+         confirmButtonColor: '#3085d6',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Sim, excluir!',
+         cancelButtonText: 'Cancelar'
+    }).then((result) => {
+       if (result.value) {
+         $.ajax({
+            method: "GET",
+            url: "/Pessoa/Excluir",
+            data: { id: id },
+            success: function () {
+              Swal.fire(
+               'Excluído!',
+               'O item foi excluído com sucesso.',
+               'success'
+               )
+            //location.reload();
+           dataTable.reload();
+                    }
+        });
+    
+  }
+})}
+ </script>
+
+
+
 <script>
     function Editar(Id) {
         window.location = window.origin + "\\Pessoa\\Create\\" + Id;
@@ -129,9 +213,40 @@
         window.location = window.origin + "\\Pessoa\\Create";
     }
 
+    function Details(Id) {
+        window.location = window.origin + "\\Pessoa\\Details\\" + Id;
+    }
+
+    function Excluir(Id) {
+         window.location = window.origin + "\\Pessoa\\Excluir\\" + Id;
+    }
+
     function Return() {
         window.location = window.origin + "\\Home\\";
     }
+    
 </script>
 
+
+<!-- <script>
+        
+        function ExibirModal(id, nome) {
+            $(".nome").html(nome);
+
+            $("#exampleModal").modal("show");
+
+            $(".btnConfirmar").on('click', function () {
+                $.ajax({
+                    method: "GET",
+                    url: "/Pessoa/Excluir",
+                    data: { id: id },
+                    success: function () {
+                        location.reload();
+                    }
+                });
+            });
+        }
+    </script> -->
+
 }
+

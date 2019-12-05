@@ -25,6 +25,17 @@ namespace RelacionaW3.Controllers
             return View(ServicoAplicacaoPessoa.Listagem());
         }
 
+        public IActionResult Details(int? id)
+        {
+            PessoaViewModel viewModel = new PessoaViewModel();
+
+            if (id != null)
+            {
+                viewModel = ServicoAplicacaoPessoa.CarregarRegistro((int)id);
+            }
+            return View(viewModel);
+        }
+
         [HttpGet]
         public IActionResult Create(int? id)
         {

@@ -36,3 +36,14 @@ C:\Projetos\RelacionaW3-BETA-RAZOR\Repositorio\obj\Debug\netcoreapp2.2\Repositor
 C:\Projetos\RelacionaW3-BETA-RAZOR\Repositorio\obj\Debug\netcoreapp2.2\Repositorio.csproj.CopyComplete
 C:\Projetos\RelacionaW3-BETA-RAZOR\Repositorio\obj\Debug\netcoreapp2.2\Repositorio.dll
 C:\Projetos\RelacionaW3-BETA-RAZOR\Repositorio\obj\Debug\netcoreapp2.2\Repositorio.pdb
+C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Repositorio\bin\Debug\netcoreapp2.2\Repositorio.deps.json
+C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Repositorio\bin\Debug\netcoreapp2.2\Repositorio.dll
+C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Repositorio\bin\Debug\netcoreapp2.2\Repositorio.pdb
+C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Repositorio\bin\Debug\netcoreapp2.2\Dominio.dll
+C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Repositorio\bin\Debug\netcoreapp2.2\Dominio.pdb
+C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Repositorio\obj\Debug\netcoreapp2.2\Repositorio.csprojAssemblyReference.cache
+C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Repositorio\obj\Debug\netcoreapp2.2\Repositorio.AssemblyInfoInputs.cache
+C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Repositorio\obj\Debug\netcoreapp2.2\Repositorio.AssemblyInfo.cs
+C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Repositorio\obj\Debug\netcoreapp2.2\Repositorio.csproj.CopyComplete
+C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Repositorio\obj\Debug\netcoreapp2.2\Repositorio.dll
+C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Repositorio\obj\Debug\netcoreapp2.2\Repositorio.pdb

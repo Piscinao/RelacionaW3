@@ -18,7 +18,7 @@ namespace Repositorio.Entidades
 
         public override IEnumerable<Resposta> Read()
         {  //Area
-            return DbSetContext.Include(x => x.Eventos).AsNoTracking().ToList();
+            return DbSetContext.Include(x => x.Eventos).Include(x => x.Pessoa).AsNoTracking().ToList();
            
        }
        

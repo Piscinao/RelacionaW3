@@ -16,8 +16,12 @@ namespace RelacionaW3.MVC.Models
         [Required(ErrorMessage = "Informe a Pessoa!")]
         public int? IdPessoa { get; set; }
         public IEnumerable<SelectListItem> ListaPessoas { get; set; }
+        public string NomePessoa { get; set; }
+
         // public int? IdEvento { get; set; }
         public IEnumerable<SelectListItem> ListaEventos { get; set; }
+
+        [Required(ErrorMessage = "Informe a Descrição!")]
         public string DescricaoEvento { get; set; }
         public DateTime? Prazo { get; set; }
         public string VerificaRetorno { get; set; }

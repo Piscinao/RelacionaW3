@@ -1,24 +1,15 @@
 ﻿<!DOCTYPE html>
-<!--
-* CoreUI - Free Bootstrap Admin Template
-* @@version v2.0.0
-* @@link https://coreui.io
-* Copyright (c) 2018 creativeLabs Łukasz Holeczek
-* Licensed under MIT (https://coreui.io/license)
-*
-* Adaptated to ASP.NET Core MVC 2.1 by Miguel Veloso
-* http://coderepo.blog
--->
+
 
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
-  <meta name="author" content="Łukasz Holeczek">
+  <meta name="description" content="Software Canal de relacionamento">
+  <meta name="author" content="Henrique Jensen - W3">
   <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-  <title>@ViewData["Title"] - RelacionaW3.Mvc</title>
+  <title>@ViewData["Title"] - RelacionaW3 - Canal de Relacionamento</title>
 
   <!-- Icons-->
   <link href="~/lib/@@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
@@ -45,13 +36,15 @@
     <link href="~/vendors/pace-progress/css/pace.min.css" rel="stylesheet" asp-append-version="true">
     <!-- styles tweaks -->
     <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true">
+    <link rel="stylesheet" href="~/lib/sweetalert2/sweetalert2.min.css">
 
+    <link rel="stylesheet" href="~/lib/toastr/toastr.min.css"/>
    
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" asp-append-version="true">
   </environment>
 
 </head>
-<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show bg-gray-200">
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show bg-gray-250">
 
   <!-- APP-HEADER-->
   <partial name="_app-header" />
@@ -102,12 +95,12 @@
   </div>
   <footer class="app-footer">
     <div>
-      <a href="https://coreui.io">RelacionaW3</a>
+      <a href="#">RelacionaW3</a>
       <span>&copy; 2019 W3-Indústria Metalúrgica.</span>
     </div>
     <div class="ml-auto">
-      <span>Powered by</span>
-      <a href="https://coreui.io">CoreUI</a>
+      <span>Versão de Testes</span>
+      <a href="www.w3.ind.br">1.0</a>
     </div>
   </footer>
 
@@ -122,16 +115,24 @@
             integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
     </script>
   </environment>
-
+  <script src="~/lib/jquery/dist/jquery.min.js"></script>
   <script src="~/lib/popper.js/dist/umd/popper.min.js"></script>
-  <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <script src="~/lib/pace-progress/pace.min.js"></script>
   <script src="~/lib/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
   <script src="~/lib/@@coreui/coreui/dist/js/coreui.min.js"></script>
   <script src="~/js/tooltips.js"></script>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script> -->
+  
    <!-- <script src="~/lib/jquery/jquery-3.3.1.js"></script> -->
   <script src="~/lib/dataTable/jquery.dataTables.min.js"></script>
   <script src="~/lib/dataTable/dataTables.bootstrap4.min.js"></script> 
+  <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+  <script src="~/lib/toastr/toastr.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <!-- <script src="~/js/src/select2/select2.min.js"></script>  -->
 
   <environment include="Development">
@@ -144,6 +145,15 @@
   <!-- VIEW-SCRIPTS -->
   @RenderSection("Scripts", required: false)
   <!-- /VIEW-SCRIPTS -->
+
+  <input type="hidden" id="success"
+           value="@TempData["success"]" />
+<input type="hidden" id="info"   
+           value="@TempData["info"]" />
+<input type="hidden" id="warning"
+           value="@TempData["warning"]" />
+<input type="hidden" id="error"
+           value="@TempData["error"]" />
 
 </body>
 </html>

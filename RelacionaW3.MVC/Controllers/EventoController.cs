@@ -43,6 +43,21 @@ namespace RelacionaW3.Controllers {
             return View (viewModel);
         }
 
+        public IActionResult Details(int? id)
+        {
+            EventoViewModel viewModel = new EventoViewModel();
+
+            if (id != null)
+            {
+                viewModel = ServicoAplicacao.CarregarRegistro((int)id);
+            }
+
+            viewModel.ListaPessoas = ServicoAplicacaoPessoa.ListaPessoasDropDownList ();
+            viewModel.ListaAreas = ServicoAplicacaoArea.ListaAreasDropDownList ();
+
+            return View(viewModel);
+        }
+
         [HttpPost]
         public IActionResult Create (EventoViewModel entidade) {
             if (ModelState.IsValid) {
@@ -52,7 +67,7 @@ namespace RelacionaW3.Controllers {
                 entidade.ListaAreas = ServicoAplicacaoArea.ListaAreasDropDownList ();
                 return View (entidade);
             }
-
+            
             return RedirectToAction ("Index");
         }
 

@@ -4097,23 +4097,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\henrique\\.nuget\\packages\\": {},
+    "C:\\Users\\pgcit\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Repositorio\\Repositorio.csproj",
+      "projectUniqueName": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Repositorio\\Repositorio.csproj",
       "projectName": "Repositorio",
-      "projectPath": "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Repositorio\\Repositorio.csproj",
-      "packagesPath": "C:\\Users\\henrique\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Repositorio\\obj\\",
+      "projectPath": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Repositorio\\Repositorio.csproj",
+      "packagesPath": "C:\\Users\\pgcit\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Repositorio\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\henrique\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pgcit\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4126,8 +4126,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Dominio\\Dominio.csproj": {
-              "projectPath": "C:\\Projetos\\RelacionaW3-BETA-RAZOR\\Dominio\\Dominio.csproj"
+            "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\Dominio.csproj": {
+              "projectPath": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\Dominio.csproj"
             }
           }
         }

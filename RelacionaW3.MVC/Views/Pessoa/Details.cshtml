@@ -1,0 +1,123 @@
+@model RelacionaW3.MVC.Models.PessoaViewModel
+
+@{
+    ViewData["Title"] = "Detalhes da pessoa ";
+}
+
+<div class="collection">
+    <div class="collection-item">
+
+
+    </div>
+    <div>
+    <h5>Dados da Pessoa</h5>
+    <hr />
+    
+    <div class="x_panel">
+    <div class="x_title">
+        <!-- <h2>Detalhes @Model.Id.ToString(): </h2> -->
+        <h2>Detalhes: </h2>
+        <div class="clearfix"></div>
+    </div>
+
+        <button type="reset" class="btn btn btn-info btn-3d" onclick="Return()"><i class="fa fa-arrow-left"></i> Voltar</button>
+
+<hr />
+    <div class="x_content">
+        <table class="table-bordered table-striped table-condensed" style="width: 100%">
+            <tr>
+                <th style="width: 15%; background-color: lightgrey">Nome:</th>
+                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Nome)</th>
+                <th style="width: 15%; background-color: lightgrey">Classificação:</th>
+                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Classificacao)</th>
+            </tr>
+        </table>
+
+        <table class="table-bordered table-striped table-condensed" style="width: 100%">
+            <tr>
+                <th style="width: 15%; background-color: lightgrey">Email:</th>
+                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Email)</th>
+                <th style="width: 15%; background-color: lightgrey">Celular:</th>
+                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Celular)</th>
+            </tr>
+        </table>
+
+        <table class="table-bordered table-striped table-condensed" style="width: 100%">
+            <tr>
+                <th style="width: 15%; background-color: lightgrey">Telefone:</th>
+                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Telefone)</th>
+                <th style="width: 15%; background-color: lightgrey">Empresa:</th>
+                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Empresa)</th>
+            </tr>
+        </table>
+
+        <table class="table-bordered table-striped table-condensed" style="width: 100%">
+            <tr>
+                <th style="width: 15%; background-color: lightgrey">CPF:</th>
+                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.CPF)</th>
+                <th style="width: 15%; background-color: lightgrey">CNPJ:</th>
+                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.CNPJ)</th>
+            </tr>
+        </table>
+        <!-- <table class="table-bordered table-striped table-condensed" style="width: 100%">
+            <tr>
+                <th style="width: 15%; background-color: lightgrey">Endereço IPv4</th>
+                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.CPF)</th>
+                <th style="width: 15%; background-color: lightgrey">Status</th>
+                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Celular)</th>
+            </tr>
+        </table> -->
+   
+   
+        
+    </div>
+</div>
+
+<script>
+    function Return() {
+        window.location = window.origin + "\\Pessoa\\";
+    }
+</script>
+
+
+
+    <!-- <div class="row">
+        <div class="col s4">
+            <p><strong>Nome : </strong>@Model.Nome</p>
+        </div>
+
+        <div class="col s4">
+            <p><strong>CPF : </strong>@Model.CPF</p>
+        </div>
+
+        <div class="col s4">
+            <p><strong>Empresa : </strong>@Model.Empresa</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s4">
+            <p><strong>Teste : </strong>@Model.Telefone</p>
+        </div>
+
+        <div class="col s4">
+            <p><strong>Email : </strong>@Model.Email</p>
+        </div>
+
+        <div class="col s4">
+            <p><strong>Classificacao : </strong>@Model.Classificacao</p>
+        </div>
+    </div>
+</div>
+
+    <div class="row collection-item">
+        <div class="col s6">
+            <p><strong>Nome : </strong>@Model.Nome</p>
+        </div>
+
+        <div class="col s6">
+            <p><strong>Cpf : </strong>@Model.CPF</p>
+        </div>
+    </div>
+</div> -->
+

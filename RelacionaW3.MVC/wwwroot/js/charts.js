@@ -64,10 +64,11 @@ var barChart = new Chart($('#canvas-2'), {
   }
 }); // eslint-disable-next-line no-unused-vars
 
+//Muda Gráfico
 var doughnutChart = new Chart($('#canvas-3'), {
   type: 'doughnut',
   data: {
-    labels: ['Red', 'Green', 'Yellow'],
+    labels: ['TI', 'RH', 'Qualidade'],
     datasets: [{
       data: [300, 50, 100],
       backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
@@ -111,7 +112,7 @@ var radarChart = new Chart($('#canvas-4'), {
 var pieChart = new Chart($('#canvas-5'), {
   type: 'pie',
   data: {
-    labels: ['Red', 'Green', 'Yellow'],
+    labels: ['TI', 'RH', 'Qualidade'],
     datasets: [{
       data: [300, 50, 100],
       backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
@@ -126,10 +127,10 @@ var pieChart = new Chart($('#canvas-5'), {
 var polarAreaChart = new Chart($('#canvas-6'), {
   type: 'polarArea',
   data: {
-    labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue'],
+    labels: ['Pendente', 'Concluído', 'Em análise'],
     datasets: [{
-      data: [11, 16, 7, 3, 14],
-      backgroundColor: ['#FF6384', '#4BC0C0', '#FFCE56', '#E7E9ED', '#36A2EB']
+      data: [11, 16, 7],
+      backgroundColor: ['#FF6384', '#4BC0C0', '#FFCE56']
     }]
   },
   options: {

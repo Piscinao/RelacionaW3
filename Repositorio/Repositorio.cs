@@ -46,11 +46,13 @@ namespace Repositorio
             Db.SaveChanges();
         }
 
-        public TEntidade Read(int id)
+        public virtual TEntidade Read(int id)
         {
             return DbSetContext.Where(x => x.Id == id).FirstOrDefault();
+           
         }
 
+       
         public virtual IEnumerable<TEntidade> Read()
         {
             return DbSetContext.AsNoTracking().ToList();

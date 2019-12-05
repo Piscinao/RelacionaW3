@@ -23,6 +23,7 @@ using RelacionaW3.Dominio.Entidades;
 using RelacionaW3.MVC.Entidades;
 using Repositorio.Contexto;
 
+
 namespace RelacionaW3.MVC
 {
         public class Startup
@@ -77,7 +78,8 @@ namespace RelacionaW3.MVC
                 opcoes.Password.RequiredLength = 6;
                 opcoes.Password.RequiredUniqueChars = 1;
             });
-                
+
+
 
 
             //Padrao de projeto que diz que um classe irá conter apenas uma instância
@@ -136,6 +138,7 @@ namespace RelacionaW3.MVC
             app.UseCookiePolicy();
             app.UseSession();
             app.UseAuthentication();
+          
             
             // app.UseAuthentication();
             

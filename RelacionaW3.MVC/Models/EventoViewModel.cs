@@ -10,10 +10,10 @@ namespace RelacionaW3.MVC.Models
        
         public int? Id { get; set; }
 
-        [Required(ErrorMessage="Informe a Descrição do Evento!")]
+        [Required(ErrorMessage="Informe a descrição do Evento!")]
         public string Descricao { get; set; }
 
-        [Required(ErrorMessage = "Informe a Data da Resposta!")]
+        [Required(ErrorMessage = "Informe a data do Evento!")]
         public DateTime? DataEvento { get; set; }
         public string Fonte { get; set; }
         public string Meio { get; set; }

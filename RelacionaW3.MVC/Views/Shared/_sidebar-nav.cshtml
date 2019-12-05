@@ -2,52 +2,79 @@
   <ul class="nav">
     <li class="nav-item">
       <a class="nav-link" asp-area="" asp-controller="CoreUI" asp-action="Index" asp-route-view="index">
-        <i class="nav-icon icon-speedometer"></i> Dashboard
-        <span class="badge badge-primary">NEW</span>
+        <i class="nav-icon fa fa-desktop"></i>  Dashboard
+        <span class="badge badge-primary">Teste</span>
       </a>
     </li>
     <li class="nav-title">Areas</li>
     <li class="nav-item">
       <a class="nav-link" asp-area="" asp-controller="Area" asp-action="Index" asp-route-view="Listar">
-        <i class="nav-icon icon-drop"></i> Listar
+        <i class="nav-icon fa fa-list-alt"></i> Listar
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" asp-area="" asp-controller="Area" asp-action="Create" asp-route-view="Criar">
-        <i class="nav-icon icon-pencil"></i> Nova 
+        <i class="nav-icon fa fa-pencil-square-o "></i> Nova 
       </a>
     </li>
 
     <li class="nav-title">Eventos</li>
     <li class="nav-item">
       <a class="nav-link" asp-area="" asp-controller="Evento" asp-action="Index" asp-route-view="Listar">
-        <i class="nav-icon icon-drop"></i> Listar
+        <i class="nav-icon fa fa-list-alt"></i> Listar
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" asp-area="" asp-controller="Evento" asp-action="Create" asp-route-view="Criar">
-        <i class="nav-icon icon-pencil"></i> Novo
+        <i class="nav-icon fa fa-pencil-square-o "></i> Novo
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" asp-area="" asp-controller="Resposta" asp-action="Index" asp-route-view="Criar">
+        <i class="nav-icon fa fa-reply-all"></i> Retorno
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" asp-area="" asp-controller="Relatorio" asp-action="Grafico" asp-route-view="Criar">
+        <i class="nav-icon fa fa-pie-chart"></i> Relatório/Gráfico
       </a>
     </li>
     <li class="nav-title">Configurações</li>
     <li class="nav-item nav-dropdown">
       <a class="nav-link nav-dropdown-toggle" href="#">
-        <i class="nav-icon icon-puzzle"></i> Usuários
+        <i class="nav-icon fa fa-group  "></i> Pessoas
       </a>
       <ul class="nav-dropdown-items">
         <li class="nav-item">
-          <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Index" asp-route-view="Lista">
-            <i class="nav-icon icon-puzzle"></i> Listar
+          <a class="nav-link" asp-area="" asp-controller="Pessoa" asp-action="Index" asp-route-view="Lista">
+            <i class="nav-icon fa fa-vcard "></i> Listar
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Create" asp-route-view="base-cards">
-            <i class="nav-icon icon-puzzle"></i> Cadastrar
+          <a class="nav-link" asp-area="" asp-controller="Pessoa" asp-action="Create" asp-route-view="base-cards">
+            <i class="nav-icon fa fa-user-plus"></i> Cadastrar
           </a>
         </li>
       </ul>
     </li>
-    <li class="nav-title">Components</li>
+    <li class="nav-item nav-dropdown">
+      <a class="nav-link nav-dropdown-toggle" href="#">
+        <i class="nav-icon fa fa-group  "></i> Usuários
+      </a>
+      <ul class="nav-dropdown-items">
+        <li class="nav-item">
+          <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Index" asp-route-view="Lista">
+            <i class="nav-icon fa fa-vcard "></i> Listar
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Create" asp-route-view="base-cards">
+            <i class="nav-icon fa fa-user-plus"></i> Cadastrar
+          </a>
+        </li>
+      </ul>
+    </li>
+     <li class="nav-title">Components</li>
     <li class="nav-item nav-dropdown">
       <a class="nav-link nav-dropdown-toggle" href="#">
         <i class="nav-icon icon-puzzle"></i> Base
@@ -261,6 +288,8 @@
         <i class="nav-icon icon-layers"></i> Try CoreUI
         <strong>PRO</strong>
       </a>
-    </li>
+    </li> 
   </ul>
+
+
 </nav>

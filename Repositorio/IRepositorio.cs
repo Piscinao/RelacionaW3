@@ -15,5 +15,6 @@ namespace Repositorio.Interfaces
 
         // Listagem de vários registros
         IEnumerable<TEntidade> Read();
+
     }
 }
