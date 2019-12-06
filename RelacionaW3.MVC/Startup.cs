@@ -23,7 +23,6 @@ using RelacionaW3.Dominio.Entidades;
 using RelacionaW3.MVC.Entidades;
 using Repositorio.Contexto;
 
-
 namespace RelacionaW3.MVC
 {
         public class Startup
@@ -79,14 +78,10 @@ namespace RelacionaW3.MVC
                 opcoes.Password.RequiredUniqueChars = 1;
             });
 
-
-
-
             //Padrao de projeto que diz que um classe irá conter apenas uma instância
             //Toda a vez que chama a classe irá chamar a mesma instancia
             // services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-           
-
+   
             // TENTATIVA DE USER COM ROLES
 
             // INJEÇÃO DE DEPENDÊNCIA
@@ -112,8 +107,6 @@ namespace RelacionaW3.MVC
             services.AddScoped<IRepositorioResposta, RepositorioResposta>();
             services.AddScoped<IRepositorioRespostaEventos, RepositorioRespostaEventos>();
             services.AddScoped<IRepositorioUsuario, RepositorioUsuario>();
-
-
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

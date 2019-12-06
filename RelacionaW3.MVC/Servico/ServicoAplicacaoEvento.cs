@@ -97,6 +97,9 @@ namespace Aplicacao.Servico
             return evento;
         }
 
+        
+
+
         public void Excluir(int id)
         {
             ServicoEvento.Excluir(id);

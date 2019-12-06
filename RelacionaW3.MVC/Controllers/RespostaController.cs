@@ -40,6 +40,7 @@ namespace RelacionaW3.Controllers
             if (id!=null)
             {
                 viewModel = ServicoAplicacaoResposta.CarregarRegistro((int)id);
+             
             }
 
             viewModel.ListaPessoas = ServicoAplicacaoPessoa.ListaPessoasDropDownList();
@@ -49,11 +50,14 @@ namespace RelacionaW3.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(RespostaViewModel entidade)
+        public IActionResult Create(RespostaViewModel entidade, EventoViewModel ientidade2)
         {
+            EventoViewModel viewModel = new EventoViewModel();
             if (ModelState.IsValid)
             {
                 ServicoAplicacaoResposta.Create(entidade);
+               
+             
             }
             else
             {

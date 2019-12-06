@@ -15,6 +15,7 @@ namespace Aplicacao.Servico
         public ServicoAplicacaoResposta(IServicoResposta servicoResposta)
         {
             ServicoResposta = servicoResposta;
+            
         }
 
         public void Create(RespostaViewModel resposta)
@@ -54,6 +55,19 @@ namespace Aplicacao.Servico
 
             
             return resposta;
+        }
+
+        public EventoViewModel CarregarStatus(int idEvento)
+        {
+            var registro = ServicoResposta.CarregarRegistro(idEvento);
+
+            EventoViewModel evento = new EventoViewModel()
+            {
+                Id = registro.Id,
+                Status = "2"
+            };
+
+            return evento;
         }
 
         public void Excluir(int id)
@@ -100,7 +114,7 @@ namespace Aplicacao.Servico
                 {
                     IdEvento = item.IdEvento,
                     Descricao = item.Descricao,
-                    TotalVendido = item.TotalVendido
+                    // TotalVendido = item.TotalVendido
                 };
                 lista.Add(grafico);
             }
