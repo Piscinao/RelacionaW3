@@ -19,6 +19,7 @@
                 onclick="Create()">
           <i class="fa fa-plus"></i> Registrar
         </button>
+        
         <button type="reset" class="btn btn btn-info btn-3d" onclick="Return()"><i class="fa fa-arrow-left"></i> Voltar</button>
 
 <hr />
@@ -27,8 +28,12 @@
     <thead>
         <tr style="background-color:#f6f6f6">
             <th>Código</th>
-            <th>Data</th>
+            <th>Evento</th>
+            <th>Data da resposta</th>
+            <th>Prazo</th>
             <th>Pessoa</th>
+            
+            
            
 
         </tr>
@@ -38,8 +43,12 @@
         {
         <tr onclick="Editar(@item.Id)" style="cursor:pointer;">
             <td>@item.Id</td>
-            <td>@item.Data.ToString().Substring(0, 10)</td>
+             <td></td>
+            <td>@item.Data</td>
+            <td>@item.Prazo</td>
             <td>@item.NomePessoa</td>
+           
+            
           
         </tr>
         }
@@ -63,6 +72,7 @@
 
 @section scripts
 {
+   
     <script>
         $(document)
             .ready(function () {

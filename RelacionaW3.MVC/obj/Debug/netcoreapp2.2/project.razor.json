@@ -2976,11 +2976,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Home\\typography.cshtml",
-      "TargetPath": "Views\\Home\\typography.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
       "FileKind": "mvc"
@@ -3066,11 +3061,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Home\\Teste.cshtml",
-      "TargetPath": "Views\\Home\\Teste.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -3108,11 +3098,6 @@
     {
       "FilePath": "Areas\\Identity\\Pages\\Account\\Lockout.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Lockout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3313,6 +3298,11 @@
     {
       "FilePath": "Views\\CoreUI\\base-progress.cshtml",
       "TargetPath": "Views\\CoreUI\\base-progress.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Shared\\_Layout copy.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout copy.cshtml",
       "FileKind": "mvc"
     },
     {

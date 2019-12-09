@@ -23,13 +23,14 @@ namespace Aplicacao.Servico
             Resposta item = new Resposta()
             {
                 Id = resposta.Id,
-                Data = (DateTime)resposta.Data,
+                Data = (string)resposta.Data,
                 Descricao = (string)resposta.Descricao,
                 Observacoes = (string)resposta.Observacoes,
-                Prazo = (DateTime)resposta.Prazo,
+                Prazo = (string)resposta.Prazo,
                 VerificaRetorno = (string)resposta.VerificaRetorno,
                 // IdEvento= (int)resposta.IdEvento,
                 IdPessoa = (int)resposta.IdPessoa,
+                //Json DeserializeObject Pega o conteúdo que vem em formato de string para uma classe
                 Eventos = JsonConvert.DeserializeObject<ICollection<RespostaEventos>>(resposta.JsonEventos)
             };
 
@@ -43,32 +44,18 @@ namespace Aplicacao.Servico
             RespostaViewModel resposta = new RespostaViewModel()
             {
                 Id = registro.Id,
-                Data = (DateTime)registro.Data,
+                Data = (string)registro.Data,
                 Descricao = (string)registro.Descricao,
                 Observacoes = (string)registro.Observacoes,
-                Prazo = (DateTime)registro.Prazo,
+                Prazo = (string)registro.Prazo,
                 VerificaRetorno = (string)registro.VerificaRetorno,
-                // IdEvento= (int)registro.IdEvento,
+             // IdEvento= (int)registro.IdEvento,
                 IdPessoa = (int)registro.IdPessoa
               
             };
-
-            
             return resposta;
         }
 
-        public EventoViewModel CarregarStatus(int idEvento)
-        {
-            var registro = ServicoResposta.CarregarRegistro(idEvento);
-
-            EventoViewModel evento = new EventoViewModel()
-            {
-                Id = registro.Id,
-                Status = "2"
-            };
-
-            return evento;
-        }
 
         public void Excluir(int id)
         {
@@ -85,13 +72,13 @@ namespace Aplicacao.Servico
                 RespostaViewModel resposta = new RespostaViewModel()
                 {
                     Id = item.Id,
-                    Data = (DateTime)item.Data,
+                    Data = (string)item.Data,
                     Descricao = (string)item.Descricao,
                     Observacoes = (string)item.Observacoes,
-                    Prazo = (DateTime)item.Prazo,
+                    Prazo = (string)item.Prazo,
                     VerificaRetorno = (string)item.VerificaRetorno,
                     // IdEvento= (int)item.IdEvento,
-                    //  DescricaoEvento = item.Evento.Descricao,
+                    // DescricaoEvento = (string)item.Evento.Descricao,
                     NomePessoa = (string)item.Pessoa.Nome,
                     IdPessoa = (int)item.IdPessoa
                 };

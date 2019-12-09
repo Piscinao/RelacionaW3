@@ -1,6 +1,5 @@
 ﻿@{
     ViewData["Title"] = "Eventos";
-    
 }
 
 @model List<RelacionaW3.MVC.Models.EventoViewModel>;
@@ -21,14 +20,9 @@
                 onclick="Create()">
           <i class="fa fa-plus"></i> Registrar
         </button>
+        
         <button type="reset" class="btn btn btn-info btn-3d" onclick="Return()"><i class="fa fa-arrow-left"></i> Voltar</button>
-
 <hr />
-
-
-
-
-
 
 <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
     <thead>
@@ -115,6 +109,21 @@
 
 @section scripts
 {
+    <script>
+     
+
+    // show when page load
+ 
+
+     $('#linkButton').click(function() {
+       // show when the button is clicked
+       toastr.success('Click Button');
+
+    });
+    
+
+
+        </script>
 
     <script>
         $(document)
@@ -152,6 +161,13 @@
 
   </script>
 
+  
+ <script>
+        function ExibirMensagem()
+    {
+         toastr.success('Click Button');
+    }
+    </script>
 
     <script>
     function ExibirModal(id) {
@@ -166,20 +182,21 @@
          cancelButtonText: 'Cancelar'
     }).then((result) => {
        if (result.value) {
+            Swal.fire(
+               'Excluído!',
+               'O item foi excluído com sucesso.',
+               'success'
+               )
          $.ajax({
             method: "GET",
             url: "/Evento/Excluir",
             data: { id: id },
             success: function () {
-              Swal.fire(
-               'Excluído!',
-               'O item foi excluído com sucesso.',
-               'success'
-               )
-            //location.reload();
-        
-           dataTable.reload();
-                    }
+             
+            location.reload();
+           //dataTable.reload();
+                   }
+
         });
     
   }

@@ -19,7 +19,7 @@ namespace RelacionaW3.Controllers
 
         public IActionResult Index()
         {
-            
+            TempData["msg"] = "Logado com sucesso";
             return View();
         }
 

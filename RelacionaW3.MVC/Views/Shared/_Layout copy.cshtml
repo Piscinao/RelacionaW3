@@ -26,10 +26,9 @@
     <link href="~/vendors/pace-progress/css/pace.css" rel="stylesheet">
     <!-- styles tweaks -->
     <link rel="stylesheet" href="~/css/site.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker3.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"/>
-
+  
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" asp-append-version="true">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.css" rel="stylesheet">
   </environment>
 
   <environment exclude="Development">
@@ -37,14 +36,16 @@
     <link rel="stylesheet" href="~/css/site.css">
     <link href="~/css/style.css" rel="stylesheet">
     
+    
     <link href="~/vendors/pace-progress/css/pace.min.css" rel="stylesheet" asp-append-version="true">
     <!-- styles tweaks -->
     <link href="~/css/site.css" rel="stylesheet" asp-append-version="true">
     <link rel="stylesheet" href="~/lib/sweetalert2/sweetalert2.min.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"/>
+    <link rel="stylesheet" href="~/lib/toastr/toastr.min.css"/>
    
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" asp-append-version="true">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css" rel="stylesheet">
   </environment>
 
 </head>
@@ -110,12 +111,16 @@
 
   <environment include="Development">
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.pt-BR.js"></script>
   </environment>
   <environment exclude="Development">
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
             asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
             asp-fallback-test="window.jQuery"
             crossorigin="anonymous">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
     </script>
   </environment>
   <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -127,7 +132,7 @@
   <script src="~/lib/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
   <script src="~/lib/@@coreui/coreui/dist/js/coreui.min.js"></script>
   <script src="~/js/tooltips.js"></script>
-  
+  <script src="~/js/site.js" asp-append-version="true"></script>
 
   <!-- <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script> -->
   
@@ -135,15 +140,10 @@
   <script src="~/lib/dataTable/jquery.dataTables.min.js"></script>
   <script src="~/lib/dataTable/dataTables.bootstrap4.min.js"></script> 
   <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
-  
-  <script src="~/js/site.js" asp-append-version="true"></script>
-  <!-- <script src="~/js/src/select2/select2.min.js"></script>  -->
+  <script src="~/lib/toastr/toastr.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
- 
+  <!-- <script src="~/js/src/select2/select2.min.js"></script>  -->
 
   <environment include="Development">
     <script src="~/js/site.js" asp-append-version="true"></script>
@@ -154,42 +154,6 @@
 
   <!-- VIEW-SCRIPTS -->
   @RenderSection("Scripts", required: false)
-
-   
-    @if (TempData["msgWelcome"] != null)
-    {
-        <script type="text/javascript">
-            (function () { toastr.info('Seja bem-vindo(a)'); })();
-        </script>
-    }
-
-    @if (TempData["msgDelete"] != null)
-    {
-        <script type="text/javascript">
-            (function () { toastr.remove('Registro deletado com sucesso!'); })();
-        </script>
-    }
-
-    @if (TempData["msgError"] != null)
-    {
-        <script type="text/javascript">
-            (function () { toastr.error('Atenção! Ocorreu um erro!'); })();
-        </script>
-    }
-
-    @if (TempData["msgSuccess"] != null)
-    {
-      
-        <script type="text/javascript">
-        toastr.options.closeMethod = 'fadeOut';
-        toastr.options.closeDuration = 300;
-        toastr.options.closeEasing = 'swing';
-            (function () { 
-              toastr.success('Dados gravados com sucesso!'); })();
-        </script>
-    }
-
-
   <!-- /VIEW-SCRIPTS -->
 
 

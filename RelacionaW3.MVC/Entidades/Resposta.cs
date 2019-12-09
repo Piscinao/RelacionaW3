@@ -11,7 +11,7 @@ namespace RelacionaW3.MVC.Entidades
     {
         [Key]
         public int? Id { get; set; }
-        public DateTime Data { get; set; }
+        public string Data { get; set; }
         public string Descricao { get; set; }
         
         [ForeignKey("Pessoa")]
@@ -21,7 +21,7 @@ namespace RelacionaW3.MVC.Entidades
         // [ForeignKey("Evento")]
         // public int IdEvento { get; set; }
         // public Evento Evento { get; set; }
-        public DateTime Prazo { get; set; }
+        public string Prazo { get; set; }
         public string VerificaRetorno { get; set; }
         public string Observacoes {get; set; }
 

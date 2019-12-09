@@ -25,7 +25,7 @@
             <label>Data do Retorno: <span class="text-danger">*</span></label>
             <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-            <input asp-for="Data" type="date" id="txtDataRetorno"  value="@Model.Data" class="form-control" />
+            <input asp-for="Data" type="text" id="txtDataRetorno"  value="@Model.Data" class="form-control datepicker" />
             <span asp-validation-for="Data"  class="text-danger"></span>
         </div>
     </div>
@@ -37,13 +37,22 @@
              <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
             <select asp-for="IdPessoa" asp-items="@Model.ListaPessoas" class="form-control" input-lg></select>
             <span asp-validation-for="IdPessoa" class="text-danger"></span>
+             <button type="button" class="btn btn btn-primary btn-3d" onclick="CreatePerson()">
+                                          <i class="fa fa-plus"></i>  
+            </button>
         </div>
+        
     </div>
 
     <div class="form-group">
         <div class="col-4">
             <label>Eventos: <span class="text-danger">*</span></label>
+             <div class="input-group-prepend">
+             <span class="input-group-text"><i class="fa fa-book"></i></span>
             <select id="cboEvento"  asp-items="@Model.ListaEventos" class="form-control" input-lg></select>
+             <button type="button" class="btn btn btn-primary btn-3d" onclick="CreateEvento()">
+                                          <i class="fa fa-plus"></i>  
+            </button>
         </div>
     </div>
 
@@ -61,7 +70,7 @@
             <label>Prazo Final:</label>
             <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-            <input asp-for="Prazo" type="date" id="txtPrazoFinal" value="@Model.Prazo" class="form-control" />
+            <input asp-for="Prazo" type="text" id="txtPrazoFinal" value="@Model.Prazo" class="form-control datepicker" />
             <span asp-validation-for="Prazo"  class="text-danger"></span>
         </div>
     </div>
@@ -126,6 +135,26 @@
 
  </div>
   </div>
+
+
+@section Scripts{
+
+    <script>
+        $(".datepicker").datepicker({
+            autoclose: true,
+            calendarWeeks: true,
+            clearBtn: true,
+            todayBtn: true,
+            todayHighlight: true,
+            format: "dd/mm/yyyy",
+            language: "pt-BR"
+
+        })
+    </script>
+
+    
+
+  
 <script>
     var Items = new Object();
     Items.Eventos = new Array();
@@ -133,15 +162,15 @@
 
     function AddEvento() {
         var IdEvento = document.getElementById("cboEvento");
-        var DataRetorno = document.getElementById("txtDataRetorno").value;
-        var PrazoFinal = document.getElementById("txtPrazoFinal").value;
+        var Data = document.getElementById("txtDataRetorno").value;
+        var Prazo = document.getElementById("txtPrazoFinal").value;
         var VerificaRetorno = document.getElementById("txtVerificaRetorno").value;
       
 
         Items.Eventos.push({
             "IdEvento": IdEvento.value,
-            "DataRetorno": DataRetorno,
-            "PrazoFinal": PrazoFinal,
+            "Data": Data,
+            "Prazo": Prazo,
             "VerificaRetorno": VerificaRetorno
           
         });
@@ -151,8 +180,8 @@
         var linhaGrid =
             "<tr id='" + IdEvento.value + "'>" +
             "<td>" + IdEvento.options[IdEvento.selectedIndex].text + "</td>" +
-            "<td>" + DataRetorno + "</td>" +
-            "<td>" + PrazoFinal + "</td>" +
+            "<td>" + Data + "</td>" +
+            "<td>" + Prazo + "</td>" +
             "<td>" + VerificaRetorno + "</td>" +
             "</tr>";
 
@@ -160,7 +189,10 @@
 
         document.getElementById("cboEvento").selectedIndex = -1;            
     }
-
+    
+</script>
+   
+<script>
     function Novo() {
         Request("Create");
     }
@@ -173,4 +205,12 @@
     function Request(request) {
         window.location = window.origin + "\\Resposta\\" + request;
     }
+    function CreatePerson() {
+        window.location = window.origin + "\\Pessoa\\Create\\";
+    }
+    function CreateEvento() {
+        window.location = window.origin + "\\Evento\\Create\\";
+    }
 </script>
+
+}

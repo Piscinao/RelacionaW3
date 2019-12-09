@@ -12,7 +12,7 @@ namespace RelacionaW3.MVC.Entidades
         [Key]
         public int? Id { get; set; }
         public string Descricao { get; set; }
-        public DateTime? DataEvento { get; set; }
+        public string DataEvento { get; set; }
         public string Fonte { get; set; }
         public string Meio { get; set; }
         public string Classificacao { get; set; }

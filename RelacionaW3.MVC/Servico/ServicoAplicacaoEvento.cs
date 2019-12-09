@@ -44,7 +44,7 @@ namespace Aplicacao.Servico
             {
                 Id = evento.Id,
                 Descricao = evento.Descricao,
-                DataEvento = (DateTime)evento.DataEvento,
+                DataEvento = (string)evento.DataEvento,
                 Fonte = (string)evento.Fonte,
                 Meio = (string)evento.Meio,
                 Classificacao = (string)evento.Classificacao,
@@ -55,8 +55,8 @@ namespace Aplicacao.Servico
                 Evidencias = (string)evento.Evidencias,
                 Quantidade = evento.Quantidade,
                 Status = "1",
-                // DataEncaminhamento = (DateTime)evento.DataEncaminhamento,
-                // Prazo = (DateTime)evento.Prazo,
+                // DataEncaminhamento = (string)evento.DataEncaminhamento,
+                // Prazo = (string)evento.Prazo,
                 // Valor = (decimal)evento.Valor,
                 IdPessoa = (int)evento.IdPessoa,
                 IdArea = (int)evento.IdArea
@@ -75,7 +75,7 @@ namespace Aplicacao.Servico
             {
                 Id = registro.Id,
                 Descricao = registro.Descricao,
-                DataEvento = (DateTime)registro.DataEvento,
+                DataEvento = (string)registro.DataEvento,
                 Fonte = (string)registro.Fonte,
                 Meio = (string)registro.Meio,
                 Classificacao = (string)registro.Classificacao,
@@ -85,8 +85,8 @@ namespace Aplicacao.Servico
                 NotaFiscal = (string)registro.NotaFiscal,
                 DescricaoMaterial = (string)registro.DescricaoMaterial,
                 Evidencias = (string)registro.Evidencias,
-                // DataEncaminhamento = (DateTime)registro.DataEncaminhamento,
-                // Prazo = (DateTime)registro.Prazo,
+                // DataEncaminhamento = (string)registro.DataEncaminhamento,
+                // Prazo = (string)registro.Prazo,
                 Valor = (decimal)registro.Valor,
                 IdPessoa = (int)registro.IdPessoa,
                 IdArea = (int)registro.IdArea,
@@ -102,6 +102,7 @@ namespace Aplicacao.Servico
 
         public void Excluir(int id)
         {
+           
             ServicoEvento.Excluir(id);
         }
 
@@ -118,7 +119,7 @@ namespace Aplicacao.Servico
                 {
                     Id = item.Id,
                     Descricao = item.Descricao,
-                    DataEvento = (DateTime)item.DataEvento,
+                    DataEvento = (string)item.DataEvento,
                     Fonte = (string)item.Fonte,
                     Meio = (string)item.Meio,
                     Classificacao = (string)item.Pessoa.Classificacao,

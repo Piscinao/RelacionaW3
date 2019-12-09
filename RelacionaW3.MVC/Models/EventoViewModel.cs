@@ -14,7 +14,7 @@ namespace RelacionaW3.MVC.Models
         public string Descricao { get; set; }
 
         [Required(ErrorMessage = "Informe a data do Evento!")]
-        public DateTime? DataEvento { get; set; }
+        public string DataEvento { get; set; }
         public string Fonte { get; set; }
         public string Meio { get; set; }
         public string Classificacao { get; set; }
@@ -24,8 +24,7 @@ namespace RelacionaW3.MVC.Models
         public string Evidencias { get; set; }
         public string Produto { get; set; }
         public double Quantidade { get; set; }
-        // public DateTime? DataEncaminhamento {get; set;}
-        // public DateTime? Prazo {get; set;} 
+
         public decimal? Valor { get; set; }
 
         [Required(ErrorMessage = "Informe a Area do Evento!")]

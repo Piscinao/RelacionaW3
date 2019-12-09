@@ -11,8 +11,6 @@ namespace Aplicacao.Servico.Interfaces
 
         RespostaViewModel CarregarRegistro(int idResposta);
 
-        EventoViewModel CarregarStatus(int idEvento);
-
         void Create(RespostaViewModel resposta);
 
         void Excluir(int id);

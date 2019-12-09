@@ -9,8 +9,8 @@ namespace RelacionaW3.MVC.Models
     {
         public int? Id { get; set; }
         
-        [Required(ErrorMessage = "Informe a Data da Resposta!")]
-        public DateTime? Data { get; set; }
+        // [Required(ErrorMessage = "Informe a Data da Resposta!")]
+        public string Data { get; set; }
         public string Descricao { get; set; }
 
         [Required(ErrorMessage = "Informe a Pessoa!")]
@@ -21,9 +21,11 @@ namespace RelacionaW3.MVC.Models
         // public int? IdEvento { get; set; }
         public IEnumerable<SelectListItem> ListaEventos { get; set; }
 
-        [Required(ErrorMessage = "Informe a Descrição!")]
-        public string DescricaoEvento { get; set; }
-        public DateTime? Prazo { get; set; }
+        // public string DescricaoEvento { get; set; }
+
+        // [Required(ErrorMessage = "Informe a Descrição!")]
+        // public string DescricaoEvento { get; set; }
+        public string Prazo { get; set; }
         public string VerificaRetorno { get; set; }
         public string Observacoes {get; set; }
         public string JsonEventos { get; set; }

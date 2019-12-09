@@ -10,7 +10,7 @@ namespace RelacionaW3.Dominio.Entidades
 {
     public class Resposta : EntityBase
     {
-        public DateTime Data { get; set; }
+        public string Data { get; set; }
 
         public string Descricao { get; set; }
 
@@ -21,7 +21,7 @@ namespace RelacionaW3.Dominio.Entidades
         // [ForeignKey("Evento")]
         // public int IdEvento { get; set; }
         // public Evento Evento { get; set; }
-        public DateTime Prazo { get; set; }
+        public string Prazo { get; set; }
         public string VerificaRetorno { get; set; }
         public string Observacoes {get; set; }
         public ICollection<RespostaEventos> Eventos { get; set; }

@@ -45,10 +45,12 @@ namespace RelacionaW3.Controllers
         {
             if (ModelState.IsValid)
             {
+                TempData["msgSuccess"] = "Registrar";
                 ServicoAplicacaoArea.Create(entidade);
             }
             else
             {
+                TempData["msgError"] = "Erro";
                 return View(entidade);
             }
 

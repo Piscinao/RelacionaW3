@@ -11,7 +11,7 @@ namespace RelacionaW3.Dominio.Entidades
     public class Evento : EntityBase
     {
         public string Descricao { get; set; }
-        public DateTime DataEvento { get; set; }
+        public string DataEvento { get; set; }
         public string Fonte { get; set; }
         public string Meio { get; set; }
         public string Classificacao { get; set; }

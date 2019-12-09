@@ -11,9 +11,7 @@ namespace RelacionaW3.Dominio.Entidades
     {
         public int IdResposta { get; set; }
         public int IdEvento { get; set; }
-        // public double Quantidade { get; set; }
-        // public decimal ValorUnitario { get; set; }
-        // public decimal ValorTotal { get; set; }
+        
         public Evento Evento { get; set; }
         public Resposta Resposta { get; set; }
     }

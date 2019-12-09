@@ -43,7 +43,13 @@ namespace RelacionaW3.Controllers
 
             if (id != null)
             {
+               
                 viewModel = ServicoAplicacaoPessoa.CarregarRegistro((int)id);
+            }
+             else
+            {
+                // TempData["msgError"] = "Erro";
+                return View(viewModel);
             }
             return View(viewModel);
         }
@@ -54,11 +60,12 @@ namespace RelacionaW3.Controllers
             if (ModelState.IsValid)
             {
                 ServicoAplicacaoPessoa.Create(entidade);
-
+                TempData["msgSuccess"] = "Registrar";
                 // return Json(new { success = true, message = "Add new data success." });
             }
             else
             {
+                TempData["msgError"] = "Erro";
                 return View(entidade);
             }
 
