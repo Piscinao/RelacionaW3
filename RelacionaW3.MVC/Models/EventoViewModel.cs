@@ -24,7 +24,6 @@ namespace RelacionaW3.MVC.Models
         public string Evidencias { get; set; }
         public string Produto { get; set; }
         public double Quantidade { get; set; }
-
         public decimal? Valor { get; set; }
 
         [Required(ErrorMessage = "Informe a Area do Evento!")]
@@ -32,7 +31,6 @@ namespace RelacionaW3.MVC.Models
 
         [Required(ErrorMessage = "Informe a Pessoa!")]
         public int? IdPessoa { get; set; }
-
         public string Status { get; set;}
         public IEnumerable<SelectListItem> ListaAreas { get; set; }
         public string DescricaoArea { get; set; }

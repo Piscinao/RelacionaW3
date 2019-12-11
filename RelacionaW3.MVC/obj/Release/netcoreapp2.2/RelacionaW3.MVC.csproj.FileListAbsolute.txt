@@ -108,9 +108,6 @@ C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refa
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Release\netcoreapp2.2\Razor\Views\Evento\Details.cshtml.g.cs
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Release\netcoreapp2.2\Razor\Views\Evento\Index.cshtml.g.cs
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Release\netcoreapp2.2\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Release\netcoreapp2.2\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Release\netcoreapp2.2\Razor\Views\Home\Teste.cshtml.g.cs
-C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Release\netcoreapp2.2\Razor\Views\Home\typography.cshtml.g.cs
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Release\netcoreapp2.2\Razor\Views\Login\Index.cshtml.g.cs
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Release\netcoreapp2.2\Razor\Views\Login\Index2.cshtml.g.cs
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Release\netcoreapp2.2\Razor\Views\Login\Login.cshtml.g.cs
@@ -143,3 +140,4 @@ C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refa
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Release\netcoreapp2.2\RelacionaW3.MVC.csproj.CopyComplete
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Release\netcoreapp2.2\RelacionaW3.MVC.dll
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Release\netcoreapp2.2\RelacionaW3.MVC.pdb
+C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Release\netcoreapp2.2\Razor\Views\Shared\_Layout copy.cshtml.g.cs

@@ -183,16 +183,16 @@
          cancelButtonText: 'Cancelar'
     }).then((result) => {
        if (result.value) {
+         Swal.fire(
+               'Excluído!',
+               'O item foi excluído com sucesso.',
+               'success'
+               )
          $.ajax({
             method: "GET",
             url: "/Pessoa/Excluir",
             data: { id: id },
             success: function () {
-              Swal.fire(
-               'Excluído!',
-               'O item foi excluído com sucesso.',
-               'success'
-               )
             //location.reload();
            dataTable.reload();
                     }
