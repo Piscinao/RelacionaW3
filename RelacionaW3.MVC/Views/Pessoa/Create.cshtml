@@ -1,15 +1,12 @@
-﻿@{
+﻿@model RelacionaW3.Dominio.Models.Pessoa;
+
+@{
     ViewData["Title"] = "Pessoa";
 }
 
 <h2>Pessoa</h2>
 <hr />
 
-@model RelacionaW3.MVC.Models.PessoaViewModel
-
-@{
-    var disabled = (Model.Id == null) ? "disabled" : string.Empty;
-}
 
 <div class="animated fadeIn">
   <div class="card">
@@ -19,7 +16,7 @@
     </div>
     <div class="card-body">
       <form asp-controller="Pessoa" asp-action="Create" method="post">
-    <input type="hidden" asp-for="Id" value="@Model.Id" />
+    <input type="hidden" asp-for="Id" />
 
     <div class="form-group">
         
@@ -27,16 +24,16 @@
             <label>Nome do contato: <span class="text-danger">*</span></label>
             <div class="input-group-prepend">
              <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
-            <input asp-for="Nome" type="text" value="@Model.Nome" class="form-control" />
+            <input asp-for="Nome" type="text" class="form-control" required/>
             <span asp-validation-for="Nome" class="text-danger"></span>
         </div>
     </div>
                                   
      <div class="form-group col-md-4">
       <label>Classificação do contato: <span class="text-danger">*</span></label>
-        <select asp-for="Classificacao" value="@Model.Classificacao" class="form-control">
+        <select asp-for="Classificacao"  class="form-control" required>
         <span asp-validation-for="Classificacao" class="text-danger"></span>
-               <option value="Selecionar">Selecionar</option>
+               <option value="">Selecionar</option>
                <option value="Cliente">Cliente</option>
                <option value="Representatnte">Representante</option>
                <option value="Comunidade">Comunidade</option>
@@ -51,7 +48,7 @@
     <div class="form-group">
         <div class="col-4">
             <label>Empresa:  </label>
-            <input asp-for="Empresa" type="text" value="@Model.Empresa" class="form-control" />
+            <input asp-for="Empresa" type="text" class="form-control" />
             <span asp-validation-for="Empresa" class="text-danger"></span>
         </div>
     </div>
@@ -59,7 +56,7 @@
     <div class="form-group">
         <div class="col-4">
             <label>CNPJ:</label>
-            <input asp-for="CNPJ" type="text" value="@Model.CNPJ" class="cnpj form-control" />
+            <input asp-for="CNPJ" type="text" class="cnpj form-control" />
             <span asp-validation-for="CNPJ" class="text-danger"></span>
         </div>
     </div>
@@ -67,7 +64,7 @@
     <div class="form-group">
         <div class="col-4">
             <label>CPF:</label>
-            <input asp-for="CPF"  type="text" value="@Model.CPF" class="cpf form-control" />
+            <input asp-for="CPF"  type="text"  class="cpf form-control" />
             <span asp-validation-for="CPF" class="text-danger"></span>
         </div>
     </div>
@@ -77,7 +74,7 @@
             <label>Email:</label>
             <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa fa-envelope-open-o"></i></span>
-            <input asp-for="Email" type="email" value="@Model.Email" class="form-control" />
+            <input asp-for="Email" type="email"  class="form-control" />
             <span asp-validation-for="Email" class="text-danger"></span>
         </div>
     </div>
@@ -87,7 +84,7 @@
             <label>Celular:</label>
             <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa fa-mobile-phone"></i></span>
-            <input asp-for="Celular" type="text" value="@Model.Celular" class="celular form-control" />
+            <input asp-for="Celular" type="text"  class="celular form-control" />
             <span asp-validation-for="Celular" class="text-danger"></span>
         </div>
     </div>
@@ -97,7 +94,7 @@
             <label>Telefone:</label>
             <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa fa-phone"></i></span>
-            <input asp-for="Telefone" type="text" value="@Model.Telefone"  class="telefone form-control" />
+            <input asp-for="Telefone" type="text" class="telefone form-control" />
             <span asp-validation-for="Telefone" class="text-danger"></span>
         </div>
     </div>
@@ -106,10 +103,10 @@
 
       <div class="card-footer">
 
-        <button type="button" class="btn btn-info" onclick="Novo()">Limpar</button>
+        <button type="button" class="btn btn-info" onclick="New()">Limpar</button>
         <button type="submit" class="btn btn-success"><i class="fa fa-check"></i>Gravar</button>
-        <button type="button" class="btn btn-warning" onclick="Listagem()">Voltar</button>
-        <button type="button" class="btn btn-danger" onclick="Excluir(@Model.Id)" @disabled><i class="fa fa-ban"></i>Excluir</button>
+        <button type="button" class="btn btn-warning" onclick="Return()">Voltar</button>
+        <!-- <button type="button" class="btn btn-danger" onclick="Excluir()" ><i class="fa fa-ban"></i>Excluir</button> -->
        
       </div>
     </form>
@@ -117,9 +114,9 @@
     </div>
   </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 
+@section scripts
+{
 <script>
     jQuery("input.telefone")
         .mask("(99) 9999-999?9")
@@ -181,44 +178,15 @@
             }  
         });
 
-    $("#cpfcnpj").keydown(function(){
-    try {
-    	$("#cpfcnpj").unmask();
-    } catch (e) {}
-    
-    var tamanho = $("#cpfcnpj").val().length;
-	
-    if(tamanho < 11){
-        $("#cpfcnpj").mask("999.999.999-99");
-    } else if(tamanho >= 11){
-        $("#cpfcnpj").mask("99.999.999/9999-99");
-    }
-    
-    // ajustando foco
-    var elem = this;
-    setTimeout(function(){
-    	// mudo a posição do seletor
-    	elem.selectionStart = elem.selectionEnd = 10000;
-    }, 0);
-    // reaplico o valor para mudar o foco
-    var currentValue = $(this).val();
-    $(this).val('');
-    $(this).val(currentValue);
-});
-     
 </script>
 
 <script>
-    function Novo() {
-        Request("Create");
+    function New() {
+        window.location = window.origin + "\\Pessoa\\Create";
     }
-    function Listagem() {
-        Request("");
+    function Return() {
+        window.location = window.origin + "\\Pessoa\\Index";
     }
-    function Excluir(Id) {
-        Request("Excluir\\" + Id);
-    }
-    function Request(request) {
-        window.location = window.origin + "\\Pessoa\\" + request;
-    }
+   
 </script>
+}

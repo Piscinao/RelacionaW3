@@ -1,0 +1,47 @@
+﻿@model RelacionaW3.Dominio.Models.NivelAcesso
+
+@{
+    ViewData["Title"] = "Novo nível de acesso";
+}
+
+
+<div class="border border-light rounded shadow col-md-8">
+    <div class="container">
+        <h3 class="titulo"><i class="fas fa-user-lock fa-lg"></i>Novo nivel de acesso</h3>
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="campos">
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label">Nome</label>
+                            <input asp-for="Name" class="form-control form-control-lg" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="campos">
+                        <div class="form-group">
+                            <label asp-for="Descricao" class="control-label">Descrição</label>
+                            <textarea asp-for="Descricao" class="form-control form-control-lg"></textarea>
+                            <span asp-validation-for="Descricao" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group botoes">
+                        <input type="submit" value="Salvar" class="btn btn-outline-success btn-lg" /> &nbsp;
+                        <a asp-action="Index" class="btn btn-link btn-lg">Voltar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>   
+</div>
+
+0d5f72ea-8e82-4554-8389-779f1cf68354
+
+@section Scripts {
+   
+}

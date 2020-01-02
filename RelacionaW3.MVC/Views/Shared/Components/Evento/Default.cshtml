@@ -1,0 +1,102 @@
+@model IEnumerable<RelacionaW3.Dominio.Models.Evento>
+
+
+<table id="dataTable" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr style="background-color:#f6f6f6">
+            <th>Código</th>
+            <th>Descrição</th>
+            <th>Área</th>
+            <th>Meio de Contato</th>
+            <th>Classificação</th>
+            <!-- <th>Característica</th> -->
+            <th>Pessoa</th>
+            <!-- <th>Status</th> -->
+            <th>Opções</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+
+            <tr  style="cursor:pointer;">
+                
+                <td>@item.Id</td>
+                <td>@item.Descricao</td>
+                <td>@item.Area.Descricao</td>
+                <td>@item.Meio</td>
+                <td>@item.Caracteristica</td>
+                <td>@item.Pessoa.Nome</td>
+               
+             
+            
+        
+                <td>
+              <div class="btn-group">
+                <button onclick="Editar(@item.Id)" class="btn btn-sm btn-success" 
+                data-toggle="tooltip" data-placement="top" title="Editar" >
+                <i class="fa fa-edit"></i>
+              </button> 
+              <button onclick="Details(@item.Id)" class="btn btn-sm btn-info"
+              data-toggle="tooltip" data-placement="top" title="Detalhes" >
+              <i class="fa fa-book"></i>   
+            </button>    
+              <button onclick="ExibirModal(@item.Id, '')" class="btn btn-sm btn-danger"
+              data-toggle="tooltip" data-placement="top" title="Excluir" >
+              <i class="fa fa-eraser"></i>   
+            </button> 
+            
+          </div>
+        
+        
+          <!-- <a [routerLink]= "['/evento', evento.id, 'edit']" tooltip="Edição Detalhada" class="btn btn-sm btn-warning">
+            <i class="fa fa-edit"></i>
+          </a> -->
+
+        </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section scripts
+{
+<script>
+        $(document)
+            .ready(function () {
+
+                $('#dataTable')
+                    .DataTable({
+                        "order": [],
+                        "responsive": true,
+                        "columnDefs": [
+                            {
+                                "targets": 'no-sort',
+                                "orderable": false
+                            }
+                        ],
+                        "oLanguage": {
+                            "sProcessing": "Aguarde enquanto os dados são carregados ...",
+                            "sLengthMenu": "Mostrar _MENU_ registros por página",
+                            "sZeroRecords": "Nenhum registro correspondente ao critério encontrado",
+                            "sInfoEmpty": "Exibindo 0 a 0 de 0 registros",
+                            "sInfo": "Exibindo de _START_ a _END_ de _TOTAL_ registros",
+                            "sInfoFiltered": "",
+                            "sSearch": "Procurar",
+                            "oPaginate": {
+                                "sFirst": "Primeiro",
+                                "sPrevious": "Anterior",
+                                "sNext": "Próximo",
+                                "sLast": "Último"
+                            }
+                        },
+                        "stateSave": true,
+                        "orderCellsTop": true,
+                    });
+            });
+
+  </script>
+}

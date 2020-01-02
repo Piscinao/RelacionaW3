@@ -1,21 +1,27 @@
-@model RelacionaW3.MVC.Models.EventoViewModel
+@model RelacionaW3.Dominio.Models.Evento;
 
 @{
     ViewData["Title"] = "Detalhes do Evento ";
 }
+
+<div class="animated fadeIn">
+  <div class="card">
+    <div class="card-header">
+      <i class="fa fa-calendar"></i> 
+       <strong> Dados do Evento</strong>
+    </div>
+    <div class="card-body">
 
 <div class="collection">
     <div class="collection-item">
 
 
     </div>
-    <div>
-    <h5>Dados do Evento</h5>
-    <hr />
+
     
     <div class="x_panel">
     <div class="x_title">
-        <!-- <h2>Detalhes @Model.Id.ToString(): </h2> -->
+       
         <h2>Detalhes: </h2>
         <div class="clearfix"></div>
     </div>
@@ -28,9 +34,17 @@
         <table class="table-bordered table-striped table-condensed" style="width: 100%">
             <tr>
                 <th style="width: 15%; background-color: lightgrey">Descrição:</th>
+
                 <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Descricao)</th>
+             
                <th style="width: 15%; background-color: lightgrey">Pessoa:</th>
-                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.NomePessoa)</th>
+          
+
+                
+                    <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Pessoa.Nome)</th>
+                
+              
+               
                 
             </tr>
         </table>
@@ -39,53 +53,65 @@
             <tr>
                 
                 <th style="width: 15%; background-color: lightgrey">Meio:</th>
+               
                 <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Meio)</th>
-                
                 <th style="width: 15%; background-color: lightgrey">Fonte:</th>
-                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Fonte)</th>
+
+                     <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Meio)</th>
             </tr>
         </table>
 
         <table class="table-bordered table-striped table-condensed" style="width: 100%">
             <tr>
                 <th style="width: 15%; background-color: lightgrey">Produto:</th>
-                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Produto)</th>
+
+                 <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Produto)</th>
+          
                 <th style="width: 15%; background-color: lightgrey">NotaFiscal:</th>
-                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.NotaFiscal)</th>
+
+                 <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.NotaFiscal)</th>
+             
             </tr>
         </table>
 
         <table class="table-bordered table-striped table-condensed" style="width: 100%">
             <tr>
                 <th style="width: 15%; background-color: lightgrey">Descrição Material:</th>
-                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.DescricaoMaterial)</th>
+
+                 <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.DescricaoMaterial)</th>
+               
                 <th style="width: 15%; background-color: lightgrey">Evidencias:</th>
-                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Evidencias)</th>
+
+                 <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Evidencias)</th>
             </tr>
         </table>
          <table class="table-bordered table-striped table-condensed" style="width: 100%">
             <tr>
                 <th style="width: 15%; background-color: lightgrey">Característica:</th>
-                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Caracteristica)</th>
+
+                 <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Caracteristica)</th>
+              
                 <th style="width: 15%; background-color: lightgrey">Data do Evento:</th>
+               
                 <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.DataEvento)</th>
-            </tr>
+                           </tr>
         </table> 
 
         <table class="table-bordered table-striped table-condensed" style="width: 100%">
             <tr>
                 <th style="width: 15%; background-color: lightgrey">Área:</th>
-                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.DescricaoArea)</th>
-                
+ 
+                 <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Area.Descricao)</th>
             </tr>
         </table> 
-   
+     </div>
+  </div>
     </div>
 </div>
 
 <script>
     function Return() {
-        window.location = window.origin + "\\Evento\\";
+        window.location = window.origin + "\\Evento\\Index";
     }
 </script>
 

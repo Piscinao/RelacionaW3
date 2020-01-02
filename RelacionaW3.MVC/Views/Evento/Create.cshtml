@@ -1,16 +1,11 @@
-﻿@{
+﻿@model RelacionaW3.Dominio.Models.Evento;
+
+@{
     ViewData["Title"] = "Evento";
 }
 
 <h2>Evento</h2>
 <hr />
-
-@model RelacionaW3.MVC.Models.EventoViewModel
-
-@{
-    var disabled = (Model.Id == null) ? "disabled" : string.Empty;
-}
-
 
 <div class="animated fadeIn">
   <div class="card">
@@ -20,37 +15,37 @@
     </div>
     <div class="card-body">
       <form asp-controller="Evento" asp-action="Create" method="post">
-    <input type="hidden" asp-for="Id" value="@Model.Id" />
+    <input type="hidden" asp-for="Id" />
     <!-- <form > -->
                   <div class="form-row">
                     
                      <div class="col-md-15 mb-4">
 
                             <div class="form-row">
-                                <div class="form-group col-md-5">
+                                <div class="form-group col-md-4">
                                   <label>Nome do contato <span class="text-danger">*</span></label>
                                   <div class="input-group-prepend">
                                   <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
-                                  <select asp-for="IdPessoa" class="form-control"  asp-items="@Model.ListaPessoas"  ></select>
-                                   
+                                  <select asp-for="IdPessoa"  class="form-control"asp-items="ViewBag.IdPessoa" ></select>
                                     <span asp-validation-for="IdPessoa" class="text-danger"></span>
-                               
+                            
                                        <br />
-                                         <button type="button" class="btn btn btn-primary btn-3d" onclick="CreatePerson()">
+
+                                        <button type="button" class="btn btn btn-primary btn-3d" onclick="CreatePerson()">
                                           <i class="fa fa-plus"></i>  
                                          </button>
+                                        
                               </div>
-
-                            
+                           
                             </div>
-
+                             
                             
                               <div class="form-group col-md-3">
-                                  
+                                   
                                 <label>Data do contato <span class="text-danger">*</span></label>
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                                <input asp-for="DataEvento" type="text" value="@Model.DataEvento" class="form-control datepicker" />
+                                <input asp-for="DataEvento" type="text"  class="form-control datepicker data" required/>
                                     <span asp-validation-for="DataEvento" class="text-danger"></span>
                                 
                               </div>
@@ -62,9 +57,9 @@
                                   <div class="form-group col-md-4">
                                       <label for="fonte">Fonte <span class="text-danger">*</span></label>
                     
-                                       <select asp-for="Fonte" value="@Model.Fonte" class="form-control">
+                                       <select asp-for="Fonte" name="Fonte" class="form-control" required>
                                     <span asp-validation-for="Fonte" class="text-danger"></span>
-                                        <option value="Selecionar">Selecionar</option>
+                                        <option value="">Selecionar</option>
                                         <option value="Interna">Interna</option>
                                         <option value="Externa">Externa</option>
                     
@@ -85,8 +80,8 @@
                                     
                                 <div class="form-group col-md-4">
                                   <label>Meio de Contato <span class="text-danger">*</span></label>
-                                 <select asp-for="Meio" value="@Model.Meio" class="form-control">
-                                    <option value="Selecionar">Selecionar</option>
+                                 <select asp-for="Meio" name="Meio" class="form-control" required>
+                                    <option value="">Selecionar</option>
                                     <span asp-validation-for="Meio" class="text-danger"></span>
                                     <option value="Telefônico">Telefônico</option>
                                     <option value="Site">Site</option>
@@ -101,9 +96,9 @@
         
                                   <div class="form-group col-md-4">
                                     <label>Característica do contato <span class="text-danger">*</span></label>
-                                      <select asp-for="Caracteristica" value="@Model.Caracteristica" class="form-control">
+                                      <select asp-for="Caracteristica" name="Caracteristica" class="form-control" required>
                                     <span asp-validation-for="Caracteristica" class="text-danger"></span>
-                                      <option value="Selecionar">Selecionar</option>
+                                      <option value="">Selecionar</option>
                                       <option value="Denúncia Interna">Denúncia Interna</option>
                                       <option value="Denúncia Externa">Denúncia Externa</option>
                                       <option value="Reclamação">Reclamação</option>
@@ -119,40 +114,13 @@
                 
                                   </div>
        
-                                  <div class="form-group col-md-4">
-                                      <label>Área(s) Envolvida(s)</label>
-                                      <select asp-for="IdArea" class="form-control js-example-basic-multiple"  multiple="multiple" asp-items="@Model.ListaAreas"></select>
-                                  <span asp-validation-for="IdArea" class="text-danger"></span>
-                                  </div>
-<!-- 
-                                  <div class="form-group col-md-4">
-                                      <label>Área Responsável</label>
-                                    
-                                      <select name="areaResponsavel" class="form-control" id="areaResponsavel"  [ngClass]="{'is-invalid': registerForm.get('areaResponsavel').errors
-                                      && registerForm.get('areaResponsavel').touched}"
-                                      formControlName="areaResponsavel" placeholder="">
-                                        <option >
-                                    
-                                        </option>
-                                
-                                         <option value="Comercial">Comercial</option>
-                                        <option value="Logística">Logística</option>
-                                        <option value="Qualidade">Qualidade</option>
-                                        <option value="Conselho">Conselho</option> 
-                                        
-                                        <div *ngIf="registerForm.get('areaResponsavel').hasError('required') 
-                                        && registerForm.get('areaResponsavel').touched" class="invalid-feedback">
-                                      É necessário selecionar classificação de contato!
-                                      </div>
-                                      </select>
-    
-                                    </div> -->
+                              
 
                                 <div class="form-group col-md-4">
                                     <label>Evidências</label>
-                                      <select asp-for="Evidencias" value="@Model.Evidencias" class="form-control">
+                                      <select asp-for="Evidencias"  class="form-control">
                                     <span asp-validation-for="Evidencias" class="text-danger"></span>
-                                      <option value="Selecionar">Selecionar</option>
+                                      <option value="">Selecionar</option>
                                       <option value="Sim">Sim</option>
                                       <option value="Não">Não</option>
                                       
@@ -162,11 +130,17 @@
                   
                                   </div>
 
+                                     <div class="form-group col-md-4">
+                                      <label>Área(s) Envolvida(s)</label>
+                                      <select asp-for="IdArea"required class="form-control js-example-basic-multiple" asp-items="ViewBag.IdArea" multiple="multiple" ></select>
+                                  <span asp-validation-for="IdArea" class="text-danger"></span>
+                                  </div>
+
 
                                       <div class="form-group col-md-4">
                                 
                                      <label>Produto</label>
-                                     <input asp-for="Produto" type="text" value="@Model.Produto" class="form-control" />
+                                     <input asp-for="Produto" type="text" class="form-control" />
                                         <span asp-validation-for="Produto" class="text-danger"></span>
                                
                                   </div>
@@ -195,13 +169,13 @@
                                         <div class="form-group col-md-5">
                                         <label >Descrição do Relato <span class="text-danger">*</span></label>
                                        
-                                          <textarea asp-for="Descricao" rows="5" type="text" value="@Model.Descricao" class="form-control"  placeholder="Insira a descrição"></textarea>
+                                          <textarea asp-for="Descricao" rows="5" type="text" required class="form-control"  placeholder="Insira a descrição"></textarea>
                                         <span asp-validation-for="Descricao" class="text-danger"></span>
                                    </div>
                                  <div class="form-group col-md-5">
                                         <label >Descrição do Material</label>
                                        
-                                          <textarea asp-for="DescricaoMaterial" rows="5" type="text" value="@Model.DescricaoMaterial" class="form-control"  placeholder="Insira a descrição"></textarea>
+                                          <textarea asp-for="DescricaoMaterial" rows="5" type="text" class="form-control"  placeholder="Insira a descrição"></textarea>
                                         <span asp-validation-for="DescricaoMaterial" class="text-danger"></span>
                                  </div>
                 </div>
@@ -209,10 +183,10 @@
                 </div> 
                 <div class="card-footer">
 
-        <button type="button" class="btn btn-info" onclick="Novo()">Limpar</button>
+        <button type="button" class="btn btn-info small" onclick="New()">Limpar</button>
         <button type="submit" class="btn btn-success"><i class="fa fa-check"></i>Gravar</button>
-        <button type="button" class="btn btn-warning" onclick="Listagem()">Voltar</button>
-        <button type="button" class="btn btn-danger" onclick="Excluir(@Model.Id)" @disabled><i class="fa fa-ban"></i>Excluir</button>
+        <button type="button" class="btn btn-warning" onclick="Return()">Voltar</button>
+
        
       </div>
           </form>
@@ -226,9 +200,6 @@
 @section scripts
 {
 
- <script src="~/lib/select2/js/select2.min.js"></script> 
- <link href="~/lib/select2/css/select2.min.css" rel="stylesheet"/>
- 
    <script>
         $(".datepicker").datepicker({
             autoclose: true,
@@ -244,9 +215,7 @@
 
   <script>
     $(document).ready(function() {
-    $('.js-example-basic-single').select2(
-    
-       );
+    $('.js-example-basic-single').select2();
     });
 
     $(document).ready(function() {
@@ -254,21 +223,34 @@
     });
   </script>
 
+ 
+
 <script>
-    function Novo() {
-        Request("Create");
+    jQuery("input.data")
+        .mask("99/99/9999")
+        .focusout(function (event) {  
+            var target, data, element;  
+            target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
+            data = target.value.replace(/\D/g, '');
+            element = $(target);  
+            element.unmask();  
+            if(data.length > 10) {  
+                element.mask("99/99/9999");  
+            } else {  
+                element.mask("99/99/9999");  
+            }  
+        });
+</script>
+
+<script>
+    function New() {
+        window.location = window.origin + "\\Evento\\Create";
     }
-    function Listagem() {
-        Request("");
-    }
-    function Excluir(Id) {
-        Request("Excluir\\" + Id);
-    }
-    function Request(request) {
-        window.location = window.origin + "\\Evento\\" + request;
+    function Return() {
+        window.location = window.origin + "\\Evento\\Index";
     }
     function CreatePerson() {
-        window.location = window.origin + "\\Pessoa\\Create\\";
+        window.location = window.origin + "\\Pessoa\\Create";
     }
 </script>
 

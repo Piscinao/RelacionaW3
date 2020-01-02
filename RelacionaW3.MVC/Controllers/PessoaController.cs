@@ -1,82 +1,122 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Aplicacao.Servico.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RelacionaW3.MVC.Models;
+using Microsoft.AspNetCore.Authorization;
+using RelacionaW3.Dominio.Models;
+using RelacionaW3.Repositorio.Interfaces;
 
 namespace RelacionaW3.Controllers
 {
     [Authorize]
     public class PessoaController : Controller
     {
-        readonly IServicoAplicacaoPessoa ServicoAplicacaoPessoa;
+        private readonly IPessoaRepositorio _pessoaRepositorio;
 
-        public PessoaController(IServicoAplicacaoPessoa servicoAplicacaoPessoa)
+        public PessoaController(IPessoaRepositorio pessoaRepositorio)
         {
-            ServicoAplicacaoPessoa = servicoAplicacaoPessoa;
+            _pessoaRepositorio = pessoaRepositorio;
+           
         }
 
-        public IActionResult Index()
-        {           
-            return View(ServicoAplicacaoPessoa.Listagem());
-        }
-
-        public IActionResult Details(int? id)
+        // GET: Professores 
+        public async Task<IActionResult> Index()
         {
-            PessoaViewModel viewModel = new PessoaViewModel();
+            return View(await _pessoaRepositorio.GetAll().ToListAsync());
+        } 
+        
+        // public IActionResult Create()
+        // {
+        //     return View();
+        // }
 
-            if (id != null)
-            {
-                viewModel = ServicoAplicacaoPessoa.CarregarRegistro((int)id);
-            }
-            return View(viewModel);
-        }
-
-        [HttpGet]
-        public IActionResult Create(int? id)
+        public IActionResult Create()
         {
-            PessoaViewModel viewModel = new PessoaViewModel();
-
-            if (id != null)
-            {
-               
-                viewModel = ServicoAplicacaoPessoa.CarregarRegistro((int)id);
-            }
-             else
-            {
-                // TempData["msgError"] = "Erro";
-                return View(viewModel);
-            }
-            return View(viewModel);
+            return View();
         }
-
+        
         [HttpPost]
-        public IActionResult Create(PessoaViewModel entidade)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id,Nome, CPF, CNPJ, Email, Telefone, Celular, Classificacao, Empresa")] Pessoa pessoa)
         {
             if (ModelState.IsValid)
             {
-                ServicoAplicacaoPessoa.Create(entidade);
                 TempData["msgSuccess"] = "Registrar";
-                // return Json(new { success = true, message = "Add new data success." });
-            }
-            else
-            {
-                TempData["msgError"] = "Erro";
-                return View(entidade);
+                
+                await _pessoaRepositorio.Create(pessoa);
+                return RedirectToAction(nameof(Index));
             }
 
-            return RedirectToAction("Index");
+             TempData["msgError"] = "Erro";               
+             return View(pessoa);
+        }
+       
+        public async Task<IActionResult> Edit(int id)
+        {
+            var pessoa = await _pessoaRepositorio.GetById(id);
+            if (pessoa == null)
+            {
+                return NotFound();
+            }
+
+            
+
+            return View(pessoa);
         }
 
-        [HttpGet]
-        public IActionResult Excluir(int id)
+         public async Task<IActionResult> Details(int id)
         {
-            ServicoAplicacaoPessoa.Excluir(id);
-            return RedirectToAction("Index");
+           var pessoa = await _pessoaRepositorio.GetById(id);
+            if (pessoa == null)
+            {
+                return NotFound();
+            }
+
+            return View(pessoa);
+        }
+       
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome, CPF, CNPJ, Email, Telefone, Celular, Classificacao, Empresa")] Pessoa pessoa)
+        {
+            if (id != pessoa.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+
+                await _pessoaRepositorio.Update(pessoa);
+
+                return RedirectToAction(nameof(Index));
+            }
+            return View(pessoa);
+        }  
+       
+        [HttpPost]
+        public async Task<JsonResult> Delete(int id)
+        {
+            await _pessoaRepositorio.Delete(id);
+            return Json("Pessoa excluído com sucesso");
+        }
+
+        public async Task<JsonResult> PessoaExiste(string Nome, int Id)
+        {
+            if (Id == 0)
+            {
+                if(await _pessoaRepositorio.PessoaExiste(Nome))
+                    return Json("Pessoa já existe");
+
+                return Json(true);
+            }
+
+            else
+            {
+                if (await _pessoaRepositorio.PessoaExiste(Nome, Id))
+                    return Json("Pessoa já existe");
+
+                return Json(true);
+            }
         }
     }
 }

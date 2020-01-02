@@ -2,8 +2,7 @@
     ViewData["Title"] = "Pessoas";
 }
 
-@model List<RelacionaW3.MVC.Models.PessoaViewModel>;
-
+  @model List<RelacionaW3.Dominio.Models.Pessoa>;
 
 <div class="row">
   <div class="col-lg-12">
@@ -32,9 +31,9 @@
             <th>Nome</th>
             <th>Classificação</th>
             <th>Empresa</th>
-            <th>E-mail</th>
-            <th>Celular</th>
+            <th>Telefone</th>
             <th>Opções</th>
+          
         </tr>
     </thead>
     <tbody>
@@ -44,9 +43,11 @@
             <td>@item.Id</td>
             <td>@item.Nome</td>
             <td>@item.Classificacao</td>
-            <td>@item.Empresa</td>   
+            <td>@item.Empresa</td>
+            <td>@item.Telefone</td>
+            <!-- <td>@item.Empresa</td>   
             <td>@item.Email</td>
-            <td>@item.Celular</td>
+            <td>@item.Celular</td> -->
              <td>
               <div class="btn-group">
                 <button onclick="Editar(@item.Id)" class="btn btn-sm btn-success" 
@@ -76,13 +77,10 @@
 </table>
 <br />
 
-
-      
       </div>
     </div>
   </div>
 </div>
-
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -107,7 +105,6 @@
 
 @section scripts
 {
-
 
     <script>
         $(document)
@@ -189,12 +186,12 @@
                'success'
                )
          $.ajax({
-            method: "GET",
-            url: "/Pessoa/Excluir",
+            method: "POST",
+            url: "/Pessoa/Delete",
             data: { id: id },
             success: function () {
-            //location.reload();
-           dataTable.reload();
+            location.reload();
+           // dataTable.reload(); 
                     }
         });
     
@@ -206,7 +203,7 @@
 
 <script>
     function Editar(Id) {
-        window.location = window.origin + "\\Pessoa\\Create\\" + Id;
+        window.location = window.origin + "\\Pessoa\\Edit\\" + Id;
     }
 
     function Create() {
@@ -218,11 +215,11 @@
     }
 
     function Excluir(Id) {
-         window.location = window.origin + "\\Pessoa\\Excluir\\" + Id;
+         window.location = window.origin + "\\Pessoa\\Delete\\" + Id;
     }
 
     function Return() {
-        window.location = window.origin + "\\Home\\";
+        window.location = window.origin + "\\Home\\Index";
     }
     
 </script>

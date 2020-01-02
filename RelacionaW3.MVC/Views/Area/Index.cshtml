@@ -2,7 +2,7 @@
     ViewData["Title"] = "Areas";
 }
 
-@model List<RelacionaW3.MVC.Models.AreaViewModel>;
+@model List<RelacionaW3.Dominio.Models.Area>;
 
 <div class="row">
   <div class="col-lg-12">
@@ -173,7 +173,7 @@
 
 <script>
     function Editar(Id) {
-        window.location = window.origin + "\\Area\\Create\\" + Id;
+        window.location = window.origin + "\\Area\\Edit\\" + Id;
     }
 
     function Create() {
@@ -181,7 +181,7 @@
     }
     
     function Return() {
-        window.location = window.origin + "\\Home\\";
+        window.location = window.origin + "\\Home\\Index";
     }
 </script>
 }

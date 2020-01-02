@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<RelacionaW3.Dominio.Models.Usuario> SignInManager
+@inject UserManager<RelacionaW3.Dominio.Models.Usuario> UserManager
 
 
 
@@ -55,7 +55,7 @@
       <i class="fa fa-shield"></i> Bloquear 
     </a>
 
-    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new {area = ""})" method="post" id="logoutForm">
+    <form asp-controller="Usuario" asp-action="Logout" asp-route-returnUrl="@Url.Page("/Usuario/Login", new {area = ""})" method="post" id="logoutForm">
       <script>
         function logout() {
          

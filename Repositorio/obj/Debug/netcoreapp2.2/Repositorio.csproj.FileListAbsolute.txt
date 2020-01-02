@@ -47,3 +47,5 @@ C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refa
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Repositorio\obj\Debug\netcoreapp2.2\Repositorio.csproj.CopyComplete
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Repositorio\obj\Debug\netcoreapp2.2\Repositorio.dll
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Repositorio\obj\Debug\netcoreapp2.2\Repositorio.pdb
+C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Repositorio\bin\Debug\netcoreapp2.2\Repositorio.runtimeconfig.json
+C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Repositorio\bin\Debug\netcoreapp2.2\Repositorio.runtimeconfig.dev.json

@@ -6,6 +6,9 @@
         <span class="badge badge-primary">Teste</span>
       </a>
     </li>
+
+    @if (User.IsInRole("ADMINISTRADOR"))
+      {
     <li class="nav-title">Areas</li>
     <li class="nav-item">
       <a class="nav-link" asp-area="" asp-controller="Area" asp-action="Index" asp-route-view="Listar">
@@ -17,13 +20,21 @@
         <i class="nav-icon fa fa-pencil-square-o "></i> Nova 
       </a>
     </li>
-
+      }
     <li class="nav-title">Eventos</li>
     <li class="nav-item">
       <a class="nav-link" asp-area="" asp-controller="Evento" asp-action="Index" asp-route-view="Listar">
         <i class="nav-icon fa fa-list-alt"></i> Listar
       </a>
     </li>
+     @if (User.IsInRole("ADMINISTRADOR"))
+      {
+    <li class="nav-item">
+      <a class="nav-link" asp-area="" asp-controller="Evento" asp-action="IndexAdm" asp-route-view="Listar">
+        <i class="nav-icon fa fa-list-alt"></i> Listar Todos
+      </a>
+    </li>
+      }
     <li class="nav-item">
       <a class="nav-link" asp-area="" asp-controller="Evento" asp-action="Create" asp-route-view="Criar">
         <i class="nav-icon fa fa-pencil-square-o "></i> Novo
@@ -34,22 +45,28 @@
         <i class="nav-icon fa fa-reply-all"></i> Retorno
       </a>
     </li>
+     @if (User.IsInRole("ADMINISTRADOR"))
+      {
     <li class="nav-item">
       <a class="nav-link" asp-area="" asp-controller="Relatorio" asp-action="Grafico" asp-route-view="Criar">
         <i class="nav-icon fa fa-pie-chart"></i> Relatório/Gráfico
       </a>
     </li>
+      }
     <li class="nav-title">Configurações</li>
     <li class="nav-item nav-dropdown">
       <a class="nav-link nav-dropdown-toggle" href="#">
         <i class="nav-icon fa fa-group  "></i> Pessoas
       </a>
       <ul class="nav-dropdown-items">
+         @if (User.IsInRole("ADMINISTRADOR"))
+      {
         <li class="nav-item">
           <a class="nav-link" asp-area="" asp-controller="Pessoa" asp-action="Index" asp-route-view="Lista">
             <i class="nav-icon fa fa-vcard "></i> Listar
           </a>
         </li>
+      }
         <li class="nav-item">
           <a class="nav-link" asp-area="" asp-controller="Pessoa" asp-action="Create" asp-route-view="base-cards">
             <i class="nav-icon fa fa-user-plus"></i> Cadastrar
@@ -57,6 +74,9 @@
         </li>
       </ul>
     </li>
+
+      @if (User.IsInRole("ADMINISTRADOR"))
+      {
     <li class="nav-item nav-dropdown">
       <a class="nav-link nav-dropdown-toggle" href="#">
         <i class="nav-icon fa fa-group  "></i> Usuários
@@ -74,6 +94,8 @@
         </li>
       </ul>
     </li>
+
+      }
      <!-- <li class="nav-title">Components</li>
     <li class="nav-item nav-dropdown">
       <a class="nav-link nav-dropdown-toggle" href="#">

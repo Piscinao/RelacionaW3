@@ -2898,7 +2898,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
-            "Documentation": "\n            <summary>\n            Specifies the path to the JavaScript module containing prerendering code.\n            </summary>\n        ",
+            "Documentation": null,
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "ModuleName"
@@ -2954,17 +2954,37 @@
           "Runtime.Name": "ITagHelper",
           "Common.TypeName": "Microsoft.AspNetCore.SpaServices.Prerendering.PrerenderTagHelper"
         }
+      },
+      {
+        "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__EventoViewComponentTagHelper",
+        "AssemblyName": "RelacionaW3.MVC",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:evento",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__EventoViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "Evento"
+        }
       }
     ],
     "CSharpLanguageVersion": 703
   },
   "RootNamespace": "RelacionaW3.MVC",
   "Documents": [
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\DownloadPersonalData.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\DownloadPersonalData.cshtml",
-      "FileKind": "mvc"
-    },
     {
       "FilePath": "Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
@@ -2976,18 +2996,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views\\CoreUI\\base-carousel.cshtml",
       "TargetPath": "Views\\CoreUI\\base-carousel.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
+      "FilePath": "Views\\Shared\\Components\\Evento\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\Evento\\Default.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3031,11 +3046,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views\\Pessoa\\Details.cshtml",
       "TargetPath": "Views\\Pessoa\\Details.cshtml",
       "FileKind": "mvc"
@@ -3051,23 +3061,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views\\Pessoa\\Index.cshtml",
       "TargetPath": "Views\\Pessoa\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
+      "FilePath": "Views\\Area\\Create2.cshtml",
+      "TargetPath": "Views\\Area\\Create2.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3091,23 +3091,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\EnableAuthenticator.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\EnableAuthenticator.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Lockout.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Lockout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\ResetAuthenticator.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ResetAuthenticator.cshtml",
+      "FilePath": "Views\\Evento\\IndexAdm.cshtml",
+      "TargetPath": "Views\\Evento\\IndexAdm.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3126,11 +3111,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\ResetPasswordConfirmation.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ResetPasswordConfirmation.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views\\CoreUI\\charts.cshtml",
       "TargetPath": "Views\\CoreUI\\charts.cshtml",
       "FileKind": "mvc"
@@ -3146,16 +3126,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\ResetPassword.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ResetPassword.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views\\Evento\\Create.cshtml",
       "TargetPath": "Views\\Evento\\Create.cshtml",
       "FileKind": "mvc"
@@ -3163,6 +3133,11 @@
     {
       "FilePath": "Views\\CoreUI\\notifications-modals.cshtml",
       "TargetPath": "Views\\CoreUI\\notifications-modals.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Pessoa\\Edit.cshtml",
+      "TargetPath": "Views\\Pessoa\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3176,18 +3151,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views\\Pessoa\\Create.cshtml",
       "TargetPath": "Views\\Pessoa\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3216,48 +3181,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Usuario\\Login.cshtml",
+      "TargetPath": "Views\\Usuario\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\CoreUI\\login.cshtml",
       "TargetPath": "Views\\CoreUI\\login.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Login\\Login.cshtml",
-      "TargetPath": "Views\\Login\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views\\CoreUI\\404.cshtml",
       "TargetPath": "Views\\CoreUI\\404.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\ForgotPasswordConfirmation.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ForgotPasswordConfirmation.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Error.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views\\Evento\\Create2.cshtml",
-      "TargetPath": "Views\\Evento\\Create2.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3283,11 +3218,6 @@
     {
       "FilePath": "Views\\CoreUI\\base-navs.cshtml",
       "TargetPath": "Views\\CoreUI\\base-navs.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3326,13 +3256,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "FilePath": "Views\\Usuario\\Index2.cshtml",
+      "TargetPath": "Views\\Usuario\\Index2.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3343,6 +3268,11 @@
     {
       "FilePath": "Views\\CoreUI\\notifications-alerts.cshtml",
       "TargetPath": "Views\\CoreUI\\notifications-alerts.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\NivelAcesso\\Create.cshtml",
+      "TargetPath": "Views\\NivelAcesso\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3406,6 +3336,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Evento\\Edit.cshtml",
+      "TargetPath": "Views\\Evento\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\CoreUI\\base-jumbotron.cshtml",
       "TargetPath": "Views\\CoreUI\\base-jumbotron.cshtml",
       "FileKind": "mvc"
@@ -3418,11 +3353,6 @@
     {
       "FilePath": "Views\\Shared\\_LoginPartial.cshtml",
       "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3446,28 +3376,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\AccessDenied.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\AccessDenied.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views\\Area\\Create.cshtml",
       "TargetPath": "Views\\Area\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
+      "FilePath": "Views\\Shared\\Components\\Detalhes\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\Detalhes\\Default.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3481,18 +3396,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views\\CoreUI\\index.cshtml",
       "TargetPath": "Views\\CoreUI\\index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3506,23 +3411,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views\\CoreUI\\buttons-brand-buttons.cshtml",
       "TargetPath": "Views\\CoreUI\\buttons-brand-buttons.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Areas\\Identity\\Pages\\Account\\ExternalLogin.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ExternalLogin.cshtml",
       "FileKind": "mvc"
     }
   ],

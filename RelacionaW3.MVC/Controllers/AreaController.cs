@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Aplicacao.Servico.Interfaces;
-using Microsoft.AspNetCore.Authorization;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using RelacionaW3.Dominio.Models;
+using RelacionaW3.Repositorio.Interfaces;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 using RelacionaW3.MVC.Models;
 
 namespace RelacionaW3.Controllers
@@ -13,55 +14,119 @@ namespace RelacionaW3.Controllers
     [Authorize]
     public class AreaController : Controller
     {
-        // Injeção de dependencia da interface
-        readonly IServicoAplicacaoArea ServicoAplicacaoArea;
+        private readonly IAreaRepositorio _areaRepositorio;
+        private readonly IUsuarioRepositorio _usuarioRepositorio;
 
-        // Injeção do serviço no construtor via parâmetro
-        public AreaController(IServicoAplicacaoArea servicoAplicacaoArea)
+        public AreaController(IAreaRepositorio areaRepositorio, IUsuarioRepositorio usuarioRepositorio)
         {
-            // objeto                 Variavel
-            ServicoAplicacaoArea = servicoAplicacaoArea;
+            _areaRepositorio = areaRepositorio;
+            _usuarioRepositorio = usuarioRepositorio;
+           
         }
 
-        public IActionResult Index()
-        {           
-            return View(ServicoAplicacaoArea.Listagem());
-        }
-
-        [HttpGet]
-        public IActionResult Create(int? id)
+        // GET: Professores
+        public async Task<IActionResult> Index()
         {
-            AreaViewModel viewModel = new AreaViewModel();
+            return View(await _areaRepositorio.GetAll().ToListAsync());
+        } 
+        
+        // public IActionResult Create()
+        // {
+        //     return View();
+        // }
 
-            if (id != null)
-            {
-                viewModel = ServicoAplicacaoArea.CarregarRegistro((int)id);
-            }
-            return View(viewModel);
+        public IActionResult Create()
+        {
+            ViewData["IdUsuario"] = new SelectList(_usuarioRepositorio.GetAll(), "Id", "Nome");
+            return View();
         }
-
+        
         [HttpPost]
-        public IActionResult Create(AreaViewModel entidade)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(AreaViewModel area)
         {
             if (ModelState.IsValid)
             {
-                TempData["msgSuccess"] = "Registrar";
-                ServicoAplicacaoArea.Create(entidade);
-            }
-            else
+                Area item = new Area()
             {
-                TempData["msgError"] = "Erro";
-                return View(entidade);
+                Id = area.Id,
+                Descricao = (string)area.Descricao,
+                // IdEvento= (int)area.IdEvento,
+                // IdPessoa = (int)area.IdPessoa,
+                //Json DeserializeObject Pega o conteúdo que vem em formato de string para uma classe
+                Usuarios = JsonConvert.DeserializeObject<ICollection<AreaResponsavel>>(area.JsonUsuarios)
+            };
+                TempData["msgSuccess"] = "Registrar";
+                await _areaRepositorio.Create(item);
+                return RedirectToAction(nameof(Index));
+            }
+           
+             ViewData["IdUsuario"] = new SelectList(_usuarioRepositorio.GetAll(), "Id", "Nome");
+
+             TempData["msgError"] = "Erro";               
+             return View(area);
+        }
+       
+        public async Task<IActionResult> Edit(int id)
+        {
+            var area = await _areaRepositorio.GetById(id);
+            if (area == null)
+            {
+                return NotFound();
             }
 
-            return RedirectToAction("Index");
+           
+
+            return View(area);
+        }
+       
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Descricao")] Area area)
+        {
+            if (id != area.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+
+                await _areaRepositorio.Update(area);
+
+                 TempData["msgSuccess"] = "Registrar";
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            TempData["msgError"] = "Erro";  
+            return View(area);
+        }  
+       
+        [HttpPost]
+        public async Task<JsonResult> Delete(int id)
+        {
+            await _areaRepositorio.Delete(id);
+            return Json("Area excluído com sucesso");
         }
 
-        [HttpGet]
-        public IActionResult Excluir(int id)
+        public async Task<JsonResult> AreaExiste(string Descricao, int Id)
         {
-            ServicoAplicacaoArea.Excluir(id);
-            return RedirectToAction("Index");
+            if (Id == 0)
+            {
+                if(await _areaRepositorio.AreaExiste(Descricao))
+                    return Json("Area já existe");
+
+                return Json(true);
+            }
+
+            else
+            {
+                if (await _areaRepositorio.AreaExiste(Descricao, Id))
+                    return Json("Area já existe");
+
+                return Json(true);
+            }
         }
     }
 }

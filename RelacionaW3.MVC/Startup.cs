@@ -1,31 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
-using Repositorio.Entidades;
-using Aplicacao.Servico.Interfaces;
-using Aplicacao.Servico;
-using Dominio.Interfaces;
-using Dominio.Servicos;
-using Dominio.Repositorio;
-using RelacionaW3.Dominio.Entidades;
-using RelacionaW3.MVC.Entidades;
-using Repositorio.Contexto;
+using RelacionaW3.Repositorio.Interfaces;
+using RelacionaW3.Repositorio.Entidades;
+using RelacionaW3.Repositorio;
+using RelacionaW3.Dominio.Models;
+using RelacionaW3.Repositorio.Servicos;
 
 namespace RelacionaW3.MVC
 {
-        public class Startup
+    public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -37,39 +26,58 @@ namespace RelacionaW3.MVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
+            // services.Configure<CookiePolicyOptions>(options =>
+            // {
+                
+            //     options.CheckConsentNeeded = context => true;
+            //     options.MinimumSameSitePolicy = SameSiteMode.None;
+            // });
 
             //Adiciona o context do DAL e referencia a string do banco que esá no json appsettings
-            services.AddDbContext<ApplicationDbContext>(options =>
+            //    services.AddDbContext<ApplicationDbContext>(options =>
+            //     options.UseSqlServer(
+            //         Configuration.GetConnectionString("Relaciona")));
+
+
+                services.AddDbContext<Context>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("Relaciona")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddHttpContextAccessor();
-            services.AddSession();
+            // services.AddDefaultIdentity<Id entityUser>()
+            //     .AddDefaultUI(UIFramework.Bootstrap4)
+            //     .AddEntityFrameworkStores<ApplicationDbContext>();
+            // services.AddDbContext<ApplicationDbContext2>(options =>
+            //     options.UseSqlServer(
+            //         Configuration.GetConnectionString("Relaciona")));
 
-           // services.AddIdentity<UsuarioTeste, NiveisAcesso>().AddDefaultUI().AddEntityFrameworkStores<Contexto>();
+            // services.AddDefaultIdentity<IdentityUser>()
+            //     .AddDefaultUI(UIFramework.Bootstrap4)
+            //     .AddEntityFrameworkStores<Contexto>();
+
+
+            // services.AddDbContext<Contexto>(options => options.UseSqlServer(Configuration.GetConnectionString("Relaciona")));
+
+            // services.AddHttpContextAccessor();
+           
+
+            services.AddIdentity<Usuario, NivelAcesso>().AddEntityFrameworkStores<Context>();
 
             services.ConfigureApplicationCookie(opcoes =>
             {
                 // Habilitar cookie via http
                 opcoes.Cookie.HttpOnly = true;
                 // Tempo de expiração dos cookies
-                opcoes.ExpireTimeSpan = TimeSpan.FromMinutes(50);
+                opcoes.ExpireTimeSpan = TimeSpan.FromMinutes(100);
                 // Url de Login
-                opcoes.LoginPath = "/Usuarios/Login";
+             
+                opcoes.LoginPath = $"/Usuario/Login";
+                opcoes.LogoutPath = $"/Usuario/Login";
                 // Quando expirar fazer novos cookies
                 opcoes.SlidingExpiration = true;
             });
 
             services.Configure<IdentityOptions>(opcoes =>
             {
+                
                 opcoes.Password.RequireDigit = false;
                 opcoes.Password.RequireLowercase = false;
                 opcoes.Password.RequireNonAlphanumeric = false;
@@ -86,28 +94,34 @@ namespace RelacionaW3.MVC
 
             // INJEÇÃO DE DEPENDÊNCIA
             // Serviço Aplicação
-            services.AddScoped<IServicoAplicacaoArea, ServicoAplicacaoArea>();
-            services.AddScoped<IServicoAplicacaoPessoa, ServicoAplicacaoPessoa>();
-            services.AddScoped<IServicoAplicacaoEvento, ServicoAplicacaoEvento>();
-            services.AddScoped<IServicoAplicacaoResposta, ServicoAplicacaoResposta>();
-            services.AddScoped<IServicoAplicacaoUsuario, ServicoAplicacaoUsuario>();
+           
+            // services.AddScoped<IServicoAplicacaoPessoa, ServicoAplicacaoPessoa>();
+            // services.AddScoped<IServicoAplicacaoEvento, ServicoAplicacaoEvento>();
+            // services.AddScoped<IServicoAplicacaoResposta, ServicoAplicacaoResposta>();
+          
+
+
 
             // Domínio
-            services.AddScoped<IServicoArea, ServicoArea>();
-            services.AddScoped<IServicoPessoa, ServicoPessoa>();
-            services.AddScoped<IServicoEvento, ServicoEvento>();
-            services.AddScoped<IServicoResposta, ServicoResposta>();
-            services.AddScoped<IServicoUsuario, ServicoUsuario>();
-
+           
+            // services.AddScoped<IServicoPessoa, ServicoPessoa>();
+            
+            // services.AddScoped<IServicoResposta, ServicoResposta>();
+            
             // Repositorio
             //                                   classe concreta
-            services.AddScoped<IRepositorioArea, RepositorioArea>();
-            services.AddScoped<IRepositorioPessoa, RepositorioPessoa>();
-            services.AddScoped<IRepositorioEvento, RepositorioEvento>();
-            services.AddScoped<IRepositorioResposta, RepositorioResposta>();
-            services.AddScoped<IRepositorioRespostaEventos, RepositorioRespostaEventos>();
-            services.AddScoped<IRepositorioUsuario, RepositorioUsuario>();
+         
+            services.AddScoped<IEventoRepositorio, EventoRepositorio>();
+            services.AddScoped<IPessoaRepositorio, PessoaRepositorio>();
+            services.AddScoped<IAreaRepositorio, AreaRepositorio>();
+            services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+            services.AddScoped<INivelAcessoRepositorio, NivelAcessoRepositorio>();
+            services.AddScoped<IRespostaRepositorio, RespostaRepositorio>();
 
+
+            services.Configure<ConfiguracoesEmail>(Configuration.GetSection("ConfiguracoesEmail"));
+            services.AddScoped<IEmail, Email>();
+        
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -129,18 +143,16 @@ namespace RelacionaW3.MVC
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseSession();
+            // app.UseSession();
             app.UseAuthentication();
           
-            
-            // app.UseAuthentication();
             
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Usuario}/{action=Login}/{id?}");
             });
         }
     }

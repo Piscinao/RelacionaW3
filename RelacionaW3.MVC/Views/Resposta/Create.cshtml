@@ -1,15 +1,12 @@
-﻿@{
+﻿@model RelacionaW3.MVC.Models.RespostaViewModel;
+@{
     ViewData["Title"] = "Resposta";
 }
 
 <h2>Resposta</h2>
 <hr />
 
-@model RelacionaW3.MVC.Models.RespostaViewModel
 
-@{
-    var disabled = (Model.Id == null) ? "disabled" : string.Empty;
-}
 <div class="animated fadeIn">
   <div class="card">
     <div class="card-header">
@@ -18,14 +15,14 @@
     </div>
     <hr>
 <form asp-controller="Resposta" asp-action="Create" method="post">
-    <input type="hidden" asp-for="Id" value="@Model.Id" />
+    <input type="hidden" asp-for="Id"  />
 
     <div class="form-group">
         <div class="col-4">
             <label>Data do Retorno: <span class="text-danger">*</span></label>
             <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-            <input asp-for="Data" type="text" id="txtDataRetorno"  value="@Model.Data" class="form-control datepicker" />
+            <input asp-for="Data" type="text" id="txtDataRetorno"  class="form-control datepicker data" required />
             <span asp-validation-for="Data"  class="text-danger"></span>
         </div>
     </div>
@@ -35,7 +32,7 @@
             <label>Pessoa: <span class="text-danger">*</span></label>
              <div class="input-group-prepend">
              <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
-            <select asp-for="IdPessoa" asp-items="@Model.ListaPessoas" class="form-control" input-lg></select>
+            <select asp-for="IdPessoa"  class="form-control" asp-items="ViewBag.IdPessoa" input-lg></select>
             <span asp-validation-for="IdPessoa" class="text-danger"></span>
              <button type="button" class="btn btn btn-primary btn-3d" onclick="CreatePerson()">
                                           <i class="fa fa-plus"></i>  
@@ -49,7 +46,7 @@
             <label>Eventos: <span class="text-danger">*</span></label>
              <div class="input-group-prepend">
              <span class="input-group-text"><i class="fa fa-book"></i></span>
-            <select id="cboEvento"  asp-items="@Model.ListaEventos" class="form-control" input-lg></select>
+            <select id="cboEvento"   class="form-control"asp-items="ViewBag.IdEvento" input-lg></select>
              <button type="button" class="btn btn btn-primary btn-3d" onclick="CreateEvento()">
                                           <i class="fa fa-plus"></i>  
             </button>
@@ -59,7 +56,7 @@
 
     <div class="form-group col-md-5">
                 <label>Resposta: <span class="text-danger">*</span></label>          
-                <textarea asp-for="Descricao" rows="5" type="text" value="@Model.Descricao" class="form-control"  placeholder="Insira a observação"></textarea>
+                <textarea asp-for="Descricao" rows="5" type="text" class="form-control"  placeholder="Insira a observação"></textarea>
                 <span asp-validation-for="Descricao" class="text-danger"></span>
      </div>
 
@@ -70,7 +67,7 @@
             <label>Prazo Final:</label>
             <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-            <input asp-for="Prazo" type="text" id="txtPrazoFinal" value="@Model.Prazo" class="form-control datepicker" />
+            <input asp-for="Prazo" type="text" id="txtPrazoFinal"  class="form-control datepicker data" />
             <span asp-validation-for="Prazo"  class="text-danger"></span>
         </div>
     </div>
@@ -79,9 +76,9 @@
 
         <div class="form-group col-md-4">
                                     <label>Satisfação do Retorno:</label>
-                                      <select asp-for="VerificaRetorno" id="txtVerificaRetorno" value="@Model.VerificaRetorno" class="form-control">
+                                      <select asp-for="VerificaRetorno" id="txtVerificaRetorno" class="form-control">
                                       <span asp-validation-for="VerificaRetorno" class="text-danger"></span>
-                                      <option value="Selecionar">Selecionar</option>
+                                      <option value="">Selecionar</option>
                                       <option value="Sim">Sim</option>
                                       <option value="Não">Não</option>
                                       
@@ -93,7 +90,7 @@
          <div class="form-group col-md-5">
                 <label >Observações:</label>
                                        
-                <textarea asp-for="Observacoes" rows="5" type="text" value="@Model.Observacoes" class="form-control"  placeholder="Insira a observação"></textarea>
+                <textarea asp-for="Observacoes" rows="5" type="text" class="form-control"  placeholder="Insira a observação"></textarea>
                 <span asp-validation-for="Observacoes" class="text-danger"></span>
           </div>
 
@@ -125,10 +122,11 @@
     <br />
    <div class="card-footer">
 
-        <button type="button" class="btn btn-info" onclick="Novo()">Limpar</button>
+        <button type="button" class="btn btn-info" onclick="New()">Limpar</button>
         <button type="submit" class="btn btn-success"><i class="fa fa-check"></i>Gravar</button>
-        <button type="button" class="btn btn-warning" onclick="Listagem()">Voltar</button>
-        <button type="button" class="btn btn-danger" onclick="Excluir(@Model.Id)" @disabled><i class="fa fa-ban"></i>Excluir</button>
+        <button type="button" class="btn btn-warning" onclick="Return()">Voltar</button>
+       
+       
        
       </div>
 </form>
@@ -152,7 +150,22 @@
         })
     </script>
 
-    
+    <script>
+    jQuery("input.data")
+        .mask("99/99/9999")
+        .focusout(function (event) {  
+            var target, data, element;  
+            target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
+            data = target.value.replace(/\D/g, '');
+            element = $(target);  
+            element.unmask();  
+            if(data.length > 10) {  
+                element.mask("99/99/9999");  
+            } else {  
+                element.mask("99/99/9999");  
+            }  
+        });
+</script>
 
   
 <script>
@@ -166,7 +179,6 @@
         var Prazo = document.getElementById("txtPrazoFinal").value;
         var VerificaRetorno = document.getElementById("txtVerificaRetorno").value;
       
-
         Items.Eventos.push({
             "IdEvento": IdEvento.value,
             "Data": Data,
@@ -193,24 +205,18 @@
 </script>
    
 <script>
-    function Novo() {
-        Request("Create");
+    function New() {
+        window.location = window.origin + "\\Resposta\\Create";
     }
-    function Listagem() {
-        Request("");
-    }
-    function Excluir(Id) {
-        Request("Excluir\\" + Id);
-    }
-    function Request(request) {
-        window.location = window.origin + "\\Resposta\\" + request;
+    function Return() {
+        window.location = window.origin + "\\Resposta\\Index";
     }
     function CreatePerson() {
         window.location = window.origin + "\\Pessoa\\Create\\";
     }
     function CreateEvento() {
         window.location = window.origin + "\\Evento\\Create\\";
-    }
+    } 
 </script>
 
 }

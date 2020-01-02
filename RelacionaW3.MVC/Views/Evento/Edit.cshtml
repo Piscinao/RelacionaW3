@@ -1,0 +1,246 @@
+@model RelacionaW3.Dominio.Models.Evento;
+
+@{
+    ViewData["Title"] = "Evento";
+}
+
+<h2>Evento</h2>
+<hr />
+
+<div class="animated fadeIn">
+  <div class="card">
+    <div class="card-header">
+      <i class="fa fa-calendar"></i> 
+       <strong> Registrar Evento</strong>
+    </div>
+    <div class="card-body">
+      <form asp-controller="Evento" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <!-- <form > -->
+                  <div class="form-row">
+                    
+                     <div class="col-md-15 mb-4">
+
+                            <div class="form-row">
+                                <div class="form-group col-md-5">
+                                  <label>Nome do contato <span class="text-danger">*</span></label>
+                                  <div class="input-group-prepend">
+                                  <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
+                                  <select asp-for="IdPessoa" class="form-control"asp-items="ViewBag.IdPessoa" ></select>
+                                   
+                                    <span asp-validation-for="IdPessoa" class="text-danger"></span>
+                               
+                                       <br />
+                                         <button type="button" class="btn btn btn-primary btn-3d" onclick="CreatePerson()">
+                                          <i class="fa fa-plus"></i>  
+                                         </button>
+                              </div>
+
+                            
+                            </div>
+
+                            
+                              <div class="form-group col-md-3">
+                                  
+                                <label>Data do contato <span class="text-danger">*</span></label>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                <input asp-for="DataEvento" type="text"  class="form-control datepicker" />
+                                    <span asp-validation-for="DataEvento" class="text-danger"></span>
+                                
+                              </div>
+                            </div>
+                            
+
+                              <div class="form-row">
+
+                                  <div class="form-group col-md-4">
+                                      <label for="fonte">Fonte <span class="text-danger">*</span></label>
+                    
+                                       <select asp-for="Fonte" class="form-control">
+                                    <span asp-validation-for="Fonte" class="text-danger"></span>
+                                        <option value="Selecionar">Selecionar</option>
+                                        <option value="Interna">Interna</option>
+                                        <option value="Externa">Externa</option>
+                    
+                                      </select>
+                            
+                                      
+                                     
+                                    </div>
+                                    <!-- <div class="form-group col-md-2">
+                                    <label class="switch switch-3d switch-primary" >
+                                      <br>
+              
+                                      
+                                        <input type="checkbox" formControlName="respostaPadrao" class="form-control" class="switch-input" [(ngModel)]="respostaPadrao" binary="Sim">
+                                        <span class="switch-slider"></span>
+                                      </label>
+                                    </div> -->
+                                    
+                                <div class="form-group col-md-4">
+                                  <label>Meio de Contato <span class="text-danger">*</span></label>
+                                 <select asp-for="Meio"  class="form-control">
+                                    <option value="Selecionar">Selecionar</option>
+                                    <span asp-validation-for="Meio" class="text-danger"></span>
+                                    <option value="Telefônico">Telefônico</option>
+                                    <option value="Site">Site</option>
+                                    <option value="Redes Sociais">Redes Sociais</option>
+                                    <option value="E-mail">E-mail</option>
+                                    <option value="Formulário Impresso">Formulário Impresso</option>
+                                 
+                                 
+                                  </select>
+                
+                                </div>
+        
+                                  <div class="form-group col-md-4">
+                                    <label>Característica do contato <span class="text-danger">*</span></label>
+                                      <select asp-for="Caracteristica"  class="form-control">
+                                    <span asp-validation-for="Caracteristica" class="text-danger"></span>
+                                      <option value="Selecionar">Selecionar</option>
+                                      <option value="Denúncia Interna">Denúncia Interna</option>
+                                      <option value="Denúncia Externa">Denúncia Externa</option>
+                                      <option value="Reclamação">Reclamação</option>
+                                      <option value="Dúvida">Dúvida</option>
+                                      <option value="Sugestão">Sugestão</option>
+                                      <option value="Contato Comercial">Contato Comercial</option>
+                                      <option value="Pós-Venda">Pós-Venda</option>
+                                      <option value="Pesquisa de Satisfação">Pesquisa de Satisfação</option>
+                                      <option value="Como estou Dirigindo">Como estou Dirigindo</option>
+                                      <option value="Agradecimento">Agradecimento</option>
+                                      
+                                    </select>
+                
+                                  </div>
+       
+                              
+
+                                <div class="form-group col-md-4">
+                                    <label>Evidências</label>
+                                      <select asp-for="Evidencias"  class="form-control">
+                                    <span asp-validation-for="Evidencias" class="text-danger"></span>
+                                      <option value="Selecionar">Selecionar</option>
+                                      <option value="Sim">Sim</option>
+                                      <option value="Não">Não</option>
+                                      
+                                      
+                                    </select>
+           
+                  
+                                  </div>
+
+                                     <div class="form-group col-md-4">
+                                      <label>Área(s) Envolvida(s)</label>
+                                      <select asp-for="IdArea" class="form-control js-example-basic-multiple" asp-items="ViewBag.IdArea" multiple="multiple" ></select>
+                                  <span asp-validation-for="IdArea" class="text-danger"></span>
+                                  </div>
+
+
+                                      <div class="form-group col-md-4">
+                                
+                                     <label>Produto</label>
+                                     <input asp-for="Produto" type="text" class="form-control" />
+                                        <span asp-validation-for="Produto" class="text-danger"></span>
+                               
+                                  </div>
+
+
+                                    <div class="form-group col-md-4">
+                                          <label>Quantidade</label>
+                                          <input type="number" asp-for="Quantidade" class="form-control input-group-lg" ></select>
+                                         <span asp-validation-for="Quantidade" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group col-md-4">
+                                          <label>NotaFiscal</label>
+                                          <input type="text" asp-for="NotaFiscal" class="form-control input-group-lg" ></select>
+                                         <span asp-validation-for="NotaFiscal" class="text-danger"></span>
+                                        </div>
+
+                                   <!-- <div class="form-group col-md-4">
+                                          <label>Prazo</label>
+                                          <input type="date" asp-for="Prazo" class="form-control input-group-lg" ></select>
+                                         <span asp-validation-for="Prazo" class="text-danger"></span>
+                                        </div>
+   
+                                    </div>  -->
+
+                                        <div class="form-group col-md-5">
+                                        <label >Descrição do Relato <span class="text-danger">*</span></label>
+                                       
+                                          <textarea asp-for="Descricao" rows="5" type="text"  class="form-control"  placeholder="Insira a descrição"></textarea>
+                                        <span asp-validation-for="Descricao" class="text-danger"></span>
+                                   </div>
+                                 <div class="form-group col-md-5">
+                                        <label >Descrição do Material</label>
+                                       
+                                          <textarea asp-for="DescricaoMaterial" rows="5" type="text" class="form-control"  placeholder="Insira a descrição"></textarea>
+                                        <span asp-validation-for="DescricaoMaterial" class="text-danger"></span>
+                                 </div>
+                </div>
+                </div>
+                </div> 
+                <div class="card-footer">
+
+        <button type="button" class="btn btn-info" onclick="Novo()">Limpar</button>
+        <button type="submit" class="btn btn-success"><i class="fa fa-check"></i>Gravar</button>
+        <button type="button" class="btn btn-warning" onclick="Listagem()">Voltar</button>
+
+       
+      </div>
+          </form>
+          </div>
+
+    <br />
+    </div>
+  </div>
+
+
+@section scripts
+{
+
+ <script src="~/lib/select2/js/select2.min.js"></script> 
+ <link href="~/lib/select2/css/select2.min.css" rel="stylesheet"/>
+ 
+   <script>
+        $(".datepicker").datepicker({
+            autoclose: true,
+            calendarWeeks: true,
+            clearBtn: true,
+            todayBtn: false,
+            todayHighlight: true,
+            format: "dd/mm/yyyy",
+            language: "pt-BR"
+
+        })
+    </script>
+
+  <script>
+    $(document).ready(function() {
+    $('.js-example-basic-single').select2(
+    
+       );
+    });
+
+    $(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+    });
+  </script>
+
+<script>
+
+    function CreatePerson() {
+        window.location = window.origin + "\\Pessoa\\Create\\";
+    }
+
+
+    function Listagem() {
+        window.location = window.origin + "\\Evento\\Index";
+        
+    }
+
+
+</script>
+
+}
