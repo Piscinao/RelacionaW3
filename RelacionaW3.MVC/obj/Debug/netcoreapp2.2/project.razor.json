@@ -2898,7 +2898,7 @@
             "IsEnum": false,
             "IndexerNamePrefix": null,
             "IndexerTypeName": null,
-            "Documentation": null,
+            "Documentation": "\n            <summary>\n            Specifies the path to the JavaScript module containing prerendering code.\n            </summary>\n        ",
             "Diagnostics": [],
             "Metadata": {
               "Common.PropertyName": "ModuleName"
@@ -2953,6 +2953,77 @@
         "Metadata": {
           "Runtime.Name": "ITagHelper",
           "Common.TypeName": "Microsoft.AspNetCore.SpaServices.Prerendering.PrerenderTagHelper"
+        }
+      },
+      {
+        "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__EventoAreaViewComponentTagHelper",
+        "AssemblyName": "RelacionaW3.MVC",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:evento-area",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "id-area",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              },
+              {
+                "Name": "id-usuario",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "MVC.ViewComponent",
+            "Name": "id-area",
+            "TypeName": "System.Int32",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "IdArea"
+            },
+            "BoundAttributeParameters": []
+          },
+          {
+            "Kind": "MVC.ViewComponent",
+            "Name": "id-usuario",
+            "TypeName": "System.String",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "IdUsuario"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__EventoAreaViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "EventoArea"
         }
       },
       {
@@ -3153,6 +3224,11 @@
     {
       "FilePath": "Views\\Pessoa\\Create.cshtml",
       "TargetPath": "Views\\Pessoa\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Evento\\IndexArea.cshtml",
+      "TargetPath": "Views\\Evento\\IndexArea.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -3376,13 +3452,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Area\\Create.cshtml",
-      "TargetPath": "Views\\Area\\Create.cshtml",
+      "FilePath": "Views\\Shared\\Components\\EventoArea\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\EventoArea\\Default.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Shared\\Components\\Detalhes\\Default.cshtml",
-      "TargetPath": "Views\\Shared\\Components\\Detalhes\\Default.cshtml",
+      "FilePath": "Views\\Area\\Create.cshtml",
+      "TargetPath": "Views\\Area\\Create.cshtml",
       "FileKind": "mvc"
     },
     {

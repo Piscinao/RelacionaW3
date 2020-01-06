@@ -49,6 +49,11 @@ namespace RelacionaW3.Dominio.Models
 
         public ICollection<RespostaEventos> Respostas { get; set; }
 
+        public ICollection<AreaResponsavel> AreaResponsavel { get; set; }
+
+        // public AreaResponsavel AreaResponsavel { get; set; }
+
+
 
     }
 }

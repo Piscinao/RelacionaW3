@@ -44,10 +44,16 @@ namespace RelacionaW3.Controllers
         //     //  return View(await _eventoRepositorio.PegarUsuarioLogado(User));
         // }   
 
-           public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index()
 
         {
              
+             return View(await _usuarioRepositorio.PegarUsuarioLogado(User));
+        }   
+
+        public async Task<IActionResult> IndexArea()
+    
+        {   
              return View(await _usuarioRepositorio.PegarUsuarioLogado(User));
         }   
 

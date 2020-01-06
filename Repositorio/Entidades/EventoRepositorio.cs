@@ -14,11 +14,13 @@ namespace RelacionaW3.Repositorio.Entidades
     public class EventoRepositorio : RepositorioGenerico<Evento>, IEventoRepositorio
     {
         private readonly Context _contexto;
+        private readonly IUsuarioRepositorio _usuarioRepositorio;
 
 
         public EventoRepositorio(Context contexto,  IUsuarioRepositorio usuarioRepositorio) : base(contexto)
         {
              _contexto = contexto;
+             _usuarioRepositorio = usuarioRepositorio;
           
 
 
@@ -50,6 +52,15 @@ namespace RelacionaW3.Repositorio.Entidades
             return await _contexto.Evento.Include(a => a.Area).Include(a => a.Pessoa).Where(a => a.Id == id).FirstAsync();
         }
 
+        //  public async Task<Evento> EventoByArea(int id)
+        // {
+        //     // var usuario = await _usuarioRepositorio.PegarUsuarioLogado(HttpContext.User);
+            
+        //     return await _contexto.AreaResponsavel.Include(a => a.Area).Include(a => a.Usuario)
+        //     .Where(a => a.IdUsuario == variavelpegarrusuariologado).And(a=>a.IdArea ==                                            ).FirstAsync();
+        // }
+
+        //     Evento IdArea == AreareponsavelIdArea e UsuarioLogado == AreaReponsavelIdUsuario
 
            public async Task<IEnumerable<Evento>> GetAllEvento()
         {

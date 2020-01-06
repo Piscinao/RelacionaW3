@@ -113,3 +113,5 @@ C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refa
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Components\Evento\Default.cshtml.g.cs
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Debug\netcoreapp2.2\Razor\Views\Evento\IndexAdm.cshtml.g.cs
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Debug\netcoreapp2.2\Razor\Views\Evento\Index.cshtml.g.cs
+C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Components\EventoArea\Default.cshtml.g.cs
+C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\relacionaw3.mvc\obj\Debug\netcoreapp2.2\Razor\Views\Evento\IndexArea.cshtml.g.cs

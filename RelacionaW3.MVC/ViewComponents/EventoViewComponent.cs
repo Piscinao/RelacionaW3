@@ -26,7 +26,9 @@ namespace RelacionaW3.MVC.ViewComponents
             var usuario = await _usuarioRepositorio.PegarUsuarioLogado(HttpContext.User);
             
             return View(await _context.Evento.Include(e => e.Area).Include(e=> e.Pessoa).Where(e => e.IdUsuario == usuario.Id).ToListAsync());
-
+         
         }
+
+         
     }
 }

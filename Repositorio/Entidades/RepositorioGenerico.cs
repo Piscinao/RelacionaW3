@@ -40,6 +40,11 @@ namespace RelacionaW3.Repositorio.Entidades
             return await _contexto.Set<TEntity>().FindAsync(id);
         }
 
+        public async Task<TEntity> GetAreaById(int IdArea, string IdUsuario)
+        {
+            return await _contexto.Set<TEntity>().FindAsync(IdArea, IdUsuario);
+        }
+
         public IQueryable<TEntity> GetAll()
         {
             return _contexto.Set<TEntity>();
