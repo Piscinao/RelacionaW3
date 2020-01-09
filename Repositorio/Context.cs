@@ -17,14 +17,10 @@ namespace RelacionaW3.Repositorio
         public DbSet<Evento> Evento { get; set; }
         public DbSet<Pessoa> Pessoa { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
-
         public DbSet<Resposta> Resposta { get; set; }
-
-        public DbSet<RespostaEventos> RespostaEventos { get; set; }
-
-        public DbSet<NivelAcesso> NivelAcesso { get; set; }
-
         public DbSet<AreaResponsavel> AreaResponsavel { get; set; }
+        public DbSet<RespostaEventos> RespostaEventos { get; set; }
+        public DbSet<NivelAcesso> NivelAcesso { get; set; }
 
         public Context(DbContextOptions<Context> opcoes) : base(opcoes)
         {
@@ -52,17 +48,19 @@ namespace RelacionaW3.Repositorio
                 .WithMany(y => y.Respostas)
                 .HasForeignKey(x => x.IdEvento);
 
-            modelBuilder.Entity<AreaResponsavel>().HasKey(x => new { x.IdArea, x.IdUsuario });
+                 modelBuilder.Entity<AreaResponsavel>().HasKey(x => new { x.IdArea, x.IdUsuario });
 
             modelBuilder.Entity<AreaResponsavel>()
                 .HasOne(x => x.Area)
                 .WithMany(y => y.Usuarios)
                 .HasForeignKey(x => x.IdArea);
- 
+
             modelBuilder.Entity<AreaResponsavel>()
                 .HasOne(x => x.Usuario)
                 .WithMany(y => y.Areas)
                 .HasForeignKey(x => x.IdUsuario);
+
+           
         }
            
         }

@@ -114,7 +114,6 @@ namespace RelacionaW3.MVC
             services.AddScoped<IEventoRepositorio, EventoRepositorio>();
             services.AddScoped<IPessoaRepositorio, PessoaRepositorio>();
             services.AddScoped<IAreaRepositorio, AreaRepositorio>();
-            services.AddScoped<IAreaResponsavelRepositorio, AreaResponsavelRepositorio>();
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
             services.AddScoped<INivelAcessoRepositorio, NivelAcessoRepositorio>();
             services.AddScoped<IRespostaRepositorio, RespostaRepositorio>();

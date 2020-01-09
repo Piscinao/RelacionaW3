@@ -4087,11 +4087,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\Dominio.csproj",
+      "projectUniqueName": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\Dominio.csproj",
       "projectName": "Dominio",
-      "projectPath": "c:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\Dominio.csproj",
+      "projectPath": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\Dominio.csproj",
       "packagesPath": "C:\\Users\\pgcit\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\obj\\",
+      "outputPath": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -25,10 +25,7 @@ namespace RelacionaW3.Repositorio.Mapeamentos
             builder.Property(p => p.Telefone);
 
             
-            // builder.HasMany(e => e.ListaExercicios).WithOne(e => e.Exercicio);
            
-
-            // builder.HasMany(p => p.Alunos).WithOne(p => p.Professor);
 
             builder.ToTable("Pessoa");
         }

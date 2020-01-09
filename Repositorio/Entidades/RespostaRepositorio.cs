@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using RelacionaW3.Dominio.Models;
 using RelacionaW3.Repositorio.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace RelacionaW3.Repositorio.Entidades
@@ -32,32 +33,37 @@ namespace RelacionaW3.Repositorio.Entidades
         {
             return await _contexto.Resposta.Include(e=> e.Pessoa).ToListAsync();
         }
-       
-        // public override void Delete(int id)
+
+        // public async Task<IEnumerable<RespostaEventos>> GetAllEventoResposta()
         // {
-        //     //Antes precisamos excluir os id's de resposta que estão na tabela RespostaEventos            
-        //     var listaEventos = 
-        //         DbSetContext.Include(x => x.Eventos)
-        //         .Where(y => y.Id == id).AsNoTracking().ToList();
-
-        //     RespostaEventos respostaeventos;
-        //     foreach (var item in listaEventos[0].Eventos)
-        //     {
-        //         respostaeventos = new RespostaEventos();                
-        //         respostaeventos.IdResposta = id;
-        //         respostaeventos.IdEvento = item.IdEvento;           
-
-        //         //delete dos eventos da resposta
-        //         DbSet<RespostaEventos> DbSetAux;
-        //         DbSetAux = Db.Set<RespostaEventos>();
-        //         DbSetAux.Attach(respostaeventos);
-        //         DbSetAux.Remove(respostaeventos);
-        //         Db.SaveChanges();
-        //     }
-      
-        //     //delete da resposta
-        //     base.Delete(id);
+        //     return await _contexto.RespostaEventos.Include(e=> e.Evento).ToListAsync();
         // }
+       
+        public async Task DeleteResposta(int id)
+        {
+            //Excluir os id's de resposta que estão na tabela RespostaEventos            
+            var listaEventos = 
+                DbSetContext.Include(x => x.Eventos)
+                .Where(y => y.Id == id).AsNoTracking().ToList();
+
+            RespostaEventos respostaeventos;
+            foreach (var item in listaEventos[0].Eventos)
+            {
+                respostaeventos = new RespostaEventos();                
+                respostaeventos.IdResposta = id;
+                respostaeventos.IdEvento = item.IdEvento;           
+
+                //delete dos eventos da resposta
+                DbSet<RespostaEventos> DbSetAux;
+                DbSetAux = _contexto.Set<RespostaEventos>();
+                DbSetAux.Attach(respostaeventos);
+                DbSetAux.Remove(respostaeventos);
+                _contexto.SaveChanges();
+            }
+      
+            //delete da resposta
+            await base.Delete(id);
+        }
 
         
 

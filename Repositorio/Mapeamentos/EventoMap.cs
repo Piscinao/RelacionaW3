@@ -19,14 +19,10 @@ namespace RelacionaW3.Repositorio.Mapeamentos
         
            
             builder.HasOne(a => a.Pessoa).WithMany(a => a.Eventos).HasForeignKey(a => a.IdPessoa);
-            builder.HasOne(a => a.Area).WithMany(a => a.Eventos).HasForeignKey(a => a.IdArea);
+            // builder.HasOne(a => a.Area).WithMany(a => a.Eventos).HasForeignKey(a => a.IdArea);
             
-            // builder.HasOne(a => a.Usuario).WithMany(a => a.Eventos).HasForeignKey(a => a.IdUsuario);
-            // builder.HasMany(e => e.ListaExercicios).WithOne(e => e.Exercicio);
-           
-
-            // builder.HasMany(p => p.Alunos).WithOne(p => p.Professor);
-
+          
+    
             builder.ToTable("Evento");
         }
     }

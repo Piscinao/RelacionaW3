@@ -1,4 +1,4 @@
-﻿@{
+﻿<!-- @{
     ViewData["Title"] = "Gráfico";
 }
 
@@ -6,22 +6,7 @@
 <hr />
 
 <div class="card-columns cols-2">
-  <!-- <div class="card">
-    <div class="card-header">
-      Line Chart
-      <div class="card-header-actions">
-        <a href="#" class="card-header-action" target="_blank">
-          <small class="text-muted">docs</small>
-        </a>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="chart-wrapper">
-        <canvas id="canvas-1"></canvas>
-      </div>
-    </div>
-  </div> -->
-  
+
   <div class="card">
     <div class="card-header">
       Áreas com mais reclamações
@@ -37,21 +22,7 @@
       </div>
     </div>
   </div>
-  <!-- <div class="card">
-    <div class="card-header">
-      Situação dos Eventos
-      <div class="card-header-actions">
-        <a href="#" class="card-header-action" target="_blank">
-          <small class="text-muted">teste</small>
-        </a>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="chart-wrapper">
-        <canvas id="canvas-4"></canvas>
-      </div>
-    </div>
-  </div> -->
+
   <div class="card">
     <div class="card-header">
       Eventos por área
@@ -104,4 +75,36 @@
   <script src="~/lib/chart.js/dist/Chart.min.js"></script>
   <script src="~/lib/@@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
   <script src="~/js/charts.js"></script>
+} -->
+
+@{
+    ViewData["Title"] = "Gráfico";
 }
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+
+<h2>Total de Eventos por Área</h2>
+<hr />
+
+<canvas id="myChart"></canvas>
+
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'pie',
+
+        // The data for our dataset
+        data: {
+            labels: [@Html.Raw(ViewBag.Labels)],
+            datasets: [{               
+                backgroundColor: [@Html.Raw(@ViewBag.Cores)],
+                borderColor: '#fff',
+                data: [@Html.Raw(@ViewBag.Valores)]
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+</script>

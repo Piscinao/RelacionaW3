@@ -17,10 +17,6 @@ namespace RelacionaW3.Dominio.Models
         [ForeignKey("Pessoa")]
         public int IdPessoa { get; set; }
         public Pessoa Pessoa { get; set; }
-
-        // [ForeignKey("Evento")]
-        // public int IdEvento { get; set; }
-        // public Evento Evento { get; set; }
         public string Prazo { get; set; }
         public string VerificaRetorno { get; set; }
         public string Observacoes {get; set; }

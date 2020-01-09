@@ -56,7 +56,7 @@
 
     <div class="form-group col-md-5">
                 <label>Resposta: <span class="text-danger">*</span></label>          
-                <textarea asp-for="Descricao" rows="5" type="text" class="form-control"  placeholder="Insira a observação"></textarea>
+                <textarea asp-for="Descricao" rows="5" required type="text" class="form-control"  placeholder="Insira a observação"></textarea>
                 <span asp-validation-for="Descricao" class="text-danger"></span>
      </div>
 
@@ -67,7 +67,7 @@
             <label>Prazo Final:</label>
             <div class="input-group-prepend">
             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-            <input asp-for="Prazo" type="text" id="txtPrazoFinal"  class="form-control datepicker data" />
+            <input asp-for="Prazo" type="text" id="txtPrazoFinal" required class="form-control datepicker data" />
             <span asp-validation-for="Prazo"  class="text-danger"></span>
         </div>
     </div>
@@ -90,7 +90,7 @@
          <div class="form-group col-md-5">
                 <label >Observações:</label>
                                        
-                <textarea asp-for="Observacoes" rows="5" type="text" class="form-control"  placeholder="Insira a observação"></textarea>
+                <textarea asp-for="Observacoes" rows="5" type="text" class="form-control" placeholder="Insira a observação"></textarea>
                 <span asp-validation-for="Observacoes" class="text-danger"></span>
           </div>
 

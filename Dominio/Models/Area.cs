@@ -10,10 +10,10 @@ namespace RelacionaW3.Dominio.Models
 
         [Required(ErrorMessage = "Campo obrigatório")]
         public string Descricao { get; set; }
-    
-        public ICollection<Evento> Eventos {get; set;}
 
-        public ICollection<AreaResponsavel> Usuarios {get; set;}
+        public ICollection<AreaResponsavel> Usuarios { get; set; }
+    
+
         // public ICollection<Resposta> Respostas { get; set; }
 
       

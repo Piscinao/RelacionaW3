@@ -27,7 +27,7 @@
     </div>
 
         <button type="reset" class="btn btn btn-info btn-3d" onclick="Return()"><i class="fa fa-arrow-left"></i> Voltar</button>
-
+         <a asp-action="VisualizarPDF"  class="btn-small red accent-4">PDF</a>
 <hr />
     <div class="x_content">
        
@@ -39,13 +39,10 @@
              
                <th style="width: 15%; background-color: lightgrey">Pessoa:</th>
           
-
-                
+ 
                     <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Pessoa.Nome)</th>
                 
-              
-               
-                
+     
             </tr>
         </table>
 

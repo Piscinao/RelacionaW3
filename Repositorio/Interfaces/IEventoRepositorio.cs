@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using RelacionaW3.Dominio.DTO;
 using RelacionaW3.Dominio.Models;
 
 namespace RelacionaW3.Repositorio.Interfaces
@@ -17,6 +18,8 @@ namespace RelacionaW3.Repositorio.Interfaces
         // Task<Evento> PegarUsuarioLogado(ClaimsPrincipal usuario);
         Task<Evento> EventoById(int id);
         Task<bool> EventoExiste(string Descricao);
+
+         IEnumerable<GraficoViewModel> ListaGrafico(int IdArea);
         
         Task<bool> EventoExiste(string Descricao, int Id);
         // Task<IEnumerable<Evento>> GetAllEventoByUserId();

@@ -32,6 +32,7 @@
             <th>Data da resposta</th>
             <th>Prazo</th>
             <th>Pessoa</th>
+            <th>Opções</th>
             
             
            
@@ -41,11 +42,28 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr onclick="Editar(@item.Id)" style="cursor:pointer;">
+        <tr style="cursor:pointer;">
             <td>@item.Id</td>
-             <td></td>
+            <td>Evento</td>
             <td>@item.Data</td>
             <td>@item.Prazo</td>
+            <td>@item.Pessoa.Nome</td>
+            
+              <td>
+              <div class="btn-group">
+                <button onclick="Editar(@item.Id)" class="btn btn-sm btn-success" 
+                data-toggle="tooltip" data-placement="top" title="Editar" >
+                <i class="fa fa-edit"></i>
+              </button> 
+              <button onclick="Details(@item.Id)" class="btn btn-sm btn-info"
+              data-toggle="tooltip" data-placement="top" title="Detalhes" >
+              <i class="fa fa-book"></i>   
+            </button>    
+              <button onclick="ExibirModal(@item.Id, '@item.Descricao')" class="btn btn-sm btn-danger"
+              data-toggle="tooltip" data-placement="top" title="Excluir" >
+              <i class="fa fa-eraser"></i>   
+            </button> 
+             </td>
       
            
             
@@ -153,13 +171,13 @@
                'success'
                )
          $.ajax({
-            method: "GET",
-            url: "/Resposta/Excluir",
+            method: "POST",
+            url: "/Resposta/DeleteResposta",
             data: { id: id },
             success: function () {
              
-            //location.reload();
-           dataTable.reload();
+            location.reload();
+          
                     }
         });
     

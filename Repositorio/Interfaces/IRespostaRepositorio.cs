@@ -9,9 +9,12 @@ namespace RelacionaW3.Repositorio.Interfaces
 {
     public interface IRespostaRepositorio : IRepositorioGenerico<Resposta>
     {
-           new Task<IEnumerable<Resposta>> GetAll();
+        new Task<IEnumerable<Resposta>> GetAll();
         Task<bool> RespostaExiste(string Descricao);
         Task<bool> RespostaExiste(string Descricao, int Id);
+
+        Task DeleteResposta(int id);
+
 
         // IEnumerable<SelectListItem> ListaPessoasDropDownList();
 

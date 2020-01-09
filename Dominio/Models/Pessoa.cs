@@ -17,7 +17,6 @@ namespace RelacionaW3.Dominio.Models
         public string Email { get; set; }
         public string Celular { get; set; }
         public string Telefone { get; set; }
- 
 
         public ICollection<Evento> Eventos {get; set;}
         // public ICollection<Resposta> Respostas { get; set; }

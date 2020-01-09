@@ -24,9 +24,7 @@ namespace RelacionaW3.Repositorio.Mapeamentos
 
             builder.HasMany(u => u.Eventos).WithOne(u => u.Usuario);
 
-            // builder.HasMany(u => u.Enderecos).WithOne(u => u.Usuario);
-            // builder.HasMany(u => u.Alugueis).WithOne(u => u.Usuario);
-            // builder.HasOne(u => u.Conta).WithOne(u => u.Usuario);
+           
 
             builder.ToTable("Usuarios");
         }

@@ -12,7 +12,9 @@ namespace RelacionaW3.Dominio.Models
         public string Telefone { get; set; }
    
         public ICollection<Evento> Eventos {get; set;}
+
         public ICollection<AreaResponsavel> Areas { get; set; }
+
 
      
 

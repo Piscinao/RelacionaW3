@@ -117,6 +117,13 @@ namespace RelacionaW3.Controllers
             await _respostaRepositorio.Delete(id);
             return Json("Resposta excluído com sucesso");
         }
+          
+        [HttpPost]
+        public async Task<JsonResult> DeleteResposta(int id)
+        {
+            await _respostaRepositorio.DeleteResposta(id);
+            return Json("Resposta excluído com sucesso");
+        }
 
         public async Task<JsonResult> RespostaExiste(string Descricao, int Id)
         {
@@ -138,95 +145,3 @@ namespace RelacionaW3.Controllers
         }
     }
 }
-
-
-
-
-
-
-
-
-
-// using Aplicacao.Servico.Interfaces;
-// using Microsoft.AspNetCore.Authorization;
-// using Microsoft.AspNetCore.Mvc;
-// using RelacionaW3.MVC.Models;
-// using RelacionaW3.Repositorio.Interfaces;
-
-// namespace RelacionaW3.Controllers
-// {
-//     [Authorize]
-//     public class RespostaController : Controller
-//     {
-//         readonly IEventoRepositorio _eventoRepositorio;
-//         readonly IPessoaRepositorio _pessoaRepositorio;
-//         readonly IRespostaRepositorio _respostaRepositorio;
-
-//         public RespostaController(
-//             IEventoRepositorio eventoRepositorio,
-//             IPessoaRepositorio pessoaRepositorio,
-//             IRespostaRepositorio respostaRepositorio)
-//         {
-//             _eventoRepositorio = eventoRepositorio;
-//             _pessoaRepositorio = pessoaRepositorio;
-//             _respostaRepositorio = respostaRepositorio;
-//         }
-
-//         public IActionResult Index()
-//         {           
-//             return View(_respostaRepositorio.GetAll());
-//         }
-
-//         [HttpGet]
-//         public IActionResult Create(int? id)
-//         {
-//             RespostaViewModel viewModel = new RespostaViewModel();
-
-//             if (id!=null)
-//             {
-//                 viewModel = _respostaRepositorio.GetById((int)id);
-             
-//             }   
-
-//             viewModel.ListaPessoas = _pessoaRepositorio.ListaPessoasDropDownList();
-//             viewModel.ListaEventos = _eventoRepositorio.ListaEventosDropDownList();
-
-//             return View(viewModel);
-//         }
-
-//         [HttpPost]
-//         public IActionResult Create(RespostaViewModel entidade)
-//         {
-//             EventoViewModel viewModel = new EventoViewModel();
-//             if (ModelState.IsValid)
-//             {
-//                 _respostaRepositorio.Create(entidade);
-//                 TempData["msgSuccess"] = "Registrar";
-//             }
-//             else
-//             {
-//                 TempData["msgError"] = "Erro";
-//                 entidade.ListaPessoas = _pessoaRepositorio.ListaPessoasDropDownList();
-//                 entidade.ListaEventos = _eventoRepositorio.ListaEventosDropDownList();
-//                 return View(entidade);
-//             }
-
-//             return RedirectToAction("Index");
-//         }
-
-//         [HttpGet]
-//         public IActionResult Excluir(int id)
-//         {
-//             _respostaRepositorio.Excluir(id);
-//             TempData["msgDelete"] = "Excluir";
-//             return RedirectToAction("Index");
-//         }
-
-//         [HttpGet("LerValorEvento/{IdEvento}")]
-//         public decimal LerValorEvento(int IdEvento)
-//         {
-//             //Retorna um valor do model evento via servico
-//             return (decimal)_eventoRepositorio.CarregarRegistro(IdEvento).Valor;
-//         }
-//     }
-// }

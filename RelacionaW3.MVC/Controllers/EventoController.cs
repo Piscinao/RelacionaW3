@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using RelacionaW3.Dominio.Models;
+using RelacionaW3.MVC.Models;
 using RelacionaW3.Repositorio.Interfaces;
 using RelacionaW3.Repositorio.Servicos;
 
@@ -57,7 +58,6 @@ namespace RelacionaW3.Controllers
              return View(await _usuarioRepositorio.PegarUsuarioLogado(User));
         }   
 
-        
      
          public IActionResult Create()
         {
@@ -78,7 +78,7 @@ namespace RelacionaW3.Controllers
                 Id = evento.Id,
                 Descricao = (string)evento.Descricao,
                 DataEvento = (string)evento.DataEvento,
-                Quantidade = (string)evento.Quantidade,
+                // Quantidade = (string)evento.Quantidade,
                 Meio = (string)evento.Meio,
                 Fonte = (string)evento.Fonte,
                 NotaFiscal = (string)evento.NotaFiscal,
@@ -142,7 +142,8 @@ namespace RelacionaW3.Controllers
         // }
 
         public async Task<IActionResult> Details(int id)
-           {
+
+        {
            var evento = await _eventoRepositorio.EventoById(id);
 
 
@@ -153,6 +154,22 @@ namespace RelacionaW3.Controllers
 
             return View(evento);
         }
+
+        // public async Task<IActionResult> VisualizarPDF(int IdEvento)
+
+        // {
+        //     // var usuario = await _usuarioRepositorio.PegarUsuarioLogado(User);
+        //     var evento = await _eventoRepositorio.EventoById(IdEvento);
+
+
+        //     if (evento == null)
+        //     {
+        //         return NotFound();
+        //     }
+
+        //     return new ViewAsPdf("PDF", evento) {FileName = "Evento.PDF"};
+            
+        // }
 
         //  public async Task<IActionResult> Details(int id)
         //    {
@@ -220,49 +237,6 @@ namespace RelacionaW3.Controllers
             return View(evento);
         }  
 
-        // [HttpPost]
-        // [ValidateAntiForgeryToken]
-        // public async Task<IActionResult> Edit(int id, Evento evento)
-        // {
-
-        //     var evento2 = await _eventoRepositorio.GetById(id);
-        //      if (id != evento.Id)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     if (ModelState.IsValid)
-        //     {
-        //            Evento item = new Evento()
-        //     {
-        //         Id = (int)evento.Id,
-        //         Descricao = (string)evento.Descricao,
-        //         DataEvento = (string)evento.DataEvento,
-        //         Meio = (string)evento.Meio,
-        //         Fonte = (string)evento.Fonte,
-        //         NotaFiscal = (string)evento.NotaFiscal,
-        //         DescricaoMaterial = (string)evento.DescricaoMaterial,
-        //         Evidencias = (string)evento.Evidencias,
-        //         Caracteristica = (string)evento.Caracteristica,
-        //         Produto = (string)evento.Produto,
-        //         IdArea = (int)evento.IdArea,
-        //         IdPessoa = (int)evento.IdPessoa,
-        //         Classificacao= (string)evento.Classificacao
-                
-        //     };
-        //         TempData["msgSuccess"] = "Registrar";
-        //         await _eventoRepositorio.Update(evento);
-
-        //         return RedirectToAction(nameof(Index));
-        //     }
-       
-        //     ViewData["IdPessoa"] = new SelectList(_pessoaRepositorio.GetAll(), "Id", "Nome");
-        //     ViewData["IdArea"] = new SelectList(_areaRepositorio.GetAll(), "Id", "Descricao");
-
-        //     TempData["msgError"] = "Erro";  
-        //     return View(evento);
-        // }  
-   
         [HttpPost]
         public async Task<JsonResult> Delete(int id)
         {

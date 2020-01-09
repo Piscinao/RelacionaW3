@@ -26,11 +26,11 @@ namespace RelacionaW3.Dominio.Models
         public string DescricaoMaterial { get; set; }
         public string Evidencias { get; set; }
         public string NotaFiscal { get; set; }
-        public string Quantidade { get; set; }
+        // public string Quantidade { get; set; }
         public string Produto { get; set; }
         // public DateTime DataEncaminhamento {get; set;}
         // public DateTime Prazo {get; set;} 
-        public decimal Valor { get; set; }
+        // public decimal Valor { get; set; }
         public string Status { get; set; }
 
         [ForeignKey("Area")]
@@ -48,11 +48,6 @@ namespace RelacionaW3.Dominio.Models
         public Usuario Usuario { get; set; }
 
         public ICollection<RespostaEventos> Respostas { get; set; }
-
-        public ICollection<AreaResponsavel> AreaResponsavel { get; set; }
-
-        // public AreaResponsavel AreaResponsavel { get; set; }
-
 
 
     }

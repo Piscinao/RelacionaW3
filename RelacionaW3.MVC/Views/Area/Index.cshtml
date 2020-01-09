@@ -90,8 +90,8 @@
     }).then((result) => {
        if (result.value) {
          $.ajax({
-            method: "GET",
-            url: "/Area/Excluir",
+            method: "POST",
+            url: "/Area/Delete",
             data: { id: id },
             success: function () {
               Swal.fire(

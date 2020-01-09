@@ -7,6 +7,8 @@
 <h2>Evento</h2>
 <hr />
 
+<div class="border border-light rounded shadow col-md-10">
+
 <div class="animated fadeIn">
   <div class="card">
     <div class="card-header">
@@ -28,6 +30,7 @@
                                   <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
                                   <select asp-for="IdPessoa"  class="form-control"asp-items="ViewBag.IdPessoa" ></select>
                                     <span asp-validation-for="IdPessoa" class="text-danger"></span>
+                      
                             
                                        <br />
 
@@ -146,17 +149,14 @@
                                   </div>
 
 
-                                    <div class="form-group col-md-4">
-                                          <label>Quantidade</label>
-                                          <input type="number" asp-for="Quantidade" class="form-control input-group-lg" ></select>
-                                         <span asp-validation-for="Quantidade" class="text-danger"></span>
-                                        </div>
-
+                            
                                         <div class="form-group col-md-4">
                                           <label>NotaFiscal</label>
                                           <input type="text" asp-for="NotaFiscal" class="form-control input-group-lg" ></select>
                                          <span asp-validation-for="NotaFiscal" class="text-danger"></span>
                                         </div>
+
+                                                   </div>
 
                                    <!-- <div class="form-group col-md-4">
                                           <label>Prazo</label>
@@ -196,7 +196,7 @@
     </div>
   </div>
 
-
+   </div>
 @section scripts
 {
 

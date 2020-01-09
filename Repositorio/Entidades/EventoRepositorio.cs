@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using RelacionaW3.Dominio.DTO;
 
 namespace RelacionaW3.Repositorio.Entidades
 {
@@ -21,8 +22,6 @@ namespace RelacionaW3.Repositorio.Entidades
         {
              _contexto = contexto;
              _usuarioRepositorio = usuarioRepositorio;
-          
-
 
         }
 
@@ -65,6 +64,19 @@ namespace RelacionaW3.Repositorio.Entidades
            public async Task<IEnumerable<Evento>> GetAllEvento()
         {
             return await _contexto.Evento.Include(e => e.Area).Include(e=> e.Pessoa).ToListAsync();
+        }
+
+          public IEnumerable<GraficoViewModel> ListaGrafico(int IdArea)
+        {
+            var lista = _contexto.Evento.Include(a => a.Area)
+                      .GroupBy(x => x.Id)
+                      .Select(y =>  new GraficoViewModel
+                      {
+                          Descricao = y.First().Area.Descricao,
+                          TotalEvento = y.Count(c=>c.IdArea == IdArea)
+                      }).ToList();
+
+            return lista;
         }
 
         

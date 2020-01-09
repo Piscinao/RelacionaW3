@@ -30,10 +30,6 @@ namespace RelacionaW3.Controllers
             return View(await _areaRepositorio.GetAll().ToListAsync());
         } 
         
-        // public IActionResult Create()
-        // {
-        //     return View();
-        // }
 
         public IActionResult Create()
         {
@@ -51,8 +47,7 @@ namespace RelacionaW3.Controllers
             {
                 Id = area.Id,
                 Descricao = (string)area.Descricao,
-                // IdEvento= (int)area.IdEvento,
-                // IdPessoa = (int)area.IdPessoa,
+                
                 //Json DeserializeObject Pega o conteúdo que vem em formato de string para uma classe
                 Usuarios = JsonConvert.DeserializeObject<ICollection<AreaResponsavel>>(area.JsonUsuarios)
             };

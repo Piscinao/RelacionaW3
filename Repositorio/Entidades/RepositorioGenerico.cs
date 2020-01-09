@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using RelacionaW3.Repositorio.Interfaces;
 
 namespace RelacionaW3.Repositorio.Entidades
@@ -8,12 +9,12 @@ namespace RelacionaW3.Repositorio.Entidades
     public class RepositorioGenerico<TEntity> : IRepositorioGenerico<TEntity> where TEntity : class
     {
         private readonly Context _contexto;
-        // protected DbSet<TEntity> DbSetContext;
+        protected DbSet<TEntity> DbSetContext;
 
         public RepositorioGenerico(Context contexto)
         {
             _contexto = contexto;
-            //  DbSetContext = contexto.Set<TEntity>();
+            DbSetContext = contexto.Set<TEntity>();
         }
 
         public async Task Update(TEntity entity)
@@ -27,6 +28,14 @@ namespace RelacionaW3.Repositorio.Entidades
             var entity = await GetById(id);
             _contexto.Set<TEntity>().Remove(entity);
             await _contexto.SaveChangesAsync();
+        }
+
+         public virtual async Task DeleteResposta(int id)
+        {
+            var entity = await GetById(id);
+            DbSetContext.Attach(entity);
+            DbSetContext.Remove(entity);
+            _contexto.SaveChanges();
         }
 
         public async Task Create(TEntity entity)

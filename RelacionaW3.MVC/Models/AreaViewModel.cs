@@ -8,7 +8,6 @@ namespace RelacionaW3.MVC.Models
 
         [Required(ErrorMessage="Informe a Descrição da Area!")]
         public string Descricao { get; set; }
-
         public string JsonUsuarios { get; set; }
 
 
