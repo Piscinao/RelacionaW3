@@ -24,22 +24,22 @@ namespace RelacionaW3.MVC.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
-            if (User.Identity.IsAuthenticated)
-                await _usuarioRepositorio.EfetuarLogOut();
+            // if (User.Identity.IsAuthenticated)
+            //     await _usuarioRepositorio.EfetuarLogOut();
 
             return View();
         }
 
-         public async Task<IActionResult> Index2()
+        public async Task<IActionResult> Index2()
 
         {
            
              return View(await _usuarioRepositorio.PegarUsuarioLogado(User));
         }   
 
-        [AllowAnonymous]
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(RegistroViewModel registro)

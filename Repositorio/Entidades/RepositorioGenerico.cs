@@ -30,13 +30,7 @@ namespace RelacionaW3.Repositorio.Entidades
             await _contexto.SaveChangesAsync();
         }
 
-         public virtual async Task DeleteResposta(int id)
-        {
-            var entity = await GetById(id);
-            DbSetContext.Attach(entity);
-            DbSetContext.Remove(entity);
-            _contexto.SaveChanges();
-        }
+    
 
         public async Task Create(TEntity entity)
         {

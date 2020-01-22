@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\RelacionaW3.MVC\\RelacionaW3.MVC.csproj",
+  "FilePath": "c:\\Projetos\\RelacionaW3-2020\\RelacionaW3-Refatorado\\RelacionaW3.MVC\\RelacionaW3.MVC.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -2957,6 +2957,55 @@
       },
       {
         "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__DadosEventoViewComponentTagHelper",
+        "AssemblyName": "RelacionaW3.MVC",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:dados-evento",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [
+              {
+                "Name": "id-evento",
+                "NameComparison": 0,
+                "Value": null,
+                "ValueComparison": 0,
+                "Diagnostics": [],
+                "Metadata": {}
+              }
+            ],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "MVC.ViewComponent",
+            "Name": "id-evento",
+            "TypeName": "System.Int32",
+            "IsEnum": false,
+            "IndexerNamePrefix": null,
+            "IndexerTypeName": null,
+            "Documentation": null,
+            "Diagnostics": [],
+            "Metadata": {
+              "Common.PropertyName": "IdEvento"
+            },
+            "BoundAttributeParameters": []
+          }
+        ],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__DadosEventoViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "DadosEvento"
+        }
+      },
+      {
+        "Kind": "MVC.ViewComponent",
         "Name": "__Generated__EventoViewComponentTagHelper",
         "AssemblyName": "RelacionaW3.MVC",
         "Documentation": null,
@@ -3231,8 +3280,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Shared\\Components\\DadosEvento\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\DadosEvento\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\CoreUI\\404.cshtml",
       "TargetPath": "Views\\CoreUI\\404.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Resposta\\Details.cshtml",
+      "TargetPath": "Views\\Resposta\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Evento\\Create2.cshtml",
+      "TargetPath": "Views\\Evento\\Create2.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -34,6 +34,12 @@ namespace RelacionaW3.Repositorio.Entidades
             return await _contexto.Resposta.Include(e=> e.Pessoa).ToListAsync();
         }
 
+
+         public async Task<Resposta> RespostaById(int id)
+        {
+            return await _contexto.Resposta.Include(a => a.Eventos).Include(a => a.Pessoa).Where(a => a.Id == id).FirstAsync();
+        }
+
         // public async Task<IEnumerable<RespostaEventos>> GetAllEventoResposta()
         // {
         //     return await _contexto.RespostaEventos.Include(e=> e.Evento).ToListAsync();
@@ -46,7 +52,7 @@ namespace RelacionaW3.Repositorio.Entidades
                 DbSetContext.Include(x => x.Eventos)
                 .Where(y => y.Id == id).AsNoTracking().ToList();
 
-            RespostaEventos respostaeventos;
+            RespostaEventos respostaeventos; 
             foreach (var item in listaEventos[0].Eventos)
             {
                 respostaeventos = new RespostaEventos();                

@@ -51,6 +51,11 @@ namespace RelacionaW3.Repositorio.Entidades
             return await _contexto.Evento.Include(a => a.Area).Include(a => a.Pessoa).Where(a => a.Id == id).FirstAsync();
         }
 
+        // public async Task<Evento> NumeroEventoByUser(string userid, int id)
+        // {
+        //     return await _contexto.Evento.Count(x => x.Status != "Concluído" && x.IdUsuario == userid);
+        // }
+
         //  public async Task<Evento> EventoByArea(int id)
         // {
         //     // var usuario = await _usuarioRepositorio.PegarUsuarioLogado(HttpContext.User);
@@ -66,20 +71,26 @@ namespace RelacionaW3.Repositorio.Entidades
             return await _contexto.Evento.Include(e => e.Area).Include(e=> e.Pessoa).ToListAsync();
         }
 
-          public IEnumerable<GraficoViewModel> ListaGrafico(int IdArea)
+          public IEnumerable<GraficoViewModel> ListaGrafico(int IdArea, int IdEvento)
         {
             var lista = _contexto.Evento.Include(a => a.Area)
                       .GroupBy(x => x.Id)
                       .Select(y =>  new GraficoViewModel
                       {
+                          IdEvento = y.First().Id,
                           Descricao = y.First().Area.Descricao,
-                          TotalEvento = y.Count(c=>c.IdArea == IdArea)
+                          TotalEvento = y.Sum(a =>a.IdArea)//
+                        //   TotalEvento = y.Where(c =>c.IdArea == IdArea).Count()//
+                        //   TotalEvento = y.Where(c =>c.Id == IdEvento || c.IdArea == IdArea ).Count()//
+                        //    TotalEvento = y.Where(c =>c.Id == IdEvento || c.IdArea == IdArea ).Count()//
                       }).ToList();
 
             return lista;
         }
 
-        
+
+
+
 
         //  public async Task<IEnumerable<Evento>> GetAllEvento()
         // {

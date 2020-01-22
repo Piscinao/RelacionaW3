@@ -91,7 +91,7 @@
        if (result.value) {
          $.ajax({
             method: "POST",
-            url: "/Area/Delete",
+            url: "/Area/DeleteArea",
             data: { id: id },
             success: function () {
               Swal.fire(
@@ -99,8 +99,8 @@
                'O item foi excluído com sucesso.',
                'success'
                )
-            //location.reload();
-           dataTable.reload();
+            location.reload();
+           
                     }
         });
     

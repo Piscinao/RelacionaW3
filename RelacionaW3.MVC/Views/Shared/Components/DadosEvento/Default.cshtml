@@ -1,0 +1,34 @@
+@model RelacionaW3.Dominio.Models.Evento
+
+<div>
+    <h5>Dados do Aluno</h5>
+    <hr />
+
+    <div class="row">
+        <div class="col s4">
+            <p><strong>Descrição : </strong>@Model.Descricao</p>
+        </div>
+
+        <div class="col s4">
+            <p><strong>Nome : </strong>@Model.DataEvento</p>
+        </div>
+
+        <div class="col s4">
+            <p><strong>Peso : </strong>@Model.DescricaoMaterial</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s4">
+            <p><strong>Pessoa : </strong>@Model.Pessoa.Nome</p>
+        </div>
+
+        <div class="col s4">
+            <p><strong>Area : </strong>@Model.Area.Descricao</p>
+        </div>
+
+        <div class="col s4">
+            <p><strong>Classificacao: </strong>@Model.Pessoa.Classificacao</p>
+        </div>
+    </div>
+</div>

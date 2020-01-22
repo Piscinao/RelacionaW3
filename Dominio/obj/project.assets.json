@@ -4081,23 +4081,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pgcit\\.nuget\\packages\\": {},
+    "C:\\Users\\henrique\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\Dominio.csproj",
+      "projectUniqueName": "C:\\Projetos\\RelacionaW3-2020\\relacionaw3-refatorado\\Dominio\\Dominio.csproj",
       "projectName": "Dominio",
-      "projectPath": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\Dominio.csproj",
-      "packagesPath": "C:\\Users\\pgcit\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pgcit\\OneDrive\\Área de Trabalho\\Projetos-Git-Trabalho\\RelacionaW3-Refatorado\\Dominio\\obj\\",
+      "projectPath": "C:\\Projetos\\RelacionaW3-2020\\relacionaw3-refatorado\\Dominio\\Dominio.csproj",
+      "packagesPath": "C:\\Users\\henrique\\.nuget\\packages\\",
+      "outputPath": "C:\\Projetos\\RelacionaW3-2020\\relacionaw3-refatorado\\Dominio\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\pgcit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\henrique\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

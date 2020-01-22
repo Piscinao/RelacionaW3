@@ -19,12 +19,12 @@ namespace RelacionaW3.Controllers
             _eventoRepositorio = eventoRepositorio;
         }
 
-        public IActionResult Grafico(int IdArea)
+        public IActionResult Grafico(int IdArea, int IdEvento)
         {
-            var lista = _eventoRepositorio.ListaGrafico(IdArea).ToList();
+            var lista = _eventoRepositorio.ListaGrafico(IdArea, IdEvento).ToList();
 
             string valores = string.Empty;
-            string labels = string.Empty;
+            string labels = string.Empty; 
             string cores = string.Empty;
 
             var random = new Random();

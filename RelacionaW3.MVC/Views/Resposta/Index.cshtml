@@ -44,7 +44,7 @@
         {
         <tr style="cursor:pointer;">
             <td>@item.Id</td>
-            <td>Evento</td>
+            <td>Evento.Descricao</td>
             <td>@item.Data</td>
             <td>@item.Prazo</td>
             <td>@item.Pessoa.Nome</td>
@@ -189,6 +189,10 @@
     <script>
     function Editar(Id) {
         window.location = window.origin + "\\Resposta\\Edit\\" + Id;
+    }
+
+    function Details(Id) {
+        window.location = window.origin + "\\Resposta\\Details\\" + Id;
     }
 
     function Create() {

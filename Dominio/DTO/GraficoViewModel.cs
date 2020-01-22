@@ -9,6 +9,6 @@ namespace RelacionaW3.Dominio.DTO
     {
         public int? IdEvento { get; set; }
         public string Descricao { get; set; }
-        public double TotalEvento { get; set; }
+        public int TotalEvento { get; set; }
     }
 }

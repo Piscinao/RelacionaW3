@@ -12,13 +12,8 @@ namespace RelacionaW3.Repositorio.Interfaces
         new Task<IEnumerable<Resposta>> GetAll();
         Task<bool> RespostaExiste(string Descricao);
         Task<bool> RespostaExiste(string Descricao, int Id);
-
+        
         Task DeleteResposta(int id);
-
-
-        // IEnumerable<SelectListItem> ListaPessoasDropDownList();
-
-        // IEnumerable<Pessoa> Listagem();
-       
+        Task<Resposta> RespostaById(int id);
     }
 }

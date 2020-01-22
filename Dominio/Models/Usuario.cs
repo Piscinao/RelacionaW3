@@ -16,7 +16,6 @@ namespace RelacionaW3.Dominio.Models
         public ICollection<AreaResponsavel> Areas { get; set; }
 
 
-     
 
     }
 }

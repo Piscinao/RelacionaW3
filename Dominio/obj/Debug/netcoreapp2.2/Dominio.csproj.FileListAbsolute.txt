@@ -31,3 +31,11 @@ C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refa
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Dominio\obj\Debug\netcoreapp2.2\Dominio.AssemblyInfo.cs
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Dominio\obj\Debug\netcoreapp2.2\Dominio.dll
 C:\Users\pgcit\OneDrive\Área de Trabalho\Projetos-Git-Trabalho\RelacionaW3-Refatorado\Dominio\obj\Debug\netcoreapp2.2\Dominio.pdb
+C:\Projetos\RelacionaW3-2020\relacionaw3-refatorado\Dominio\bin\Debug\netcoreapp2.2\Dominio.deps.json
+C:\Projetos\RelacionaW3-2020\relacionaw3-refatorado\Dominio\bin\Debug\netcoreapp2.2\Dominio.dll
+C:\Projetos\RelacionaW3-2020\relacionaw3-refatorado\Dominio\bin\Debug\netcoreapp2.2\Dominio.pdb
+C:\Projetos\RelacionaW3-2020\relacionaw3-refatorado\Dominio\obj\Debug\netcoreapp2.2\Dominio.csprojAssemblyReference.cache
+C:\Projetos\RelacionaW3-2020\relacionaw3-refatorado\Dominio\obj\Debug\netcoreapp2.2\Dominio.AssemblyInfoInputs.cache
+C:\Projetos\RelacionaW3-2020\relacionaw3-refatorado\Dominio\obj\Debug\netcoreapp2.2\Dominio.AssemblyInfo.cs
+C:\Projetos\RelacionaW3-2020\relacionaw3-refatorado\Dominio\obj\Debug\netcoreapp2.2\Dominio.dll
+C:\Projetos\RelacionaW3-2020\relacionaw3-refatorado\Dominio\obj\Debug\netcoreapp2.2\Dominio.pdb

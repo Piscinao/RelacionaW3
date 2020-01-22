@@ -105,6 +105,13 @@ namespace RelacionaW3.Controllers
             return Json("Area excluído com sucesso");
         }
 
+        [HttpPost]
+        public async Task<JsonResult> DeleteArea(int id, string idUsuario)
+        {
+            await _areaRepositorio.DeleteArea(id, idUsuario);
+            return Json("Area excluído com sucesso");
+        }
+
         public async Task<JsonResult> AreaExiste(string Descricao, int Id)
         {
             if (Id == 0)

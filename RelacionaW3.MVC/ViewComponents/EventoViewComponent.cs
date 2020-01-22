@@ -19,8 +19,7 @@ namespace RelacionaW3.MVC.ViewComponents
             _usuarioRepositorio = usuarioRepositorio;
         }
 
-       
-
+    
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var usuario = await _usuarioRepositorio.PegarUsuarioLogado(HttpContext.User);

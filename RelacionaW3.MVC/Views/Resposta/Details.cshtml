@@ -1,0 +1,115 @@
+@model RelacionaW3.Dominio.Models.Resposta;
+
+@{
+    ViewData["Title"] = "Detalhes do Resposta ";
+}
+
+<div class="animated fadeIn">
+  <div class="card">
+    <div class="card-header">
+      <i class="fa fa-calendar"></i> 
+       <strong> Dados do Resposta</strong>
+    </div>
+    <div class="card-body">
+
+<div class="collection">
+    <div class="collection-item">
+
+
+    </div>
+
+    
+    <div class="x_panel">
+    <div class="x_title">
+       
+        <h2>Detalhes: </h2>
+        <div class="clearfix"></div>
+    </div>
+
+        <button type="reset" class="btn btn btn-info btn-3d" onclick="Return()"><i class="fa fa-arrow-left"></i> Voltar</button>
+         <a asp-action="VisualizarPDF"  class="btn-small red accent-4">PDF</a>
+<hr />
+    <div class="x_content">
+       
+        <table class="table-bordered table-striped table-condensed" style="width: 100%">
+            <tr>
+                <th style="width: 15%; background-color: lightgrey">Descrição:</th>
+
+                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Descricao)</th>
+             
+               <th style="width: 15%; background-color: lightgrey">Data:</th>
+          
+ 
+                    <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Data)</th>
+                
+     
+            </tr>
+        </table>
+
+        <table class="table-bordered table-striped table-condensed" style="width: 100%">
+            <tr>
+                
+                <th style="width: 15%; background-color: lightgrey">Prazo:</th>
+               
+                <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Prazo)</th>
+                <th style="width: 15%; background-color: lightgrey">Pessoa:</th>
+
+                     <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Pessoa.Nome)</th>
+            </tr>
+        </table>
+
+        <table class="table-bordered table-striped table-condensed" style="width: 100%">
+            <tr>
+                <th style="width: 15%; background-color: lightgrey">VerificaRetorno:</th>
+
+                 <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.VerificaRetorno)</th>
+          
+                <th style="width: 15%; background-color: lightgrey">Observações:</th>
+
+                 <th style="font-weight: normal; width: 35%">@Html.DisplayFor(model => @Model.Observacoes)</th>
+             
+            </tr>
+        </table>
+
+        <table class="table-bordered table-striped table-condensed" style="width: 100%">
+            <tr>
+                <th style="width: 15%; background-color: lightgrey">Descrição Material:</th>
+
+                 <th style="font-weight: normal; width: 35%">TESTE</th>
+               
+                <th style="width: 15%; background-color: lightgrey">Evidencias:</th>
+
+                 <th style="font-weight: normal; width: 35%">TESTE</th>
+            </tr>
+        </table>
+         <table class="table-bordered table-striped table-condensed" style="width: 100%">
+            <tr>
+                <th style="width: 15%; background-color: lightgrey">Característica:</th>
+
+                 <th style="font-weight: normal; width: 35%">TESTE</th>
+              
+                <th style="width: 15%; background-color: lightgrey">Data do Evento:</th>
+               
+                <th style="font-weight: normal; width: 35%">TESTE</th>
+                           </tr>
+        </table> 
+
+        <table class="table-bordered table-striped table-condensed" style="width: 100%">
+            <tr>
+                <th style="width: 15%; background-color: lightgrey">Área:</th>
+ 
+                 <th style="font-weight: normal; width: 35%">TESTE</th>
+            </tr>
+        </table> 
+     </div>
+  </div>
+    </div>
+</div>
+
+<script>
+    function Return() {
+        window.location = window.origin + "\\Resposta\\Index";
+    }
+</script>
+
+

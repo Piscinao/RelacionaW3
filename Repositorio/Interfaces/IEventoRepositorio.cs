@@ -10,18 +10,17 @@ using RelacionaW3.Dominio.Models;
 namespace RelacionaW3.Repositorio.Interfaces
 {
     public interface IEventoRepositorio : IRepositorioGenerico<Evento>
-    {
-        // new Task<IEnumerable<Evento>> GetAll();
+{
 
         Task<IEnumerable<Evento>> GetAllEvento();
-        // Task<IEnumerable<Evento>> GetAllEventoByUserId(ClaimsPrincipal usuario);
-        // Task<Evento> PegarUsuarioLogado(ClaimsPrincipal usuario);
+
         Task<Evento> EventoById(int id);
         Task<bool> EventoExiste(string Descricao);
 
-         IEnumerable<GraficoViewModel> ListaGrafico(int IdArea);
+
+         IEnumerable<GraficoViewModel> ListaGrafico(int IdArea, int IdEvento);
         
         Task<bool> EventoExiste(string Descricao, int Id);
-        // Task<IEnumerable<Evento>> GetAllEventoByUserId();
+       
     }
 }

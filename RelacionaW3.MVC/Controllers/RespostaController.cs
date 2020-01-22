@@ -25,7 +25,7 @@ namespace RelacionaW3.Controllers
         IPessoaRepositorio pessoaRepositorio)
         {
             _respostaRepositorio = respostaRespositorio;
-           _eventoRepositorio = eventoRepositorio;
+            _eventoRepositorio = eventoRepositorio;
             _pessoaRepositorio = pessoaRepositorio;
            
         }
@@ -35,7 +35,6 @@ namespace RelacionaW3.Controllers
             return View(await _respostaRepositorio.GetAll());
         }   
         
-     
          public IActionResult Create()
         {
             ViewData["IdPessoa"] = new SelectList(_pessoaRepositorio.GetAll(), "Id", "Nome");
@@ -83,8 +82,6 @@ namespace RelacionaW3.Controllers
                 return NotFound();
             }
 
-           
-
             return View(evento);
         }
        
@@ -110,6 +107,20 @@ namespace RelacionaW3.Controllers
             TempData["msgError"] = "Erro";  
             return View(evento);
         }  
+
+        public async Task<IActionResult> Details(int id)
+
+        {
+           var resposta = await _respostaRepositorio.RespostaById(id);
+
+
+            if (resposta == null)
+            {
+                return NotFound();
+            }
+
+            return View(resposta);
+        }
        
         [HttpPost]
         public async Task<JsonResult> Delete(int id)
